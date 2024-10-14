@@ -1,0 +1,27 @@
+.floorItem {
+	cursor: pointer;
+	width: 100%;
+	background-color: #D8E6F9;
+	border-radius: 10px;
+	box-sizing: border-box;
+	padding: 13px 14px;
+	border: 1px solid #c2c2c2;
+	display: flex;
+	align-items: center;
+	justify-content: flex-start;
+	min-height: 65px;
+	gap: 17px;
+	.floorItem_title {
+		font-size: 20px;
+		font-weight: 500;
+		white-space: nowrap;
+		width: 22px;
+	}
+	.floorItem_content {
+		font-size: 13px;
+	}
+	&.active {
+		background-color: #3478F6;
+		color: #fff;
+	}
+}
