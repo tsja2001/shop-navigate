@@ -10,7 +10,7 @@ import Below1 from '@/assets/map/B1.png'
 const Map = () => {
   return (
     <div className={Style.map}>
-      {/* <img className={`${Style.floor} ${Style.floor1}`} src={Floor1} alt="1F" /> */}
+      <img className={`${Style.floor} ${Style.floor1}`} src={Floor1} alt="1F" />
     </div>
   )
 }

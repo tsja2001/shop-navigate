@@ -20,12 +20,15 @@ function App() {
       <NavContext.Provider value={{ floor, setFloor, search, setSearch }}>
         <AppHeader />
         <div className={Style.content}>
+          {/* 一级菜单 楼层导览、智能搜索 */}
           <AppSider />
+          {/* 二级菜单 */}
           <Routes>
             <Route path="/floor" element={<Floor />} />
             <Route path="/search" element={<h1>bbb</h1>} />
             <Route path="*" element={<Navigate to="/home/floor" replace />} />
           </Routes>
+          {/* 主体部分 */}
           <MapWapper />
         </div>
       </NavContext.Provider>
