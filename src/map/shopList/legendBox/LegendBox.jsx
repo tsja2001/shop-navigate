@@ -4,6 +4,8 @@ import dianti from '@/assets/legend/电梯.png'
 import futi from '@/assets/legend/扶梯.png'
 import huoti from '@/assets/legend/货梯.png'
 import xishoujian from '@/assets/legend/洗手间.png'
+import shouyintai from '@/assets/legend/收银台.png'
+import fuwutai from '@/assets/legend/服务台.png'
 
 
 
@@ -27,9 +29,13 @@ const LegendBox = () => {
 				<img src={huoti} alt=""/>
 				货梯
 			</div>
-			<div className={Style.legendBoxItem} style={{'backgroundColor': '#D22D25'}}>
-				<img src={xishoujian} alt=""/>
-				洗手间
+			<div className={`${Style.legendBoxItem} ${Style.shouyintai}`} style={{'backgroundColor': '#D22D25'}}>
+				<img src={shouyintai} alt=""/>
+				收银台
+			</div>
+			<div className={`${Style.legendBoxItem} ${Style.fuwutai}`} style={{'backgroundColor': '#538578'}}>
+				<img src={fuwutai} alt=""/>
+				服务台
 			</div>
     </div>
   )
