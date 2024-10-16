@@ -7,36 +7,62 @@ import xishoujian from '@/assets/legend/洗手间.png'
 import shouyintai from '@/assets/legend/收银台.png'
 import fuwutai from '@/assets/legend/服务台.png'
 
-
-
-
 const LegendBox = () => {
   return (
     <div className={Style.legendBox}>
-			<div className={Style.legendBoxItem} style={{'backgroundColor': '#71130B'}}>
-				<img src={buti} alt=""/>
-				步梯
-			</div>
-			<div className={Style.legendBoxItem} style={{'backgroundColor': '#71130B'}}>
-				<img src={dianti} alt=""/>
-				电梯
-			</div>
-			<div className={Style.legendBoxItem} style={{'backgroundColor': '#71130B'}}>
-				<img src={futi} alt=""/>
-				扶梯
-			</div>
-			<div className={Style.legendBoxItem} style={{'backgroundColor': '#71130B'}}>
-				<img src={huoti} alt=""/>
-				货梯
-			</div>
-			<div className={`${Style.legendBoxItem} ${Style.shouyintai}`} style={{'backgroundColor': '#D22D25'}}>
-				<img src={shouyintai} alt=""/>
-				收银台
-			</div>
-			<div className={`${Style.legendBoxItem} ${Style.fuwutai}`} style={{'backgroundColor': '#538578'}}>
-				<img src={fuwutai} alt=""/>
-				服务台
-			</div>
+      <div className={Style.col}>
+        <div
+          className={Style.legendBoxItem}
+          style={{ backgroundColor: '#71130B' }}
+        >
+          <img src={buti} alt="" />
+          步梯
+        </div>
+        <div
+          className={Style.legendBoxItem}
+          style={{ backgroundColor: '#71130B' }}
+        >
+          <img src={dianti} alt="" />
+          电梯
+        </div>
+        <div
+          className={Style.legendBoxItem}
+          style={{ backgroundColor: '#71130B' }}
+        >
+          <img src={futi} alt="" />
+          扶梯
+        </div>
+        <div
+          className={Style.legendBoxItem}
+          style={{ backgroundColor: '#71130B' }}
+        >
+          <img src={huoti} alt="" />
+          货梯
+        </div>
+      </div>
+      <div className={Style.col}>
+        <div
+          className={Style.legendBoxItem}
+          style={{ backgroundColor: '#D22D25' }}
+        >
+          <img src={xishoujian} alt="" />
+          洗手间
+        </div>
+        <div
+          className={`${Style.legendBoxItem} ${Style.shouyintai}`}
+          style={{ backgroundColor: '#D22D25' }}
+        >
+          <img src={shouyintai} alt="" />
+          收银台
+        </div>
+        <div
+          className={`${Style.legendBoxItem} ${Style.fuwutai}`}
+          style={{ backgroundColor: '#538578' }}
+        >
+          <img src={fuwutai} alt="" />
+          服务台
+        </div>
+      </div>
     </div>
   )
 }

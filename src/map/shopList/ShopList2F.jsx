@@ -1,36 +1,33 @@
-import f1Config from '../../config/f1.config'
+import f2Config from '../../config/f2.config'
 import { getTypeInFloorConfig } from '../../utils/getTypeInFloorConfig'
 import LegendBox from './legendBox/LegendBox'
 import ShopGroup from './shopGroup/ShopGroup'
 import Style from './ShopList.module.less'
 
 // 地图容器
-const ShopList = () => {
+const ShopList2F = () => {
+  const config = f2Config
   return (
     <div className={Style.shopList}>
       <div className={Style.weiyu}>
-        <ShopGroup config={getTypeInFloorConfig(f1Config, '卫浴')} />
+        <ShopGroup config={getTypeInFloorConfig(config, '定制、衣柜')} />
       </div>
-      <div className={Style.cizhuan}>
-        <ShopGroup config={getTypeInFloorConfig(f1Config, '瓷砖')} />
+      <div className={Style.group}>
+        <div className={Style.cizhuan}>
+          <ShopGroup config={getTypeInFloorConfig(config, '家装、楼梯')} />
+        </div>
+        <div className={Style.cizhuan}>
+          <ShopGroup config={getTypeInFloorConfig(config, '地板')} />
+        </div>
       </div>
       <div className={`${Style.group} ${Style.group1}`}>
         <div className={Style.cizhuan}>
-          <ShopGroup config={getTypeInFloorConfig(f1Config, '石材')} />
+          <ShopGroup
+            config={getTypeInFloorConfig(config, '影音、灯饰、玻璃、硅藻泥')}
+          />
         </div>
         <div className={Style.cizhuan}>
-          <ShopGroup config={getTypeInFloorConfig(f1Config, '装饰公司')} />
-        </div>
-      </div>
-      <div className={`${Style.group} ${Style.group2}`}>
-        <div className={Style.cizhuan}>
-          <ShopGroup config={getTypeInFloorConfig(f1Config, '淋浴房')} />
-        </div>
-        <div className={Style.cizhuan}>
-          <ShopGroup config={getTypeInFloorConfig(f1Config, '美缝')} />
-        </div>
-        <div className={Style.cizhuan}>
-          <ShopGroup config={getTypeInFloorConfig(f1Config, '净水')} />
+          <ShopGroup config={getTypeInFloorConfig(config, '门、门窗')} />
         </div>
       </div>
       <div className={Style.legendBox}>
@@ -44,4 +41,4 @@ const ShopList = () => {
   )
 }
 
-export default ShopList
+export default ShopList2F

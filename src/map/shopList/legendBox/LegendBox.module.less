@@ -1,7 +1,13 @@
 .legendBox {
 	display: flex;
-	flex-flow: column nowrap;
+	flex-flow: row nowrap;
 	gap: 10px;
+	.col {
+		display: flex;
+		flex-flow: column nowrap;
+		gap: 10px;
+		justify-content: flex-end;
+	}
 	.legendBoxItem {
 		display: flex;
 		flex-flow: row nowrap;

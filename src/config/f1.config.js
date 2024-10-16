@@ -7,6 +7,7 @@ const f1Config = [
       { num: 'A8012-1', name: '东芝空调' },
       { num: 'A8306-3', name: '史密斯' },
       { num: 'A8307-1', name: '格力' },
+      { num: 'A8208', name: '怡口' }
     ],
   },
   {
@@ -30,6 +31,7 @@ const f1Config = [
       { num: 'A8307', name: '箭牌' },
       { num: 'A8308', name: '朗斯' },
       { num: 'A8309', name: '汉斯格雅' },
+      { num: 'A8205+8206', name: '铂丝/普瑞凡' }
     ],
   },
   {
@@ -65,7 +67,7 @@ const f1Config = [
     ],
   },
   {
-    type: '装饰公司',
+    type: '家装',
     color: '#B5CBCA',
     content: [
       { num: 'A8015', name: '云墅装饰' },
@@ -76,22 +78,12 @@ const f1Config = [
     ],
   },
   {
-    type: '淋浴房',
-		color: '#E9EBCE',
-    content: [{ num: 'A8205+8206', name: '铂丝/普瑞凡' }],
-  },
-  {
     type: '美缝',
 		color: '#E9EBCE',
     content: [
       { num: 'A8210', name: '柯瑞克' },
       { num: 'A8503', name: '卓高' },
     ],
-  },
-  {
-    type: '净水',
-		color: '#B5CBCA',
-    content: [{ num: 'A8208', name: '怡口' }],
   },
 ]
 
