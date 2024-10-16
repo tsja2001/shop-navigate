@@ -37,6 +37,7 @@ const floorConfig = [
   {
     title: 'B2',
     content: ['停车场'],
+    disable: true,
   },
 ]
 export default floorConfig

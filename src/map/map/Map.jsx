@@ -1,16 +1,29 @@
+import { useRef } from 'react'
 import Style from './Map.module.less'
-// import Floor1 from '@/assets/map/1F.png'
-// import Floor2 from '@/assets/map/2F.png'
-// import Floor3 from '@/assets/map/3F.png'
-// import Floor4 from '@/assets/map/4F.png'
-// import Floor5 from '@/assets/map/5F.png'
-// import Below1 from '@/assets/map/B1.png'
 
 // 地图容器
-const Map = ({ floor }) => {
+const Map = ({ floor, clickHandler }) => {
+  const mapRef = useRef(null)
+
+  const handleClick = (event) => {
+    // 获取父容器的位置
+    const mapRect = mapRef.current.getBoundingClientRect()
+
+    // 计算相对父容器的点击位置
+    const x = event.clientX - mapRect.left
+    const y = event.clientY - mapRect.top
+
+    clickHandler(x, y)
+  }
+
   return (
-    <div className={Style.map}>
-      <img className={`${Style.floor} ${Style.floor1}`} src={floor} alt="1F" />
+    <div className={Style.map} ref={mapRef}>
+      <img
+        onClick={handleClick}
+        className={`${Style.floor} ${Style.floor1}`}
+        src={floor}
+        alt="1F"
+      />
     </div>
   )
 }

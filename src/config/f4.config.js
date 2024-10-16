@@ -1,0 +1,63 @@
+const f4Config = [
+  {
+    type: '定制',
+		color: '#ECAEAF',
+    content: [
+      { num: 'D8013', name: '松堡王国' },
+      { num: 'D8109+8110', name: '品尚国际 全友' },
+      { num: 'D8209+8210', name: '品尚国际 全友' },
+      { num: 'D8211+8212+8213', name: '品尚国际 全友' },
+      { num: 'D8111+8112+8113', name: '红苹果' },
+    ],
+  },
+  {
+    type: '儿童家具',
+		color: '#D7688D',
+    content: [
+      { num: 'D8015+8016', name: '诗尼曼' },
+      { num: 'D8017', name: '米琦庄园' },
+      { num: 'D8018', name: '米琦庄园' },
+      { num: 'D8115', name: '洛可巴洛' },
+    ],
+  },
+  {
+    type: '欧美家具',
+		color: '#E0A6A6',
+    content: [{ num: 'D8501临', name: '大风范' }],
+  },
+  {
+    type: '软体家具',
+		color: '#CB7674',
+    content: [
+      { num: 'D8002', name: '大自然床垫' },
+      { num: 'D8003', name: '雅斯佩尔' },
+      { num: 'D8009+8010+8011', name: '喜临门' },
+      { num: 'D8102+8103', name: '爱舒' },
+      { num: 'D8105', name: '泰普尔' },
+      { num: 'D8106', name: '丝涟' },
+      { num: 'D8107+8108', name: '丝涟' },
+      { num: 'D8315', name: '穗宝' },
+      { num: 'D8310', name: '舒达' },
+      { num: 'D8012', name: 'CBD' },
+      { num: 'D8319+8320+8321', name: '阳光米尼' },
+      { num: 'D8005', name: '曲美' },
+      { num: 'D8006', name: '曲美' },
+      { num: 'D8007+8008', name: '曲美' },
+      { num: 'D8001', name: '欧嘉璐尼' },
+      { num: 'D8205+8206', name: '芝华仕' },
+      { num: 'D8207+8208', name: '芝华仕' },
+      { num: 'D8311+8312', name: '乐至宝' },
+      { num: 'D8313', name: '乐至宝' },
+      { num: 'D8317', name: '哈曼' },
+      { num: 'D8101', name: '顾家' },
+      { num: 'D8201', name: '顾家' },
+      { num: 'D8202+8203', name: '顾家' },
+      { num: 'D8301-1', name: '雅兰' },
+      { num: 'D8301-8307', name: '顾家' },
+      { num: 'D8308', name: '顾家' },
+      { num: 'D8309', name: '顾家' },
+    ],
+  },
+]
+
+export default f4Config

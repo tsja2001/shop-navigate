@@ -20,7 +20,6 @@ const f2Config = [
       { num: 'B8319+8320', name: '多丽' },
     ],
   },
-
   {
     type: '影音、灯饰、玻璃、硅藻泥',
     color: '#B1BD87',

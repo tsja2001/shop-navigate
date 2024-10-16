@@ -1,13 +1,13 @@
 import { useContext } from 'react'
-import f1Config from '../../config/f1.config'
+import f3Config from '../../config/f3.config'
 import { getTypeInFloorConfig } from '../../utils/getTypeInFloorConfig'
-import { MapContext } from '../MapWapper'
 import LegendBox from './legendBox/LegendBox'
 import ShopGroup from './shopGroup/ShopGroup'
 import Style from './ShopList.module.less'
+import { MapContext } from '../MapWapper'
 
 // 地图容器
-const ShopList = () => {
+const ShopList3F = () => {
   const { currentFloorConfig } = useContext(MapContext)
 
   const config = currentFloorConfig
@@ -15,36 +15,25 @@ const ShopList = () => {
   return (
     <div className={Style.shopList}>
       <div className={Style.weiyu}>
-        <ShopGroup
-          config={getTypeInFloorConfig(config, '卫浴')}
-        />
+        <ShopGroup config={getTypeInFloorConfig(config, '橱柜、定制')} />
       </div>
-      <div className={Style.cizhuan}>
-        <ShopGroup
-          config={getTypeInFloorConfig(config, '瓷砖')}
-        />
-      </div>
-      <div className={`${Style.group} ${Style.group1}`}>
+      <div className={Style.group}>
         <div className={Style.cizhuan}>
-          <ShopGroup
-            config={getTypeInFloorConfig(config, '家装')}
-          />
+          <ShopGroup config={getTypeInFloorConfig(config, '电器')} />
         </div>
         <div className={Style.cizhuan}>
-          <ShopGroup
-            config={getTypeInFloorConfig(config, '石材')}
-          />
+          <ShopGroup config={getTypeInFloorConfig(config, '吊顶')} />
         </div>
       </div>
-      <div className={`${Style.group} ${Style.group2}`}>
+      <div className={`${Style.group}`}>
         <div className={Style.cizhuan}>
-          <ShopGroup
-            config={getTypeInFloorConfig(config, '美缝')}
-          />
+          <ShopGroup config={getTypeInFloorConfig(config, '窗帘、壁纸')} />
         </div>
+      </div>
+      <div className={`${Style.group}`}>
         <div className={Style.cizhuan}>
           <ShopGroup
-            config={getTypeInFloorConfig(config, '电器')}
+            config={getTypeInFloorConfig(config, '地暖、灯饰、涂料、艺术漆')}
           />
         </div>
       </div>
@@ -59,4 +48,4 @@ const ShopList = () => {
   )
 }
 
-export default ShopList
+export default ShopList3F

@@ -22,6 +22,7 @@ const Floor = () => {
           content={item.content.join(' ')}
           onClick={() => handleClickFloor(item.title)}
           active={floor === item.title}
+          disable={item.disable}
         />
       ))}
     </div>

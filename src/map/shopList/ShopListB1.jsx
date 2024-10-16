@@ -1,51 +1,59 @@
 import { useContext } from 'react'
+import b1Config from '../../config/b1.config'
 import f1Config from '../../config/f1.config'
 import { getTypeInFloorConfig } from '../../utils/getTypeInFloorConfig'
-import { MapContext } from '../MapWapper'
 import LegendBox from './legendBox/LegendBox'
 import ShopGroup from './shopGroup/ShopGroup'
 import Style from './ShopList.module.less'
+import { MapContext } from '../MapWapper'
 
 // 地图容器
-const ShopList = () => {
+const ShopListB1 = () => {
   const { currentFloorConfig } = useContext(MapContext)
 
   const config = currentFloorConfig
 
   return (
     <div className={Style.shopList}>
-      <div className={Style.weiyu}>
-        <ShopGroup
-          config={getTypeInFloorConfig(config, '卫浴')}
-        />
-      </div>
-      <div className={Style.cizhuan}>
-        <ShopGroup
-          config={getTypeInFloorConfig(config, '瓷砖')}
-        />
+      <div className={`${Style.group} ${Style.group1}`}>
+        <div className={Style.weiyu}>
+          <ShopGroup config={getTypeInFloorConfig(config, '电梯')} />
+        </div>
+        <div className={Style.cizhuan}>
+          <ShopGroup config={getTypeInFloorConfig(config, '定制')} />
+        </div>
+        <div className={Style.cizhuan}>
+          <ShopGroup config={getTypeInFloorConfig(config, '进口软床')} />
+        </div>
       </div>
       <div className={`${Style.group} ${Style.group1}`}>
         <div className={Style.cizhuan}>
-          <ShopGroup
-            config={getTypeInFloorConfig(config, '家装')}
-          />
+          <ShopGroup config={getTypeInFloorConfig(config, '办公家具')} />
         </div>
         <div className={Style.cizhuan}>
-          <ShopGroup
-            config={getTypeInFloorConfig(config, '石材')}
-          />
+          <ShopGroup config={getTypeInFloorConfig(config, '沙发')} />
+        </div>
+        <div className={Style.cizhuan}>
+          <ShopGroup config={getTypeInFloorConfig(config, '灯饰')} />
+        </div>
+      </div>
+      <div className={`${Style.group} ${Style.group2}`}>
+        <div className={Style.cizhuan}>
+          <ShopGroup config={getTypeInFloorConfig(config, '家具')} />
+        </div>
+        <div className={Style.cizhuan}>
+          <ShopGroup config={getTypeInFloorConfig(config, '涂料/床垫')} />
         </div>
       </div>
       <div className={`${Style.group} ${Style.group2}`}>
         <div className={Style.cizhuan}>
           <ShopGroup
-            config={getTypeInFloorConfig(config, '美缝')}
+            style={{ fontSize: '16px' }}
+            config={getTypeInFloorConfig(config, '直播间、文创孵化基地')}
           />
         </div>
         <div className={Style.cizhuan}>
-          <ShopGroup
-            config={getTypeInFloorConfig(config, '电器')}
-          />
+          <ShopGroup config={getTypeInFloorConfig(config, '超市')} />
         </div>
       </div>
       <div className={Style.legendBox}>
@@ -59,4 +67,4 @@ const ShopList = () => {
   )
 }
 
-export default ShopList
+export default ShopListB1

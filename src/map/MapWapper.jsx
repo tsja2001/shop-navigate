@@ -1,4 +1,4 @@
-import { useContext, useEffect } from 'react'
+import { createContext, useContext, useEffect, useState } from 'react'
 import { NavContext } from '../App'
 import Map from './map/Map'
 import Style from './MapWapper.module.less'
@@ -14,6 +14,14 @@ import Below1 from '@/assets/map/B1.png'
 
 import f1Config from '../config/f1.config'
 import f2Config from '../config/f2.config'
+import ShopList3F from './shopList/ShopList3F'
+import ShopList4F from './shopList/ShopList4F'
+import ShopList5F from './shopList/ShopList5F'
+import ShopListB1 from './shopList/ShopListB1'
+import f3Config from '../config/f3.config'
+import f4Config from '../config/f4.config'
+import f5Config from '../config/f5.config'
+import b1Config from '../config/b1.config'
 // import f3Config from '../config/f3.config'
 // import f4Config from '../config/f4.config'
 // import f5Config from '../config/f5.config'
@@ -36,31 +44,157 @@ const getFloorImg = (floor) => {
   }
 }
 
-const getShopListConfig = (floor) => {
-  switch (floor) {
-    case '1F':
-      return f1Config
-    case '2F':
-      return f2Config
-  }
-}
+export const MapContext = createContext(null)
+
+// 编辑模式, 可以设置店铺位置
+const editModel = true
 
 // 地图容器
 const MapWapper = () => {
+  const [clickPosition, setClickPosition] = useState({ x: 0, y: 0 })
+  // 记录当前点击的店铺所在类型、名称
+  const [clickShopTypeConfig, setClickShopTypeConfig] = useState({})
+  const [clickShopItem, setClickShopItem] = useState({})
+
+  const [F1Config, setF1Config] = useState(f1Config)
+  const [F2Config, setF2Config] = useState(f2Config)
+  const [F3Config, setF3Config] = useState(f3Config)
+  const [F4Config, setF4Config] = useState(f4Config)
+  const [F5Config, setF5Config] = useState(f5Config)
+  const [B1Config, setB1Config] = useState(b1Config)
+
+  const getConfig = (floor) => {
+    switch (floor) {
+      case '1F':
+        return F1Config
+      case '2F':
+        return F2Config
+      case '3F':
+        return F3Config
+      case '4F':
+        return F4Config
+      case '5F':
+        return F5Config
+      case 'B1':
+        return B1Config
+    }
+  }
+
+  const getSetConfigFn = (floor) => {
+    switch (floor) {
+      case '1F':
+        return setF1Config
+      case '2F':
+        return setF2Config
+      case '3F':
+        return setF3Config
+      case '4F':
+        return setF4Config
+      case '5F':
+        return setF5Config
+      case 'B1':
+        return setB1Config
+    }
+  }
+
   // 监听楼层变化
   const navContext = useContext(NavContext)
   const { floor } = navContext
 
-  useEffect(() => {
-    console.log('MapWapper', floor)
-  }, [floor])
+  useEffect(() => {}, [floor])
+
+  // 获取当前点击的位置
+  const handleClick = (x, y) => {
+    setClickPosition({ x, y })
+    const setConfigFn = getSetConfigFn(floor)
+    // 如果是开发模式, 记录点击位置
+    if (editModel) {
+      // console.log(getConfig(floor))
+      const newConfig = getCurrentShop(
+        getConfig(floor),
+        clickShopTypeConfig,
+        clickShopItem,
+        (item) => {
+          return {
+            ...item,
+            isClick: false,
+            position: { x, y },
+          }
+        }
+      )
+
+
+      console.log(newConfig)
+
+      setConfigFn(newConfig)
+    }
+  }
+
+  // 清除其他店铺的点击状态
+  const clearShopClickStatus = (config) => {
+    return config.map((item) => {
+      item.content = item.content.map((item) => {
+        return {
+          ...item,
+          isClick: false,
+        }
+      })
+      return item
+    })
+  }
+
+  // 获取当前点击的店铺
+  const getCurrentShop = (config, curTypeConfig, shop, cb) => {
+    return config.map((item) => {
+      if (item.type === curTypeConfig.type) {
+        item.content = item.content.map((item) => {
+          if (item.name === shop.name) {
+            return cb(item)
+          }
+          return item
+        })
+      }
+      return item
+    })
+  }
+
+  // 当子元素点击了店铺
+  const handleClickShop = (shop, config) => {
+    const setConfigFn = getSetConfigFn(floor)
+    const curConfig = getConfig(floor)
+
+    // 清空其他店铺的点击状态
+    let newConfig = clearShopClickStatus(curConfig)
+
+    // 设置当前店铺的点击状态
+    newConfig = getCurrentShop(newConfig, config, shop, (item) => {
+      return {
+        ...item,
+        isClick: !item.isClick,
+      }
+    })
+
+    setClickShopTypeConfig(config)
+    setClickShopItem(shop)
+
+    setConfigFn(newConfig)
+  }
 
   return (
-    <div className={Style.mapWapper}>
-      <Map floor={getFloorImg(floor)} />
-      {floor === '1F' && <ShopList1F />}
-      {floor === '2F' && <ShopList2F />}
-    </div>
+    // provider
+    <MapContext.Provider
+      value={{ handleClickShop, currentFloorConfig: getConfig(floor) }}
+    >
+      <div className={Style.mapWapper}>
+        <Map floor={getFloorImg(floor)} clickHandler={handleClick} />
+        {floor === '1F' && <ShopList1F />}
+        {floor === '2F' && <ShopList2F />}
+        {floor === '3F' && <ShopList3F />}
+        {floor === '4F' && <ShopList4F />}
+        {floor === '5F' && <ShopList5F />}
+        {floor === 'B1' && <ShopListB1 />}
+      </div>
+    </MapContext.Provider>
   )
 }
 

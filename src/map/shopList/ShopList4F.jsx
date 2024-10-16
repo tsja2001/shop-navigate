@@ -1,13 +1,14 @@
 import { useContext } from 'react'
-import f1Config from '../../config/f1.config'
+import f3Config from '../../config/f3.config'
+import f4Config from '../../config/f4.config'
 import { getTypeInFloorConfig } from '../../utils/getTypeInFloorConfig'
-import { MapContext } from '../MapWapper'
 import LegendBox from './legendBox/LegendBox'
 import ShopGroup from './shopGroup/ShopGroup'
 import Style from './ShopList.module.less'
+import { MapContext } from '../MapWapper'
 
 // 地图容器
-const ShopList = () => {
+const ShopList4F = () => {
   const { currentFloorConfig } = useContext(MapContext)
 
   const config = currentFloorConfig
@@ -15,39 +16,28 @@ const ShopList = () => {
   return (
     <div className={Style.shopList}>
       <div className={Style.weiyu}>
-        <ShopGroup
-          config={getTypeInFloorConfig(config, '卫浴')}
-        />
+        <ShopGroup col={2} config={getTypeInFloorConfig(config, '软体家具')} />
       </div>
-      <div className={Style.cizhuan}>
-        <ShopGroup
-          config={getTypeInFloorConfig(config, '瓷砖')}
-        />
-      </div>
-      <div className={`${Style.group} ${Style.group1}`}>
+      <div className={Style.group}>
         <div className={Style.cizhuan}>
-          <ShopGroup
-            config={getTypeInFloorConfig(config, '家装')}
-          />
+          <ShopGroup config={getTypeInFloorConfig(config, '欧美家具')} />
         </div>
         <div className={Style.cizhuan}>
-          <ShopGroup
-            config={getTypeInFloorConfig(config, '石材')}
-          />
+          <ShopGroup config={getTypeInFloorConfig(config, '定制')} />
         </div>
       </div>
-      <div className={`${Style.group} ${Style.group2}`}>
+      <div className={`${Style.group}`}>
         <div className={Style.cizhuan}>
-          <ShopGroup
-            config={getTypeInFloorConfig(config, '美缝')}
-          />
-        </div>
-        <div className={Style.cizhuan}>
-          <ShopGroup
-            config={getTypeInFloorConfig(config, '电器')}
-          />
+          <ShopGroup config={getTypeInFloorConfig(config, '儿童家具')} />
         </div>
       </div>
+      {/* <div className={`${Style.group}`}>
+        <div className={Style.cizhuan}>
+          <ShopGroup
+            config={getTypeInFloorConfig(config, '地暖、灯饰、涂料、艺术漆')}
+          />
+        </div>
+      </div> */}
       <div className={Style.legendBox}>
         <LegendBox />
       </div>
@@ -59,4 +49,4 @@ const ShopList = () => {
   )
 }
 
-export default ShopList
+export default ShopList4F
