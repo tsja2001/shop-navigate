@@ -22,6 +22,8 @@ import f3Config from '../config/f3.config'
 import f4Config from '../config/f4.config'
 import f5Config from '../config/f5.config'
 import b1Config from '../config/b1.config'
+import { useSearchParams } from 'react-router-dom'
+import { Button } from 'antd'
 // import f3Config from '../config/f3.config'
 // import f4Config from '../config/f4.config'
 // import f5Config from '../config/f5.config'
@@ -46,9 +48,6 @@ const getFloorImg = (floor) => {
 
 export const MapContext = createContext(null)
 
-// 编辑模式, 可以设置店铺位置
-const editModel = true
-
 // 地图容器
 const MapWapper = () => {
   const [clickPosition, setClickPosition] = useState({ x: 0, y: 0 })
@@ -62,6 +61,20 @@ const MapWapper = () => {
   const [F4Config, setF4Config] = useState(f4Config)
   const [F5Config, setF5Config] = useState(f5Config)
   const [B1Config, setB1Config] = useState(b1Config)
+
+  // 编辑模式, 可以设置店铺位置
+  const [devModel, setDevModel] = useState(false)
+  const [searchParams] = useSearchParams()
+
+  useEffect(() => {
+    // 获取url参数, 判断是否是编辑模式
+    const type = searchParams.get('type')
+    console.log(type)
+    console.log(type == 'dev')
+    if (type == 'dev') {
+      setDevModel(true)
+    }
+  }, [])
 
   const getConfig = (floor) => {
     switch (floor) {
@@ -108,8 +121,8 @@ const MapWapper = () => {
     setClickPosition({ x, y })
     const setConfigFn = getSetConfigFn(floor)
     // 如果是开发模式, 记录点击位置
-    if (editModel) {
-      // console.log(getConfig(floor))
+    console.log('clickShopItem', clickShopItem)
+    if (devModel) {
       const newConfig = getCurrentShop(
         getConfig(floor),
         clickShopTypeConfig,
@@ -122,7 +135,6 @@ const MapWapper = () => {
           }
         }
       )
-
 
       console.log(newConfig)
 
@@ -180,6 +192,10 @@ const MapWapper = () => {
     setConfigFn(newConfig)
   }
 
+  const handleExportJSON = () => {
+    console.log(getConfig(floor))
+  }
+
   return (
     // provider
     <MapContext.Provider
@@ -187,6 +203,9 @@ const MapWapper = () => {
     >
       <div className={Style.mapWapper}>
         <Map floor={getFloorImg(floor)} clickHandler={handleClick} />
+        {devModel && (
+          <Button onClick={handleExportJSON}>导出JSON</Button>
+        )}
         {floor === '1F' && <ShopList1F />}
         {floor === '2F' && <ShopList2F />}
         {floor === '3F' && <ShopList3F />}
