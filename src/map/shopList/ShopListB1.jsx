@@ -59,10 +59,10 @@ const ShopListB1 = () => {
       <div className={Style.legendBox}>
         <LegendBox />
       </div>
-      <div className={Style.detail}>
+      {/* <div className={Style.detail}>
         环渤海国际家具一楼，是以卫浴
         、瓷砖、石材、装饰公司等为主要经营品类的楼层。这里汇集了众多知名品牌，如九牧、科勒、马可波罗等，为消费者提供了丰富多样的家居选择。此外，这里还设有专业的装饰公司，可为顾客提供一站式的家居装修解决方案。无论是寻找高品质的建材还是寻求专业的装修建议，环渤海国际家具一楼都能满足顾客的各种需求。
-      </div>
+      </div> */}
     </div>
   )
 }

@@ -15,45 +15,32 @@ const ShopList = () => {
   return (
     <div className={Style.shopList}>
       <div className={Style.weiyu}>
-        <ShopGroup
-          config={getTypeInFloorConfig(config, '卫浴')}
-        />
+        <ShopGroup config={getTypeInFloorConfig(config, '卫浴')} />
       </div>
       <div className={Style.cizhuan}>
-        <ShopGroup
-          config={getTypeInFloorConfig(config, '瓷砖')}
-        />
+        <ShopGroup config={getTypeInFloorConfig(config, '瓷砖')} />
       </div>
       <div className={`${Style.group} ${Style.group1}`}>
         <div className={Style.cizhuan}>
-          <ShopGroup
-            config={getTypeInFloorConfig(config, '家装')}
-          />
+          <ShopGroup config={getTypeInFloorConfig(config, '家装')} />
         </div>
         <div className={Style.cizhuan}>
-          <ShopGroup
-            config={getTypeInFloorConfig(config, '石材')}
-          />
+          <ShopGroup config={getTypeInFloorConfig(config, '石材')} />
         </div>
       </div>
       <div className={`${Style.group} ${Style.group2}`}>
         <div className={Style.cizhuan}>
-          <ShopGroup
-            config={getTypeInFloorConfig(config, '美缝')}
-          />
+          <ShopGroup config={getTypeInFloorConfig(config, '美缝')} />
         </div>
         <div className={Style.cizhuan}>
-          <ShopGroup
-            config={getTypeInFloorConfig(config, '电器')}
-          />
+          <ShopGroup config={getTypeInFloorConfig(config, '电器')} />
         </div>
       </div>
       <div className={Style.legendBox}>
-        <LegendBox />
+        <LegendBox hasShouyintai={true} />
       </div>
       <div className={Style.detail}>
-        环渤海国际家具一楼，是以卫浴
-        、瓷砖、石材、装饰公司等为主要经营品类的楼层。这里汇集了众多知名品牌，如九牧、科勒、马可波罗等，为消费者提供了丰富多样的家居选择。此外，这里还设有专业的装饰公司，可为顾客提供一站式的家居装修解决方案。无论是寻找高品质的建材还是寻求专业的装修建议，环渤海国际家具一楼都能满足顾客的各种需求。
+        环渤海国际家居一层主营瓷砖、卫浴及知名家装公司等品类。这里的商品服务家庭，面向工程，传递给广大顾客极尽家的奢华与美的享受。精美的瓷白、优雅的质感、考究的设计无一不诉说着这个美好年代的时尚与经典。
       </div>
     </div>
   )

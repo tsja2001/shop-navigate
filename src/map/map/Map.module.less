@@ -20,9 +20,32 @@
 }
 
 .currentPoint {
-	width: 15px;
-	height: 15px;
-	margin-left: -7.5px;
-	margin-top: -7.5px;
-	background-color: rgba(208, 255, 0, 0.439);
+	width: 20px;
+	height: 20px;
+	margin-left: -10px;
+	margin-top: -10px;
+	background-color: #f6ff0076;
+	border-radius: 50%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	// 闪烁的动画效果, 往复显示 
+	animation: blink 1s infinite;
+	@keyframes blink {
+		0% {
+			opacity: 1;
+		}
+		50% {
+			opacity: 0.8;
+		}
+		100% {
+			opacity: 1;
+		}
+	}
+	.currentPointInner {
+		width: 7px;
+		height: 7px;
+		background-color: #f6ff00b3;
+		border-radius: 50%;
+	}
 }

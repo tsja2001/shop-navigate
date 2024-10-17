@@ -7,7 +7,7 @@ import xishoujian from '@/assets/legend/洗手间.png'
 import shouyintai from '@/assets/legend/收银台.png'
 import fuwutai from '@/assets/legend/服务台.png'
 
-const LegendBox = () => {
+const LegendBox = ({ hasShouyintai = false }) => {
   return (
     <div className={Style.legendBox}>
       <div className={Style.col}>
@@ -48,13 +48,15 @@ const LegendBox = () => {
           <img src={xishoujian} alt="" />
           洗手间
         </div>
-        <div
-          className={`${Style.legendBoxItem} ${Style.shouyintai}`}
-          style={{ backgroundColor: '#D22D25' }}
-        >
-          <img src={shouyintai} alt="" />
-          收银台
-        </div>
+        {hasShouyintai && (
+          <div
+            className={`${Style.legendBoxItem} ${Style.shouyintai}`}
+            style={{ backgroundColor: '#D22D25' }}
+          >
+            <img src={shouyintai} alt="" />
+            收银台
+          </div>
+        )}
         <div
           className={`${Style.legendBoxItem} ${Style.fuwutai}`}
           style={{ backgroundColor: '#538578' }}

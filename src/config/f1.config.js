@@ -109,12 +109,6 @@ const f1Config = [
         position: [['0.85', '0.70']],
       },
       {
-        num: 'A8302',
-        name: '恒洁',
-        isClick: false,
-        position: [['0.81', '0.78']],
-      },
-      {
         num: 'A8303+8305',
         name: '恒洁',
         isClick: false,
@@ -222,7 +216,7 @@ const f1Config = [
       {
         num: 'A8211',
         name: '蒙娜丽莎',
-        isClick: true,
+        isClick: false,
         position: [['0.30', '0.46']],
       },
       {
@@ -249,12 +243,6 @@ const f1Config = [
         position: [['0.22', '0.53']],
       },
       {
-        num: 'A8316-1+8317',
-        name: '伊莉莎白',
-        isClick: false,
-        position: [['0.10', '0.44']],
-      },
-      {
         num: 'A8318',
         name: '伊莉莎白',
         isClick: false,
@@ -266,12 +254,6 @@ const f1Config = [
     type: '石材',
     color: '#B7AEEA',
     content: [
-      {
-        num: 'A8012',
-        name: '尚石',
-        isClick: false,
-        position: [['0.23', '0.28']],
-      },
       {
         num: 'A8013-1',
         name: '尚石',

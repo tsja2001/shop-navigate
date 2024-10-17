@@ -35,7 +35,6 @@ const Map = ({ floor, clickHandler }) => {
   // 初始化计算父元素宽高
   useEffect(() => {
     const mapRect = mapRef.current.getBoundingClientRect()
-    console.log('mapRect---------', mapRect)
     setMapRect(mapRect)
   }, [])
 
@@ -133,7 +132,9 @@ const Map = ({ floor, clickHandler }) => {
                 key={index}
                 className={`${Style.currentPoint} ${Style.point}`}
                 style={{ left: item.x, top: item.y }}
-              ></div>
+              >
+                <div className={Style.currentPointInner}></div>
+              </div>
             )
           })
         }

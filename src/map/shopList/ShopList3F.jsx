@@ -27,22 +27,22 @@ const ShopList3F = () => {
       </div>
       <div className={`${Style.group}`}>
         <div className={Style.cizhuan}>
-          <ShopGroup config={getTypeInFloorConfig(config, '窗帘、壁纸')} />
+          <ShopGroup
+            config={getTypeInFloorConfig(config, '地暖、灯饰、涂料、艺术漆')}
+          />
         </div>
       </div>
       <div className={`${Style.group}`}>
         <div className={Style.cizhuan}>
-          <ShopGroup
-            config={getTypeInFloorConfig(config, '地暖、灯饰、涂料、艺术漆')}
-          />
+          <ShopGroup config={getTypeInFloorConfig(config, '窗帘、壁纸')} />
         </div>
       </div>
       <div className={Style.legendBox}>
         <LegendBox />
       </div>
       <div className={Style.detail}>
-        环渤海国际家具一楼，是以卫浴
-        、瓷砖、石材、装饰公司等为主要经营品类的楼层。这里汇集了众多知名品牌，如九牧、科勒、马可波罗等，为消费者提供了丰富多样的家居选择。此外，这里还设有专业的装饰公司，可为顾客提供一站式的家居装修解决方案。无论是寻找高品质的建材还是寻求专业的装修建议，环渤海国际家具一楼都能满足顾客的各种需求。
+        环渤海国际家居三层主营软装、电器及全屋定制等品类。顾客走进这里便是一个五彩斑斓的殿堂，或高端智能、或简约、或唯美、或古典⋯⋯，都能给您恰到好处的选择。
+        家是一个延续一生的作品，在环渤海，家带来的幸福被无限放大。
       </div>
     </div>
   )

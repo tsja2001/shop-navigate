@@ -25,7 +25,7 @@ function App() {
           {/* 二级菜单 */}
           <Routes>
             <Route path="/floor" element={<Floor />} />
-            <Route path="/search" element={<h1>bbb</h1>} />
+            <Route path="/search" element={<h1></h1>} />
             <Route path="*" element={<Navigate to="/home/floor" replace />} />
           </Routes>
           {/* 主体部分 */}
