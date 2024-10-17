@@ -25,10 +25,6 @@ import b1Config from '../config/b1.config'
 
 import { useSearchParams } from 'react-router-dom'
 import { Button } from 'antd'
-// import f3Config from '../config/f3.config'
-// import f4Config from '../config/f4.config'
-// import f5Config from '../config/f5.config'
-// import b1Config from '../config/b1.config'
 
 const getFloorImg = (floor) => {
   switch (floor) {
@@ -129,10 +125,15 @@ const MapWapper = () => {
         clickShopTypeConfig,
         clickShopItem,
         (item) => {
+          // 一个店铺可能有多个位置
+          let position = []
+          if (item.position) {
+            position = item.position
+          }
+          position.push([x, y])
           return {
             ...item,
-            isClick: false,
-            position: { x, y },
+            position: position,
           }
         }
       )
@@ -140,6 +141,8 @@ const MapWapper = () => {
       console.log(newConfig)
 
       setConfigFn(newConfig)
+      // 本地缓存
+      localStorage.setItem('config', JSON.stringify(newConfig))
     }
   }
 
@@ -191,21 +194,52 @@ const MapWapper = () => {
     setClickShopItem(shop)
 
     setConfigFn(newConfig)
+
+    // 在地图上高亮店铺
+
   }
 
   const handleExportJSON = () => {
-    console.log(getConfig(floor))
+    console.log(JSON.stringify(getConfig(floor)))
+  }
+
+  const handleClearPosition = () => {
+    const setConfigFn = getSetConfigFn(floor)
+    const newConfig = getCurrentShop(
+      getConfig(floor),
+      clickShopTypeConfig,
+      clickShopItem,
+      (item) => {
+        return {
+          ...item,
+          position: [],
+        }
+      }
+    )
+
+    console.log(newConfig)
+
+    setConfigFn(newConfig)
+    // 本地缓存
+    localStorage.setItem('config', JSON.stringify(newConfig))
   }
 
   return (
     // provider
     <MapContext.Provider
-      value={{ handleClickShop, currentFloorConfig: getConfig(floor) }}
+      value={{ handleClickShop, currentFloorConfig: getConfig(floor), clickShopItem }}
     >
       <div className={Style.mapWapper}>
         <Map floor={getFloorImg(floor)} clickHandler={handleClick} />
         {devModel && (
-          <Button onClick={handleExportJSON}>导出JSON</Button>
+          <Button style={{ marginLeft: '500px' }} onClick={handleExportJSON}>
+            导出JSON
+          </Button>
+        )}
+        {devModel && (
+          <Button style={{ marginLeft: '500px' }} onClick={handleClearPosition}>
+            清除position
+          </Button>
         )}
         {floor === '1F' && <ShopList1F />}
         {floor === '2F' && <ShopList2F />}
