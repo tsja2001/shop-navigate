@@ -5,6 +5,7 @@ import AppSider from './layout/AppSider/AppSider'
 import Floor from './menu/floor/Floor'
 import { createContext, useState } from 'react'
 import MapWapper from './map/MapWapper'
+import FullScreenPrompt from './layout/FullScreenPrompt/FullScreenPrompt'
 
 // 用于当前选中楼层、搜索内容的上下文
 export const NavContext = createContext(null)
@@ -18,6 +19,7 @@ function App() {
   return (
     <>
       <NavContext.Provider value={{ floor, setFloor, search, setSearch }}>
+        <FullScreenPrompt />
         <AppHeader />
         <div className={Style.content}>
           {/* 一级菜单 楼层导览、智能搜索 */}
