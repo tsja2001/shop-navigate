@@ -34,9 +34,16 @@ const Map = ({ floor, clickHandler }) => {
 
   // 初始化计算父元素宽高
   useEffect(() => {
+    setTimeout(() => {
+      const mapRect = mapRef.current.getBoundingClientRect()
+      setMapRect(mapRect)
+    }, 100)
+  }, [])
+
+  window.addEventListener('resize', () => {
     const mapRect = mapRef.current.getBoundingClientRect()
     setMapRect(mapRect)
-  }, [])
+  })
 
   const handleClick = (event) => {
     // 计算相对父容器的点击位置
@@ -61,7 +68,7 @@ const Map = ({ floor, clickHandler }) => {
       item.content.map((content) => {
         if (content.position?.length > 0) {
           content.position.forEach((position) => {
-            console.log('mapRect.width', mapRect.width)
+            console.log('mapRect.width mapRect.height', mapRect.width, mapRect.height)
             const x = (position[0] * mapRect.width).toFixed(2) + 'px'
             const y = (position[1] * mapRect.height).toFixed(2) -150 + 'px'
             positions.push({ x, y })
@@ -75,8 +82,9 @@ const Map = ({ floor, clickHandler }) => {
 
   // dev模式下展示所有点击的店铺
   useEffect(() => {
+    if (!devModel) return
     const positions = getShowClickPosition()
-    console.log('positions allallall', positions)
+    // console.log('positions allallall', positions)
     setAllPoints(positions)
   }, [currentFloorConfig, mapRect])
 
@@ -86,6 +94,8 @@ const Map = ({ floor, clickHandler }) => {
       console.log('clickShopItem', clickShopItem)
       const positions = []
       clickShopItem.position.forEach((position) => {
+        console.log('position', position)
+        console.log('mapRect.height', mapRect.height)
         const x = (position[0] * mapRect.width).toFixed(2) + 'px'
         const y = (position[1] * mapRect.height).toFixed(2) -150 + 'px'
         positions.push({ x, y })

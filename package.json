@@ -4,6 +4,8 @@
   "version": "0.0.0",
   "type": "commonjs",
   "main": "electron/main.js",
+  "author": "tt",
+  "description": "A description of your app",
   "build": {
     "files": [
       "dist/**/*",
@@ -43,7 +45,7 @@
     "@vitejs/plugin-react": "^4.3.2",
     "concurrently": "^9.0.1",
     "cross-env": "^7.0.3",
-    "electron": "^32.2.0",
+    "electron": "^32.2.1",
     "eslint": "^9.11.1",
     "eslint-plugin-react": "^7.37.0",
     "eslint-plugin-react-hooks": "^5.1.0-rc.0",

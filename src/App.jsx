@@ -3,7 +3,7 @@ import Style from './App.module.less'
 import AppHeader from './layout/appHeader/AppHeader'
 import AppSider from './layout/AppSider/AppSider'
 import Floor from './menu/floor/Floor'
-import { createContext, useState } from 'react'
+import { createContext, useEffect, useState } from 'react'
 import MapWapper from './map/MapWapper'
 
 // 用于当前选中楼层、搜索内容的上下文
@@ -14,6 +14,20 @@ function App() {
   const [floor, setFloor] = useState("1F")
   // 搜索内容
   const [search, setSearch] = useState('')
+
+  // window.addEventListener('resize', () => {
+  //   const scale = 1 / window.devicePixelRatio;
+  //   document.body.style.transform = `scale(${scale})`;
+  //   document.body.style.width = `${100 * window.devicePixelRatio}%`;
+
+  // })
+
+  // useEffect(() => {
+  //   const scale = 1 / window.devicePixelRatio;
+  //   document.body.style.transform = `scale(${scale})`;
+  //   document.body.style.transformOrigin = 'top left';
+  //   document.body.style.width = `${100 * window.devicePixelRatio}%`;
+  // }, []);
 
   return (
     <>

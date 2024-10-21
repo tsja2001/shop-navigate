@@ -4,8 +4,9 @@ import path from 'path';
 
 export default defineConfig({
   plugins: [react()],
+  base: './',
   build: {
-    outDir: 'dist'
+    outDir: 'dist',
   },
   resolve: {
     alias: {
