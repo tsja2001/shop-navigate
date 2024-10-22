@@ -6,6 +6,7 @@
   "main": "electron/main.js",
   "author": "tt",
   "description": "A description of your app",
+  "productName": "智能导览",
   "build": {
     "files": [
       "dist/**/*",
