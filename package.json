@@ -13,6 +13,9 @@
     ],
     "extraMetadata": {
       "main": "electron/main.js"
+    },
+    "win": {
+      "icon": "electron/logo.ico" 
     }
   },
   "scripts": {

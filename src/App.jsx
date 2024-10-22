@@ -30,7 +30,7 @@ function App() {
   // }, []);
 
   return (
-    <>
+    <div className={Style.app}>
       <NavContext.Provider value={{ floor, setFloor, search, setSearch }}>
         <AppHeader />
         <div className={Style.content}>
@@ -46,7 +46,7 @@ function App() {
           <MapWapper />
         </div>
       </NavContext.Provider>
-    </>
+    </div>
   )
 }
 

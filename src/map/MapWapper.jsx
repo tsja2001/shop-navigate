@@ -1,4 +1,4 @@
-import { createContext, useContext, useEffect, useState } from 'react'
+import { createContext, useContext, useEffect, useRef, useState } from 'react'
 import { NavContext } from '../App'
 import Map from './map/Map'
 import Style from './MapWapper.module.less'
@@ -111,7 +111,23 @@ const MapWapper = () => {
   const navContext = useContext(NavContext)
   const { floor } = navContext
 
-  useEffect(() => {}, [floor])
+  // 当切换楼层时, 清空当前点击的店铺的状态
+
+  // 使用 useRef 存储之前的 floor 值
+  const prevFloorRef = useRef(floor)
+  useEffect(() => {
+    // 这个是 floor 变化前的值
+    const prevFloor = prevFloorRef.current
+
+    const prevFloorConfig = getConfig(prevFloor)
+    const newConfig = clearShopClickStatus(prevFloorConfig)
+
+    const setConfigFn = getSetConfigFn(prevFloor)
+    setConfigFn(newConfig)
+
+    // 更新 prevFloorRef 为当前的 floor
+    prevFloorRef.current = floor
+  }, [floor])
 
   // 获取当前点击的位置
   const handleClick = (x, y) => {
@@ -196,7 +212,6 @@ const MapWapper = () => {
     setConfigFn(newConfig)
 
     // 在地图上高亮店铺
-
   }
 
   const handleExportJSON = () => {
@@ -227,7 +242,11 @@ const MapWapper = () => {
   return (
     // provider
     <MapContext.Provider
-      value={{ handleClickShop, currentFloorConfig: getConfig(floor), clickShopItem }}
+      value={{
+        handleClickShop,
+        currentFloorConfig: getConfig(floor),
+        clickShopItem,
+      }}
     >
       <div className={Style.mapWapper}>
         <Map floor={getFloorImg(floor)} clickHandler={handleClick} />

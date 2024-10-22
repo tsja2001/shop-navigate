@@ -2,6 +2,7 @@ import { useContext, useEffect, useRef, useState } from 'react'
 import Style from './Map.module.less'
 import { MapContext } from '../MapWapper'
 import { useSearchParams } from 'react-router-dom'
+import mine from '../../assets/map/arr.jpg'
 
 // 地图容器
 const Map = ({ floor, clickHandler }) => {
@@ -12,7 +13,7 @@ const Map = ({ floor, clickHandler }) => {
   const [mapRect, setMapRect] = useState({})
   // dev模式下 要现实所有的points
   const [allPoints, setAllPoints] = useState([])
-  // 显示当前点击的店铺
+  // 显示当前圆点要显示的位置
   const [currentPoint, setCurrentPoint] = useState(null)
 
   // 地图容器margin-top
@@ -68,9 +69,13 @@ const Map = ({ floor, clickHandler }) => {
       item.content.map((content) => {
         if (content.position?.length > 0) {
           content.position.forEach((position) => {
-            console.log('mapRect.width mapRect.height', mapRect.width, mapRect.height)
+            console.log(
+              'mapRect.width mapRect.height',
+              mapRect.width,
+              mapRect.height
+            )
             const x = (position[0] * mapRect.width).toFixed(2) + 'px'
-            const y = (position[1] * mapRect.height).toFixed(2) -150 + 'px'
+            const y = (position[1] * mapRect.height).toFixed(2) - 150 + 'px'
             positions.push({ x, y })
           })
         }
@@ -97,7 +102,7 @@ const Map = ({ floor, clickHandler }) => {
         console.log('position', position)
         console.log('mapRect.height', mapRect.height)
         const x = (position[0] * mapRect.width).toFixed(2) + 'px'
-        const y = (position[1] * mapRect.height).toFixed(2) -150 + 'px'
+        const y = (position[1] * mapRect.height).toFixed(2) - 150 + 'px'
         positions.push({ x, y })
       })
 
@@ -105,6 +110,11 @@ const Map = ({ floor, clickHandler }) => {
       console.log('setCurrentPoint--', positions)
     }
   }, [clickShopItem])
+
+  // 当切换楼层时, 清空当前点击的店铺
+  useEffect(() => {
+    setCurrentPoint(null)
+  }, [floor])
 
   return (
     <div className={Style.map}>
@@ -135,8 +145,9 @@ const Map = ({ floor, clickHandler }) => {
               ></div>
             )
           })}
-        {
-          currentPoint && currentPoint.map((item, index) => {
+        {/* 黄的圆点, 当前点击的店铺位置 */}
+        {currentPoint &&
+          currentPoint.map((item, index) => {
             return (
               <div
                 key={index}
@@ -146,8 +157,20 @@ const Map = ({ floor, clickHandler }) => {
                 <div className={Style.currentPointInner}></div>
               </div>
             )
-          })
-        }
+          })}
+        {/* 如果是1楼, 您所在位置 */}
+        {floor.includes('1F') && (
+          <div
+            className={Style.minePositionWapper}
+            style={{
+              top: 0.25 * mapRect.width + 'px',
+              left: 0.73 * mapRect.height + 'px',
+            }}
+          >
+            <img src={mine} alt="mine" />
+            <div className={Style.minePosition}>您所在位置</div>
+          </div>
+        )}
       </div>
     </div>
   )
