@@ -27,7 +27,7 @@ function createWindow() {
   }
 
   // 打开开发者工具（无论是否在开发环境）
-  mainWindow.webContents.openDevTools();
+  // mainWindow.webContents.openDevTools();
 }
 
 app.whenReady().then(createWindow);

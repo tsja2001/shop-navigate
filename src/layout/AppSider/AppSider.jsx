@@ -27,10 +27,10 @@ const AppSider = () => {
                 <img className={Style.menuItemIcon} src={curSelect === 'floor' ? floorIconActive : floorIcon}/>
                 <div className={`${Style.menuItemTitle} ${curSelect === 'floor' ? Style.active : ''}`}>楼层导览</div>
             </div>
-            <div className={Style.menuItem} onClick={() => handleSelect('search')}>
+            {/* <div className={Style.menuItem} onClick={() => handleSelect('search')}>
                 <img className={Style.menuItemIcon} src={curSelect === 'search' ? searchIconActive : searchIcon}/>
                 <div className={`${Style.menuItemTitle} ${curSelect === 'search' ? Style.active : ''}`}>智能搜索</div>
-            </div>
+            </div> */}
         </div>
     );
 };
