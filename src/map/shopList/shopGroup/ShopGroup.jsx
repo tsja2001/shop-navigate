@@ -22,7 +22,9 @@ const ShopGroup = ({ config, col = 1, style = {} }) => {
 
   return (
     <div
-      className={Style.shopGroup}
+      className={`${Style.shopGroup} ${
+        config.isSearchResult ? Style.shopGroupSearchResult : ''
+      }`}
       style={{ backgroundColor: config?.color, width: width }}
     >
       <div className={Style.title} style={style}>
@@ -36,12 +38,14 @@ const ShopGroup = ({ config, col = 1, style = {} }) => {
           return (
             <div
               key={item.num}
-              className={`${Style.item} ${item.isClick ? Style.active : ''}`}
+              className={`${Style.item} ${item.isSearchResult ? Style.shopItemSearchResult : ''} ${item.isClick ? Style.active : ''} `}
               onClick={() => handleClickShop(item, config)}
             >
               <div className={Style.itemName}>
                 {item.name}
-                {devModel && item.position && item.position.map(item => item.join('-')).join(',')}
+                {devModel &&
+                  item.position &&
+                  item.position.map((item) => item.join('-')).join(',')}
               </div>
             </div>
           )

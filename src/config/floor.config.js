@@ -2,6 +2,7 @@ const floorConfig = [
   {
     title: '5F',
     content: ['实木', '红木', '欧美', '软装', '灯饰', '家装'],
+    searchResText: ''
   },
   {
     title: '4F',

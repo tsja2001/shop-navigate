@@ -1,32 +1,41 @@
 .floorItem {
-	cursor: pointer;
-	width: 100%;
-	background-color: #D8E6F9;
-	border-radius: 10px;
-	box-sizing: border-box;
-	padding: 13px 14px;
-	border: 1px solid #c2c2c2;
-	display: flex;
-	align-items: center;
-	justify-content: flex-start;
-	min-height: 65px;
-	gap: 17px;
-	.floorItem_title {
-		font-size: 20px;
-		font-weight: 500;
-		white-space: nowrap;
-		width: 22px;
-	}
-	.floorItem_content {
-		font-size: 13px;
-	}
-	&.active {
-		background-color: #3478F6;
-		color: #fff;
-	}
+  cursor: pointer;
+  width: 100%;
+  background-color: #d8e6f9;
+  border-radius: 10px;
+  box-sizing: border-box;
+  padding: 13px 14px;
+  border: 1px solid #c2c2c2;
+  .line1 {
+    gap: 17px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    // min-height: 35px;
+    .floorItem_title {
+      font-size: 20px;
+      font-weight: 500;
+      white-space: nowrap;
+      width: 22px;
+    }
+    .floorItem_content {
+      font-size: 13px;
+    }
+  }
+  .line2 {
+    margin-top: 5px;
+    border-top: 1px solid #c2c2c2;
+    color: #000000;
+    font-size: 13px;
+		padding-top: 6px;
+  }
+  &.active {
+    background-color: #3478f6;
+    color: #fff;
+  }
 }
 .disable {
-	cursor: not-allowed;
-	background-color: #f0f0f0;
-	color: #3d3d3d;
+  cursor: not-allowed;
+  background-color: #f0f0f0;
+  color: #3d3d3d;
 }

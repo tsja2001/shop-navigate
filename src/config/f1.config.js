@@ -2,12 +2,14 @@ const f1Config = [
   {
     type: '电器',
     color: '#88ABAA',
+    isSearchResult: false,
     content: [
       {
         num: 'A8002',
         name: '日立',
         isClick: false,
         position: [['0.67', '0.46']],
+        isSearchResult: false
       },
       {
         num: 'A8012-1',
