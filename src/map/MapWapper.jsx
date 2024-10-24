@@ -16,13 +16,6 @@ import Floor4 from '@/assets/map/4F.png'
 import Floor5 from '@/assets/map/5F.png'
 import Below1 from '@/assets/map/B1.png'
 
-import f1Config from '../config/f1.config'
-import f2Config from '../config/f2.config'
-import f3Config from '../config/f3.config'
-import f4Config from '../config/f4.config'
-import f5Config from '../config/f5.config'
-import b1Config from '../config/b1.config'
-
 import { useSearchParams } from 'react-router-dom'
 import { Button } from 'antd'
 
@@ -52,16 +45,11 @@ const MapWapper = () => {
   const [clickShopTypeConfig, setClickShopTypeConfig] = useState({})
   const [clickShopItem, setClickShopItem] = useState({})
 
-  const [F1Config, setF1Config] = useState(f1Config)
-  const [F2Config, setF2Config] = useState(f2Config)
-  const [F3Config, setF3Config] = useState(f3Config)
-  const [F4Config, setF4Config] = useState(f4Config)
-  const [F5Config, setF5Config] = useState(f5Config)
-  const [B1Config, setB1Config] = useState(b1Config)
 
   // 编辑模式, 可以设置店铺位置
   const [devModel, setDevModel] = useState(false)
   const [searchParams] = useSearchParams()
+
 
   useEffect(() => {
     // 获取url参数, 判断是否是编辑模式
@@ -73,56 +61,21 @@ const MapWapper = () => {
     }
   }, [])
 
-  const getConfig = (floor) => {
-    switch (floor) {
-      case '1F':
-        return F1Config
-      case '2F':
-        return F2Config
-      case '3F':
-        return F3Config
-      case '4F':
-        return F4Config
-      case '5F':
-        return F5Config
-      case 'B1':
-        return B1Config
-    }
-  }
-
-  const getSetConfigFn = (floor) => {
-    switch (floor) {
-      case '1F':
-        return setF1Config
-      case '2F':
-        return setF2Config
-      case '3F':
-        return setF3Config
-      case '4F':
-        return setF4Config
-      case '5F':
-        return setF5Config
-      case 'B1':
-        return setB1Config
-    }
-  }
-
   // 监听楼层变化
   const navContext = useContext(NavContext)
-  const { floor } = navContext
-
-  // 当切换楼层时, 清空当前点击的店铺的状态
+  const { floor, getFloorConfig, getSetFloorConfigFn } = navContext
 
   // 使用 useRef 存储之前的 floor 值
   const prevFloorRef = useRef(floor)
+  // 当切换楼层时, 清空当前点击的店铺的状态
   useEffect(() => {
     // 这个是 floor 变化前的值
     const prevFloor = prevFloorRef.current
 
-    const prevFloorConfig = getConfig(prevFloor)
+    const prevFloorConfig = getFloorConfig(prevFloor)
     const newConfig = clearShopClickStatus(prevFloorConfig)
 
-    const setConfigFn = getSetConfigFn(prevFloor)
+    const setConfigFn = getSetFloorConfigFn(prevFloor)
     setConfigFn(newConfig)
 
     // 更新 prevFloorRef 为当前的 floor
@@ -132,12 +85,12 @@ const MapWapper = () => {
   // 获取当前点击的位置
   const handleClick = (x, y) => {
     setClickPosition({ x, y })
-    const setConfigFn = getSetConfigFn(floor)
+    const setConfigFn = getSetFloorConfigFn(floor)
     // 如果是开发模式, 记录点击位置
     console.log('clickShopItem', clickShopItem)
     if (devModel) {
       const newConfig = getCurrentShop(
-        getConfig(floor),
+        getFloorConfig(floor),
         clickShopTypeConfig,
         clickShopItem,
         (item) => {
@@ -192,8 +145,8 @@ const MapWapper = () => {
 
   // 当子元素点击了店铺
   const handleClickShop = (shop, config) => {
-    const setConfigFn = getSetConfigFn(floor)
-    const curConfig = getConfig(floor)
+    const setConfigFn = getSetFloorConfigFn(floor)
+    const curConfig = getFloorConfig(floor)
 
     // 清空其他店铺的点击状态
     let newConfig = clearShopClickStatus(curConfig)
@@ -215,13 +168,13 @@ const MapWapper = () => {
   }
 
   const handleExportJSON = () => {
-    console.log(JSON.stringify(getConfig(floor)))
+    console.log(JSON.stringify(getFloorConfig(floor)))
   }
 
   const handleClearPosition = () => {
-    const setConfigFn = getSetConfigFn(floor)
+    const setConfigFn = getSetFloorConfigFn(floor)
     const newConfig = getCurrentShop(
-      getConfig(floor),
+      getFloorConfig(floor),
       clickShopTypeConfig,
       clickShopItem,
       (item) => {
@@ -244,7 +197,7 @@ const MapWapper = () => {
     <MapContext.Provider
       value={{
         handleClickShop,
-        currentFloorConfig: getConfig(floor),
+        currentFloorConfig: getFloorConfig(floor),
         clickShopItem,
       }}
     >
