@@ -162,8 +162,10 @@ const f1Config = [
       {
         num: 'A8007',
         name: '伊派·爱马仕',
-        isClick: false,
-        position: [['0.47', '0.39']],
+        isClick: true,
+        position: [
+          ['0.47', '0.39'],
+        ],
       },
       {
         num: 'A8008+8008-1',
@@ -225,11 +227,7 @@ const f1Config = [
         isClick: false,
         position: [['0.35', '0.58']],
       },
-      {
-        num: 'A8311',
-        name: '诺贝尔',
-        isClick: false,
-      },
+      { num: 'A8311', name: '诺贝尔', isClick: false },
       {
         num: 'A8312-1',
         name: 'L&D',

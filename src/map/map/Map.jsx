@@ -163,8 +163,8 @@ const Map = ({ floor, clickHandler }) => {
           <div
             className={Style.minePositionWapper}
             style={{
-              top: 0.25 * mapRect.width + 'px',
-              left: 0.73 * mapRect.height + 'px',
+              left: 0.41 * mapRect.width + 'px',
+              top: (0.6 * mapRect.height - 150) + 'px',
             }}
           >
             <img src={mine} alt="mine" />

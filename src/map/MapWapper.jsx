@@ -251,14 +251,17 @@ const MapWapper = () => {
       <div className={Style.mapWapper}>
         <Map floor={getFloorImg(floor)} clickHandler={handleClick} />
         {devModel && (
-          <Button style={{ marginLeft: '500px' }} onClick={handleExportJSON}>
-            导出JSON
-          </Button>
-        )}
-        {devModel && (
-          <Button style={{ marginLeft: '500px' }} onClick={handleClearPosition}>
-            清除position
-          </Button>
+          <div style={{ position: 'absolute', top: '10px', right: '10px' }}>
+            <Button style={{ marginLeft: '500px' }} onClick={handleExportJSON}>
+              导出JSON
+            </Button>
+            <Button
+              style={{ marginLeft: '500px' }}
+              onClick={handleClearPosition}
+            >
+              清除position
+            </Button>
+          </div>
         )}
         {floor === '1F' && <ShopList1F />}
         {floor === '2F' && <ShopList2F />}
