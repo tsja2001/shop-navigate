@@ -1,9 +1,20 @@
 .shopGroupSearchResult {
   // animation: identifier 1s ease-in-out infinite alternate;
   border: 3px solid #ffa600;
+  // 实现一个动画, 边框颜色改变
+  animation: borderColorChange 1s ease-in-out infinite alternate;
   box-shadow: 0 0 15px 0 #a48c01;
   .title {
     font-weight: 800;
+  }
+}
+
+@keyframes borderColorChange {
+  from {
+    border-color: #ffa600;
+  }
+  to {
+    border-color: #ff0000;
   }
 }
 

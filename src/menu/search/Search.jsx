@@ -12,6 +12,8 @@ const Search = () => {
 
   const [sideBarFloorConfig, setSideBarFloorConfig] = useState(floorConfig)
 
+  const [searchText, setSearchText] = useState('')
+
   // 点击楼层
   const handleClickFloor = (floor) => {
     setFloor(floor)
@@ -21,6 +23,7 @@ const Search = () => {
   const onSearch = (value) => {
     const str = value.trim()
     if (str.length == 0) return
+    setSearchText(str)
     searchContent(str)
   }
 
@@ -171,9 +174,10 @@ const Search = () => {
         }
       })}
       {/* 如果一个都没有 */}
-      {/* {sideBarFloorConfig.every((item) => !item.searchResText) && (
-        <div className={Style.noSearchResult}>暂未找到相关结果</div>
-      )} */}
+      {searchText.length > 0 &&
+        sideBarFloorConfig.every((item) => !item.searchResText) && (
+          <div className={Style.noSearchResult}>暂未找到相关结果</div>
+        )}
     </div>
   )
 }
