@@ -8,6 +8,7 @@
   "description": "A description of your app",
   "productName": "智能导览",
   "build": {
+    "productName": "智能导览",
     "files": [
       "dist/**/*",
       "electron/**/*"
@@ -16,7 +17,21 @@
       "main": "electron/main.js"
     },
     "win": {
-      "icon": "electron/logo.ico" 
+      "icon": "electron/logo.ico",
+      "target": [
+        "nsis"
+      ]
+    },
+    "nsis": {
+      "oneClick": false,
+      "perMachine": true,
+      "allowToChangeInstallationDirectory": true,
+      "installerIcon": "electron/logo.ico",
+      "uninstallerIcon": "electron/logo.ico",
+      "installerHeaderIcon": "electron/logo.ico",
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true,
+      "shortcutName": "智能导览"
     }
   },
   "scripts": {
