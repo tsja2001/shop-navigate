@@ -45,11 +45,11 @@ const MapWapper = () => {
   const [clickShopTypeConfig, setClickShopTypeConfig] = useState({})
   const [clickShopItem, setClickShopItem] = useState({})
 
-
   // 编辑模式, 可以设置店铺位置
   const [devModel, setDevModel] = useState(false)
+  // 控制是否显示所有品牌位置
+  const [showAllBrands, setShowAllBrands] = useState(false)
   const [searchParams] = useSearchParams()
-
 
   useEffect(() => {
     // 获取url参数, 判断是否是编辑模式
@@ -77,6 +77,9 @@ const MapWapper = () => {
 
     const setConfigFn = getSetFloorConfigFn(prevFloor)
     setConfigFn(newConfig)
+
+    // 切换楼层时隐藏所有品牌位置显示
+    setShowAllBrands(false)
 
     // 更新 prevFloorRef 为当前的 floor
     prevFloorRef.current = floor
@@ -192,6 +195,11 @@ const MapWapper = () => {
     localStorage.setItem('config', JSON.stringify(newConfig))
   }
 
+  // 切换显示所有品牌位置
+  const handleToggleShowAllBrands = () => {
+    setShowAllBrands(!showAllBrands)
+  }
+
   return (
     // provider
     <MapContext.Provider
@@ -199,6 +207,7 @@ const MapWapper = () => {
         handleClickShop,
         currentFloorConfig: getFloorConfig(floor),
         clickShopItem,
+        showAllBrands,
       }}
     >
       <div className={Style.mapWapper}>
@@ -209,10 +218,17 @@ const MapWapper = () => {
               导出JSON
             </Button>
             <Button
-              style={{ marginLeft: '500px' }}
+              style={{ marginLeft: '10px' }}
               onClick={handleClearPosition}
             >
               清除position
+            </Button>
+            <Button
+              style={{ marginLeft: '10px' }}
+              type={showAllBrands ? 'primary' : 'default'}
+              onClick={handleToggleShowAllBrands}
+            >
+              {showAllBrands ? '隐藏所有品牌位置' : '显示所有品牌位置'}
             </Button>
           </div>
         )}

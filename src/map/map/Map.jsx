@@ -8,7 +8,7 @@ import mine from '../../assets/map/arr.jpg'
 const Map = ({ floor, clickHandler }) => {
   const mapRef = useRef(null)
 
-  const { currentFloorConfig, clickShopItem } = useContext(MapContext)
+  const { currentFloorConfig, clickShopItem, showAllBrands } = useContext(MapContext)
   // 地图容器宽高
   const [mapRect, setMapRect] = useState({})
   // dev模式下 要现实所有的points
@@ -87,11 +87,11 @@ const Map = ({ floor, clickHandler }) => {
 
   // dev模式下展示所有点击的店铺
   useEffect(() => {
-    if (!devModel) return
+    if (!devModel || !showAllBrands) return
     const positions = getShowClickPosition()
     // console.log('positions allallall', positions)
     setAllPoints(positions)
-  }, [currentFloorConfig, mapRect])
+  }, [currentFloorConfig, mapRect, showAllBrands])
 
   // 监听当前点击的店铺, 显示当前店铺位置
   useEffect(() => {
@@ -136,6 +136,7 @@ const Map = ({ floor, clickHandler }) => {
       >
         {/* 编辑模式下展示所有店铺位置 */}
         {devModel &&
+          showAllBrands &&
           allPoints.map((item, index) => {
             return (
               <div

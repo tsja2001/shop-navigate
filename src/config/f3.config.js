@@ -59,6 +59,12 @@ const f3Config = [
         position: [['0.37', '0.46']],
       },
       {
+        num: 'C8316',
+        name: '百能',
+        isClick: false,
+        position: [['0.24', '0.53']],
+      },
+      {
         num: 'C8111',
         name: '卡尔·凯旋',
         isClick: false,
@@ -70,12 +76,12 @@ const f3Config = [
         isClick: false,
         position: [['0.30', '0.47']],
       },
-      {
-        num: 'C8212',
-        name: '奥斯坦汀',
-        isClick: false,
-        position: [['0.26', '0.45']],
-      },
+      // {
+      //   num: 'C8212',
+      //   name: '奥斯坦汀',
+      //   isClick: false,
+      //   position: [['0.26', '0.45']],
+      // },
       {
         num: 'C8305',
         name: '思拓',
@@ -112,18 +118,18 @@ const f3Config = [
         isClick: false,
         position: [['0.35', '0.56']],
       },
+      {
+        num: 'C8301',
+        name: '观山',
+        isClick: false,
+        position: [['0.84','0.69']],
+      },
     ],
   },
   {
     type: '窗帘、壁纸',
     color: '#72A0DB',
     content: [
-      {
-        num: 'C8003',
-        name: '蕾幔',
-        isClick: false,
-        position: [['0.63', '0.46']],
-      },
       {
         num: 'C8101+8201',
         name: '意大利米兰',
@@ -144,9 +150,15 @@ const f3Config = [
       },
       {
         num: 'C8105',
-        name: '格莱美',
+        name: '蕾幔',
         isClick: false,
         position: [['0.65', '0.54']],
+      },
+      {
+        num: 'C8106',
+        name: '爱漫时',
+        isClick: false,
+        position: [['0.62', '0.53']],
       },
       {
         num: 'C8203',
@@ -162,7 +174,7 @@ const f3Config = [
       },
       {
         num: 'C8308',
-        name: '志达布艺',
+        name: '志达',
         isClick: false,
         position: [['0.61', '0.69']],
       },
@@ -202,12 +214,12 @@ const f3Config = [
         isClick: false,
         position: [['0.16', '0.34']],
       },
-      {
-        num: 'C8215',
-        name: '楚楚',
-        isClick: false,
-        position: [['0.14', '0.40']],
-      },
+      // {
+      //   num: 'C8215',
+      //   name: '楚楚',
+      //   isClick: false,
+      //   position: [['0.14', '0.40']],
+      // },
       {
         num: 'C8321',
         name: '巴迪斯',
@@ -221,11 +233,17 @@ const f3Config = [
     color: '#59A0AA',
     content: [
       {
-        num: 'C8301',
-        name: '约克',
+        num: 'C8003',
+        name: '万家美',
         isClick: false,
-        position: [['0.88', '0.68']],
+        position: [['0.63', '0.46']],
       },
+      // {
+      //   num: 'C8301',
+      //   name: '约克',
+      //   isClick: false,
+      //   position: [['0.88', '0.68']],
+      // },
       {
         num: 'C8001',
         name: '威罗',
@@ -261,7 +279,7 @@ const f3Config = [
       },
       {
         num: 'C8322',
-        name: '麦格岚',
+        name: '麦格蓝',
         isClick: false,
         position: [['0.11', '0.42']],
       },
@@ -315,25 +333,37 @@ const f3Config = [
       },
       {
         num: 'C8315',
-        name: '松下',
+        name: '林内、安吉尔',
         isClick: false,
         position: [['0.28', '0.53']],
       },
-      {
-        num: 'C8317-1',
-        name: '美的',
-        isClick: false,
-        position: [['0.22', '0.52']],
-      },
+      // {
+      //   num: 'C8317-1',
+      //   name: '美的',
+      //   isClick: false,
+      //   position: [['0.22', '0.52']],
+      // },
       {
         num: 'C8318-2',
         name: '大金',
         isClick: false,
         position: [['0.13', '0.51']],
       },
+      {
+        num: 'C8318-1',
+        name: '美的',
+        isClick: false,
+        position: [['0.17','0.48']],
+      }
     ],
   },
 ]
 
 export default f3Config
 // module.exports = f3Config
+
+// 万家美 ok
+// 美的 换地方了  ok
+// 新增百能 ok
+// 新增林内 安吉尔 ok
+// 新增关山 ok
