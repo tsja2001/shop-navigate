@@ -336,3 +336,4 @@ const f3Config = [
 ]
 
 export default f3Config
+// module.exports = f3Config

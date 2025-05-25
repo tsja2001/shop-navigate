@@ -137,3 +137,4 @@ const b1Config = [
 ]
 
 export default b1Config
+// module.exports = b1Config

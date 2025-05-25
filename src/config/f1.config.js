@@ -325,3 +325,4 @@ const f1Config = [
 ]
 
 export default f1Config
+// module.exports = f1Config
