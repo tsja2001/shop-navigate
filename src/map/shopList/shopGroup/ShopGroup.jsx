@@ -23,7 +23,7 @@ const ShopGroup = ({ config, col = 1, style = {} }) => {
   return (
     <div
       className={`${Style.shopGroup} ${
-        config.isSearchResult ? Style.shopGroupSearchResult : ''
+        config?.isSearchResult ? Style.shopGroupSearchResult : ''
       }`}
       style={{ backgroundColor: config?.color, width: width }}
     >

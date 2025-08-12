@@ -6,14 +6,14 @@ const f1Config = [
     content: [
       {
         num: 'A8002',
-        name: '日立',
+        name: '鸿蒙智家',
         isClick: false,
         position: [['0.67', '0.46']],
-        isSearchResult: false,
+        isSearchResult: false
       },
       {
         num: 'A8012-1',
-        name: '海信',
+        name: '东芝空调',
         isClick: false,
         position: [['0.24', '0.31']],
       },
@@ -35,45 +35,18 @@ const f1Config = [
         isClick: false,
         position: [['0.53', '0.57']],
       },
-      {
-        num: 'A8003, A8005, A8006',
-        name: '卡萨帝',
-        isClick: false,
-        position: [
-          ['0.55', '0.41'],
-          ['0.47', '0.38'],
-        ],
-      },
-      {
-        num: 'A8003-2',
-        name: '好太太',
-        isClick: false,
-        position: [['0.61', '0.46']],
-      },
-      {
-        num: 'A8002-1',
-        name: 'AI智家 全屋智能',
-        isClick: false,
-        position: [['0.69', '0.49']],
-      },
-      {
-        num: 'A8008-1',
-        name: '美的中央空调',
-        isClick: false,
-        position: [['0.40', '0.38']],
-      },
-      {
-        num: 'A8315, A8316',
-        name: '海信电器',
-        isClick: false,
-        position: [['0.24', '0.31']],
-      },
     ],
   },
   {
     type: '卫浴',
     color: '#AF5EA3',
     content: [
+      {
+        num: 'A8003',
+        name: '新岩艺',
+        isClick: false,
+        position: [['0.61', '0.46']],
+      },
       {
         num: 'A8202+8203',
         name: '法恩莎',
@@ -85,6 +58,12 @@ const f1Config = [
         name: '潜水艇',
         isClick: false,
         position: [['0.59', '0.46']],
+      },
+      {
+        num: 'A8006',
+        name: '朗谛',
+        isClick: false,
+        position: [['0.51', '0.40']],
       },
       {
         num: 'A8101+8201',
@@ -132,7 +111,7 @@ const f1Config = [
         position: [['0.85', '0.70']],
       },
       {
-        num: 'A8302-A8305',
+        num: 'A8303+8305',
         name: '恒洁',
         isClick: false,
         position: [['0.81', '0.78']],
@@ -185,11 +164,13 @@ const f1Config = [
       {
         num: 'A8007',
         name: '伊派·爱马仕',
-        isClick: false,
-        position: [['0.47', '0.39']],
+        isClick: true,
+        position: [
+          ['0.47', '0.39'],
+        ],
       },
       {
-        num: 'A8008',
+        num: 'A8008+8008-1',
         name: '金意陶',
         isClick: false,
         position: [['0.43', '0.38']],
@@ -213,10 +194,22 @@ const f1Config = [
         position: [['0.32', '0.32']],
       },
       {
+        num: 'A8109+8110',
+        name: '博德',
+        isClick: false,
+        position: [['0.37', '0.43']],
+      },
+      {
         num: 'A8112',
         name: '萨米特',
         isClick: false,
         position: [['0.28', '0.39']],
+      },
+      {
+        num: 'A8113',
+        name: '明禾吉利',
+        isClick: false,
+        position: [['0.25', '0.38']],
       },
       {
         num: 'A8209',
@@ -236,6 +229,7 @@ const f1Config = [
         isClick: false,
         position: [['0.35', '0.58']],
       },
+      { num: 'A8311', name: '', isClick: false },
       {
         num: 'A8312-1',
         name: 'L&D',
@@ -261,7 +255,7 @@ const f1Config = [
     color: '#B7AEEA',
     content: [
       {
-        num: 'A8012',
+        num: 'A8013-1',
         name: '尚石',
         isClick: false,
         position: [['0.23', '0.28']],
@@ -291,10 +285,16 @@ const f1Config = [
         position: [['0.22', '0.42']],
       },
       {
-        num: 'A8313',
-        name: '庭院设计',
+        num: 'A8315-1',
+        name: '龙发装饰',
         isClick: false,
         position: [['0.17', '0.48']],
+      },
+      {
+        num: 'A8315+8316',
+        name: '业之峰',
+        isClick: false,
+        position: [['0.12', '0.48']],
       },
       {
         num: 'A8001',
@@ -302,7 +302,6 @@ const f1Config = [
         isClick: false,
         position: [['0.77', '0.50']],
       },
-      { isClick: false },
     ],
   },
   {
@@ -315,20 +314,15 @@ const f1Config = [
         isClick: false,
         position: [['0.33', '0.47']],
       },
-    ],
-  },
-  {
-    type: '其他',
-    color: '#CCCCCC',
-    content: [
       {
-        num: 'A8013',
-        name: '超市',
-        isClick: true,
-        position: [['0.18', '0.30']],
+        num: 'A8503',
+        name: '卓高',
+        isClick: false,
+        position: [['0.32', '0.37']],
       },
     ],
   },
 ]
 
 export default f1Config
+// module.exports = f1Config
