@@ -4,20 +4,20 @@ const f4Config = [
     color: '#ECAEAF',
     content: [
       {
-        num: 'D8005-8008',
-        name: '卓尚家·曲美',
+        num: 'D8005',
+        name: '曲美',
         isClick: false,
         position: [['0.49', '0.41']],
       },
       {
-        num: 'D8015, D8016',
+        num: 'D8015+8016',
         name: '诗尼曼',
         isClick: false,
         position: [['0.16', '0.34']],
       },
       {
-        num: 'D8109+8110, D8209+8210, D8211+8212+8213',
-        name: '品尚国际·全友',
+        num: 'D8109+8110',
+        name: '品尚国际 全友',
         isClick: false,
         position: [
           ['0.38', '0.43'],
@@ -25,7 +25,7 @@ const f4Config = [
         ],
       },
       {
-        num: 'D8111-D8113',
+        num: 'D8111+8112+8113',
         name: '红苹果',
         isClick: false,
         position: [['0.30', '0.40']],
@@ -37,22 +37,22 @@ const f4Config = [
     color: '#D7688D',
     content: [
       {
-        num: 'D8012',
+        num: 'D8013',
         name: '松堡王国',
         isClick: false,
-        position: [['0.24', '0.31']],
+        position: [['0.22', '0.29']],
       },
       {
-        num: 'D8017, D8018',
+        num: 'D8018',
         name: '米琦庄园',
         isClick: false,
         position: [['0.14', '0.39']],
       },
       {
-        num: 'D8013',
-        name: '蓓凡',
+        num: 'D8115',
+        name: '洛可巴洛',
         isClick: false,
-        position: [['0.22', '0.29']],
+        position: [['0.24', '0.38']],
       },
     ],
   },
@@ -61,10 +61,10 @@ const f4Config = [
     color: '#E0A6A6',
     content: [
       {
-        num: 'D8215',
-        name: '格菲',
+        num: 'D8501临',
+        name: '大风范',
         isClick: false,
-        position: [['0.22', '0.42']],
+        position: [['0.16', '0.47']],
       },
     ],
   },
@@ -103,7 +103,7 @@ const f4Config = [
         position: [['0.65', '0.55']],
       },
       {
-        num: 'D8106, D8107+8108',
+        num: 'D8107+8108',
         name: '丝涟',
         isClick: false,
         position: [['0.58', '0.52']],
@@ -113,6 +113,18 @@ const f4Config = [
         name: '穗宝',
         isClick: false,
         position: [['0.28', '0.54']],
+      },
+      {
+        num: 'D8310',
+        name: '舒达',
+        isClick: false,
+        position: [['0.47', '0.61']],
+      },
+      {
+        num: 'D8012',
+        name: 'CBD',
+        isClick: false,
+        position: [['0.24', '0.31']],
       },
       {
         num: 'D8319+8320+8321',
@@ -127,7 +139,7 @@ const f4Config = [
         position: [['0.77', '0.52']],
       },
       {
-        num: 'D8205+8206, D8207+8208',
+        num: 'D8207+8208',
         name: '芝华仕',
         isClick: false,
         position: [
@@ -136,40 +148,57 @@ const f4Config = [
         ],
       },
       {
+        num: 'D8313',
+        name: '乐至宝',
+        isClick: false,
+        position: [['0.37', '0.57']],
+      },
+      {
         num: 'D8317',
         name: '哈曼',
         isClick: false,
         position: [['0.22', '0.52']],
       },
       {
-        num: 'D8101, D8201-8203, D8301-8307, D8308, D8309',
-        name: '卓尚家·顾家',
-        isClick: true,
-        position: [
-          ['0.56', '0.67'],
-          ['0.62', '0.70'],
-        ],
-      },
-      {
         num: 'D8301-1',
-        name: '卓尚家·雅兰',
+        name: '雅兰',
         isClick: false,
         position: [['0.86', '0.61']],
       },
       {
-        num: 'D8310',
-        name: '卓尚家·舒达',
+        num: '',
+        name: '顾家工艺',
         isClick: false,
-        position: [['0.47', '0.61']],
+        position: [['0.80', '0.76']],
       },
       {
-        num: 'D8311+8312, D8313',
-        name: '卓尚家·乐至宝',
+        num: '',
+        name: '顾家布艺',
         isClick: false,
-        position: [['0.37', '0.57']],
+        position: [['0.68', '0.70']],
+      },
+      {
+        num: '',
+        name: '顾家定制',
+        isClick: false,
+        position: [
+          ['0.57', '0.67'],
+          ['0.62', '0.70'],
+        ],
+      },
+      {
+        num: '',
+        name: '顾家睡眠',
+        isClick: false,
+        position: [
+          ['0.68', '0.62'],
+          ['0.74', '0.64'],
+          ['0.75', '0.58'],
+        ],
       },
     ],
   },
 ]
+
 export default f4Config
 // module.exports = f4Config

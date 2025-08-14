@@ -53,7 +53,7 @@ const ShopListB1 = () => {
           />
         </div>
         <div className={Style.cizhuan}>
-          <ShopGroup config={getTypeInFloorConfig(config, '超市')} />
+          <ShopGroup config={getTypeInFloorConfig(config, '门窗')} />
         </div>
       </div>
       <div className={Style.legendBox}>

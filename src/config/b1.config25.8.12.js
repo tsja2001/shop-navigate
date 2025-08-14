@@ -101,7 +101,7 @@ const b1Config = [
     content: [
       {
         num: 'F8305',
-        name: '凯瑟',
+        name: '沐瑟/邓禄普',
         isClick: false,
         position: [['0.37', '0.67']],
       },
@@ -123,12 +123,12 @@ const b1Config = [
     ],
   },
   {
-    type: '门窗',
+    type: '超市',
     color: '#E4A0C1',
     content: [
       {
         num: 'F8306',
-        name: '绿盾',
+        name: '超市',
         isClick: false,
         position: [['0.33', '0.65']],
       },
