@@ -201,3 +201,4 @@ const f4Config = [
 ]
 
 export default f4Config
+// module.exports = f4Config

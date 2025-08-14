@@ -282,7 +282,7 @@ const f2Config = [
       },
       {
         num: 'B8308',
-        name: '西天',
+        name: '西西',
         isClick: false,
         position: [['0.47', '0.39']],
       },
@@ -315,3 +315,4 @@ const f2Config = [
 ]
 
 export default f2Config
+// module.exports = f2Config

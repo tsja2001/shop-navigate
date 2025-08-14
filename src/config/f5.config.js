@@ -2,7 +2,7 @@ const f5Config = [
   {
     type: '定制',
     color: '#C38554',
-    content: [{ num: 'E8012- E8013', name: '品尚国际 劳卡', isClick: false }],
+    content: [{ num: 'E8012-E8013', name: '品尚国际 劳卡', isClick: false }],
   },
   {
     type: '实木家具',
@@ -160,3 +160,4 @@ const f5Config = [
 ]
 
 export default f5Config
+// module.exports = f5Config
