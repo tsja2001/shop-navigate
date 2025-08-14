@@ -30,10 +30,15 @@ const ShopList = () => {
       </div>
       <div className={`${Style.group} ${Style.group2}`}>
         <div className={Style.cizhuan}>
-          <ShopGroup config={getTypeInFloorConfig(config, '美缝')} />
+          <ShopGroup config={getTypeInFloorConfig(config, '电器')} />
+        </div>
+      </div>
+      <div className={`${Style.group} ${Style.group2}`}>
+        <div className={Style.cizhuan}>
+          <ShopGroup config={getTypeInFloorConfig(config, '其他')} />
         </div>
         <div className={Style.cizhuan}>
-          <ShopGroup config={getTypeInFloorConfig(config, '电器')} />
+          <ShopGroup config={getTypeInFloorConfig(config, '美缝')} />
         </div>
       </div>
       <div className={Style.legendBox}>

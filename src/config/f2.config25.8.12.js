@@ -6,7 +6,7 @@ const f2Config = [
     content: [
       {
         num: 'B8006',
-        name: '三力威',
+        name: '金牌衣柜',
         isClick: false,
         position: [['0.52', '0.41']],
       },
@@ -29,10 +29,19 @@ const f2Config = [
         position: [['0.64', '0.45']],
       },
       {
-        num: 'B8109+B8110',
+        num: 'B8010+8011',
         name: '欧派',
         isClick: false,
-        position: [['0.37', '0.43']],
+        position: [
+          ['0.37', '0.35'],
+          ['0.37', '0.43'],
+        ],
+      },
+      {
+        num: 'B8012',
+        name: '志邦',
+        isClick: false,
+        position: [['0.33', '0.33']],
       },
       {
         num: 'B8013',
@@ -60,39 +69,40 @@ const f2Config = [
       },
       {
         num: 'B8113',
-        name: '伊博莱',
+        name: '兔宝宝',
         isClick: false,
         position: [['0.28', '0.39']],
       },
       {
-        num: 'B8209+B8210',
+        num: 'B8209+8210',
         name: 'DSC',
         isClick: false,
         position: [['0.35', '0.47']],
       },
       {
-        num: 'B8319',
+        num: 'B8306',
+        name: '丽维家',
+        isClick: false,
+        position: [['0.68', '0.71']],
+      },
+      {
+        num: 'B8307',
+        name: '爱玛森珊',
+        isClick: false,
+        position: [['0.64', '0.71']],
+      },
+      {
+        num: 'B8319+8320',
         name: '多丽',
         isClick: false,
         position: [['0.14', '0.49']],
-      },
-      {
-        num: 'B8115',
-        name: '索菲亚',
-        isClick: false,
-        position: [['0.25', '0.37']],
-      },
-      {
-        num: 'B8010, B8011',
-        name: '百利玛',
-        isClick: false,
-        position: [['0.38', '0.35']],
       },
     ],
   },
   {
     type: '影音、灯饰、玻璃、硅藻泥',
     color: '#B1BD87',
+    isSearchResult: false,
     content: [
       {
         num: 'B8301',
@@ -101,7 +111,7 @@ const f2Config = [
         position: [['0.85', '0.68']],
       },
       {
-        num: 'B8216, B8321, B8322',
+        num: 'B8322',
         name: '名佳',
         isClick: false,
         position: [['0.10', '0.45']],
@@ -114,7 +124,7 @@ const f2Config = [
       },
       {
         num: 'B8201',
-        name: '兰舍/易来',
+        name: '兰舍',
         isClick: false,
         position: [['0.75', '0.64']],
       },
@@ -126,27 +136,28 @@ const f2Config = [
     content: [
       {
         num: 'B8003-2',
-        name: '安信',
+        name: '安信地板',
         isClick: false,
         position: [['0.61', '0.45']],
       },
       {
         num: 'B8005',
-        name: '大自然地板',
+        name: '大自然',
         isClick: false,
         position: [['0.56', '0.42']],
       },
+      { num: 'B8102', name: '圣蝶', isClick: false, position: [] },
       {
-        num: 'B8101',
-        name: '圣蝶',
-        isClick: false,
-        position: [['0.74', '0.58']],
-      },
-      {
-        num: 'B8107+B8108',
+        num: 'B8107+8108',
         name: '圣狮',
         isClick: false,
         position: [['0.57', '0.51']],
+      },
+      {
+        num: 'B8202',
+        name: '久盛',
+        isClick: false,
+        position: [['0.70', '0.62']],
       },
       {
         num: 'B8205',
@@ -161,12 +172,6 @@ const f2Config = [
         position: [['0.55', '0.56']],
       },
       {
-        num: 'B8308',
-        name: '久盛',
-        isClick: false,
-        position: [['0.61', '0.70']],
-      },
-      {
         num: 'B8309',
         name: '生活家',
         isClick: false,
@@ -175,26 +180,29 @@ const f2Config = [
     ],
   },
   {
+    type: '木门',
+    color: '#76D1C0',
+    content: [
+      { num: 'B8310', name: '开开', isClick: false, position: [] },
+      { num: 'B8311', name: '孟氏木门', isClick: false, position: [] },
+      { num: 'B8007', name: '春天', isClick: false },
+      { num: 'B8008', name: '西西', isClick: false },
+      { num: 'B8009', name: 'TATA', isClick: false },
+      { num: 'B8310', name: '开开', isClick: false },
+      { num: 'B8311', name: '孟氏木门', isClick: false },
+      { num: 'B8312', name: '兔宝宝', isClick: false },
+      { num: 'B8315', name: '美福', isClick: false },
+    ],
+  },
+  {
     type: '门、门窗',
     color: '#76D1C0',
     content: [
       {
-        num: 'B8007',
-        name: '春天',
+        num: 'B8211',
+        name: '龙甲',
         isClick: false,
-        position: [['0.50', '0.40']],
-      },
-      {
-        num: 'B8008',
-        name: '西西',
-        isClick: false,
-        position: [['0.47', '0.39']],
-      },
-      {
-        num: 'B8009',
-        name: 'TATA',
-        isClick: false,
-        position: [['0.43', '0.38']],
+        position: [['0.31', '0.46']],
       },
       {
         num: 'B8015',
@@ -203,28 +211,10 @@ const f2Config = [
         position: [['0.22', '0.29']],
       },
       {
-        num: 'B8016',
-        name: '千年舟',
-        isClick: false,
-        position: [['0.19', '0.29']],
-      },
-      {
         num: 'B8018',
         name: '森鹰',
         isClick: false,
         position: [['0.14', '0.38']],
-      },
-      {
-        num: 'B8211',
-        name: '龙甲',
-        isClick: false,
-        position: [['0.31', '0.46']],
-      },
-      {
-        num: 'B8212',
-        name: '屋里屋外',
-        isClick: false,
-        position: [['0.28', '0.45']],
       },
       {
         num: 'B8215',
@@ -233,40 +223,16 @@ const f2Config = [
         position: [['0.22', '0.42']],
       },
       {
-        num: 'B8306',
-        name: '福人空间',
+        num: 'B8212',
+        name: '屋里屋外',
         isClick: false,
-        position: [['0.68', '0.72']],
+        position: [['0.28', '0.45']],
       },
       {
-        num: 'B8310',
-        name: '开开',
+        num: 'B8213',
+        name: '雅帝乐',
         isClick: false,
-        position: [['0.48', '0.63']],
-      },
-      {
-        num: 'B8311',
-        name: '奥斯坦汀',
-        isClick: true,
-        position: [['0.44', '0.62']],
-      },
-      {
-        num: 'B8312',
-        name: '兔宝宝',
-        isClick: false,
-        position: [['0.41', '0.61']],
-      },
-      {
-        num: 'B8313',
-        name: '梵蒂斯',
-        isClick: false,
-        position: [['0.38', '0.59']],
-      },
-      {
-        num: 'B8315',
-        name: '美福',
-        isClick: false,
-        position: [['0.35', '0.57']],
+        position: [['0.25', '0.44']],
       },
       {
         num: 'B8316',
@@ -280,6 +246,54 @@ const f2Config = [
         isClick: false,
         position: [['0.21', '0.50']],
       },
+      {
+        num: 'B8315',
+        name: '美福',
+        isClick: false,
+        position: [['0.35', '0.57']],
+      },
+      {
+        num: 'B8313',
+        name: '梵蒂斯',
+        isClick: false,
+        position: [['0.38', '0.59']],
+      },
+      {
+        num: 'B8312',
+        name: '兔宝宝',
+        isClick: false,
+        position: [['0.41', '0.61']],
+      },
+      {
+        num: 'B8311',
+        name: '孟氏木门',
+        isClick: false,
+        position: [['0.44', '0.62']],
+      },
+      {
+        num: 'B8310',
+        name: '开开',
+        isClick: false,
+        position: [['0.48', '0.63']],
+      },
+      {
+        num: 'B8309',
+        name: 'TATA',
+        isClick: false,
+        position: [['0.43', '0.38']],
+      },
+      {
+        num: 'B8308',
+        name: '西西',
+        isClick: false,
+        position: [['0.47', '0.39']],
+      },
+      {
+        num: 'B8307',
+        name: '春天',
+        isClick: false,
+        position: [['0.50', '0.40']],
+      },
     ],
   },
   {
@@ -287,14 +301,14 @@ const f2Config = [
     color: '#AFC7C6',
     content: [
       {
-        num: 'B8102+B8103+B8202+B8203, B8302, B8303+B8305',
+        num: 'B8303+8305',
         name: '品尚艺墅',
         isClick: false,
         position: [['0.81', '0.75']],
       },
       {
         num: 'B8017',
-        name: '富豪',
+        name: '富豪楼梯',
         isClick: false,
         position: [['0.15', '0.34']],
       },

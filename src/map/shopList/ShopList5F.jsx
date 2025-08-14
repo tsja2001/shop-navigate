@@ -24,23 +24,20 @@ const ShopList5F = () => {
           <ShopGroup config={getTypeInFloorConfig(config, '灯饰')} />
         </div>
       </div>
-      <div className={`${Style.group}`}>
-        <div className={Style.cizhuan}>
-          <ShopGroup config={getTypeInFloorConfig(config, '装饰公司')} />
-        </div>
-        <div className={Style.cizhuan}>
-          <ShopGroup config={getTypeInFloorConfig(config, '极简轻奢')} />
-        </div>
-        <div className={Style.cizhuan}>
-          <ShopGroup config={getTypeInFloorConfig(config, '会员设计中心')} />
-        </div>
-      </div>
       <div className={Style.group}>
         <div className={Style.cizhuan}>
           <ShopGroup config={getTypeInFloorConfig(config, '欧美家具')} />
         </div>
         <div className={Style.cizhuan}>
           <ShopGroup config={getTypeInFloorConfig(config, '红木、榆木家具')} />
+        </div>
+      </div>
+      <div className={`${Style.group}`}>
+        <div className={Style.cizhuan}>
+          <ShopGroup config={getTypeInFloorConfig(config, '装饰公司')} />
+        </div>
+        <div className={Style.cizhuan}>
+          <ShopGroup config={getTypeInFloorConfig(config, '会员设计中心')} />
         </div>
       </div>
       <div className={`${Style.group}`}>

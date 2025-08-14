@@ -2,84 +2,53 @@ const f5Config = [
   {
     type: '定制',
     color: '#C38554',
-    content: [
-      {
-        num: 'E8012-E8013',
-        name: '品尚国际 劳卡',
-        isClick: false,
-        position: [['0.23', '0.29']],
-      },
-      {
-        num: 'E8007, E8008',
-        name: '品尚国际 巴夏',
-        isClick: false,
-        position: [['0.46', '0.38']],
-      },
-      {
-        num: 'E8009-E8011',
-        name: '品尚国际 名图',
-        isClick: false,
-        position: [['0.35', '0.34']],
-      },
-    ],
+    content: [{ num: 'E8012-E8013', name: '品尚国际 劳卡', isClick: false }],
   },
   {
     type: '实木家具',
     color: '#CE8C58',
     content: [
       {
-        num: 'E8101, E8201',
+        num: 'E8101+8201',
         name: '红大旭辉',
         isClick: false,
         position: [['0.74', '0.61']],
       },
       {
-        num: 'E8102',
+        num: 'E8102+8202+8203',
         name: '南大',
         isClick: false,
         position: [['0.68', '0.61']],
       },
       {
-        num: 'E8103-E8105',
+        num: 'E8103+8105',
         name: '鲁班·印',
         isClick: false,
         position: [['0.66', '0.55']],
       },
       {
-        num: 'E8106-E8108',
+        num: 'E8106+8107+8108',
         name: '光明',
         isClick: false,
         position: [['0.58', '0.52']],
       },
       {
-        num: 'E8204, E8205',
+        num: 'E8205+8206',
         name: '梓乔',
         isClick: false,
         position: [['0.61', '0.59']],
       },
       {
-        num: 'E8109, E8110, E8209, E8210',
-        name: '品尚国际 俞木匠·东熙',
+        num: 'E8211- E8213',
+        name: '品尚国际 俞木匠 东熙',
         isClick: false,
         position: [['0.36', '0.46']],
       },
       {
-        num: 'E8005, E8006',
-        name: '华日',
+        num: 'E8211- E8213',
+        name: '品尚国际 万象',
         isClick: false,
-        position: [['0.54', '0.41']],
-      },
-      {
-        num: 'E8202, E8203',
-        name: '中顺',
-        isClick: false,
-        position: [['0.68', '0.61']],
-      },
-      {
-        num: 'E8206-E8208',
-        name: '双叶',
-        isClick: false,
-        position: [['0.54', '0.56']],
+        position: [['0.35', '0.34']],
       },
     ],
   },
@@ -88,22 +57,16 @@ const f5Config = [
     color: '#F0CA55',
     content: [
       {
-        num: 'E8111-E8113',
+        num: 'E8111- E8113',
         name: '品尚国际 北卡罗',
         isClick: false,
         position: [['0.30', '0.40']],
       },
       {
-        num: 'E8211-E8213',
+        num: 'E8211- E8213',
         name: '品尚国际 乔治巴顿',
         isClick: false,
         position: [['0.28', '0.45']],
-      },
-      {
-        num: 'E8115, E8215',
-        name: '卡瑞第',
-        isClick: false,
-        position: [['0.23', '0.41']],
       },
     ],
   },
@@ -113,45 +76,9 @@ const f5Config = [
     content: [
       {
         num: 'E8315-E8317',
-        name: 'AI⁺智慧家居生活馆',
+        name: 'AI+智能家居生活馆',
         isClick: false,
         position: [['0.25', '0.53']],
-      },
-    ],
-  },
-  {
-    type: '红木、榆木家具',
-    color: '#975038',
-    content: [
-      {
-        num: 'E8308',
-        name: '阅见',
-        isClick: false,
-        position: [['0.62', '0.70']],
-      },
-      {
-        num: 'E8002, E8003, E8309',
-        name: '震乾红木',
-        isClick: false,
-        position: [['0.57', '0.67']],
-      },
-      {
-        num: 'E8306+E8307',
-        name: '东阳木雕',
-        isClick: false,
-        position: [['0.67', '0.71']],
-      },
-    ],
-  },
-  {
-    type: '装饰公司',
-    color: '#EFC954',
-    content: [
-      {
-        num: 'E8310-E8313',
-        name: '尚家装饰',
-        isClick: false,
-        position: [['0.43', '0.60']],
       },
     ],
   },
@@ -171,8 +98,44 @@ const f5Config = [
     ],
   },
   {
-    type: '会员设计中心',
-    color: '#BDC898',
+    type: '红木、榆木家具',
+    color: '#975038',
+    content: [
+      {
+        num: 'E8308',
+        name: '阅见',
+        isClick: false,
+        position: [['0.62', '0.70']],
+      },
+      {
+        num: 'E8309-2',
+        name: '震乾',
+        isClick: false,
+        position: [['0.57', '0.67']],
+      },
+      {
+        num: 'E8306+8307',
+        name: '东阳木雕',
+        isClick: false,
+        position: [['0.67', '0.71']],
+      },
+    ],
+  },
+  {
+    type: '装饰公司',
+    color: '#EFC954',
+    content: [
+      {
+        num: 'E8310+8311+8312+8313',
+        name: '峰尚一品',
+        isClick: false,
+        position: [['0.43', '0.60']],
+      },
+    ],
+  },
+  {
+    type: '极简轻奢',
+    color: '#EF9D67',
     content: [
       {
         num: 'E8318-E8319',
@@ -180,20 +143,21 @@ const f5Config = [
         isClick: false,
         position: [['0.11', '0.49']],
       },
+    ],
+  },
+  {
+    type: '会员设计中心',
+    color: '#C0CF54',
+    content: [
       {
-        num: 'E8015-E8018, E8320, E8321',
+        num: 'E8015-E8320',
         name: '品尚国际',
         isClick: false,
         position: [['0.15', '0.38']],
       },
-      {
-        num: 'E8303, E8305',
-        name: '服务中心',
-        isClick: true,
-        position: [['0.78', '0.77']],
-      },
     ],
   },
 ]
+
 export default f5Config
 // module.exports = f5Config
