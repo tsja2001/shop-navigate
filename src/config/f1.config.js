@@ -13,7 +13,7 @@ const f1Config = [
       },
       {
         num: 'A8012-1',
-        name: '海信',
+        name: '方圆合',
         isClick: false,
         position: [['0.24', '0.31']],
       },
@@ -64,7 +64,7 @@ const f1Config = [
       },
       {
         num: 'A8315, A8316',
-        name: '海信电器',
+        name: '方圆合',
         isClick: false,
         position: [['0.24', '0.31']],
       },
@@ -127,7 +127,7 @@ const f1Config = [
       },
       {
         num: 'A8301',
-        name: '瑞尔特',
+        name: '欧贝尔',
         isClick: false,
         position: [['0.85', '0.70']],
       },
@@ -233,12 +233,18 @@ const f1Config = [
       {
         num: 'A8310',
         name: '马可波罗',
-        isClick: false,
+        isClick: true,
         position: [['0.35', '0.58']],
       },
       {
+        num: 'A8311',
+        name: '盛大凌云',
+        isClick: false,
+        position: [['0.32', '0.55']],
+      },
+      {
         num: 'A8312-1',
-        name: 'L&D',
+        name: '唯美&LD',
         isClick: false,
         position: [['0.26', '0.55']],
       },
@@ -324,7 +330,7 @@ const f1Config = [
       {
         num: 'A8013',
         name: '超市',
-        isClick: true,
+        isClick: false,
         position: [['0.18', '0.30']],
       },
     ],

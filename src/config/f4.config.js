@@ -30,6 +30,18 @@ const f4Config = [
         isClick: false,
         position: [['0.30', '0.40']],
       },
+      {
+        num: 'D8115',
+        name: '哈克贝哩爱丁堡',
+        isClick: false,
+        position: [['0.25', '0.38']],
+      },
+      {
+        num: 'D8115',
+        name: '紫兰美居',
+        isClick: true,
+        position: [['0.13', '0.50']],
+      },
     ],
   },
   {
@@ -144,7 +156,7 @@ const f4Config = [
       {
         num: 'D8101, D8201-8203, D8301-8307, D8308, D8309',
         name: '卓尚家·顾家',
-        isClick: true,
+        isClick: false,
         position: [
           ['0.56', '0.67'],
           ['0.62', '0.70'],
@@ -164,12 +176,13 @@ const f4Config = [
       },
       {
         num: 'D8311+8312, D8313',
-        name: '卓尚家·乐至宝',
+        name: 'Lazboy',
         isClick: false,
         position: [['0.37', '0.57']],
       },
     ],
   },
 ]
+
 export default f4Config
 // module.exports = f4Config

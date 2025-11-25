@@ -16,22 +16,28 @@ const f3Config = [
         position: [['0.56', '0.42']],
       },
       {
+        num: 'C8015',
+        name: '维洛尼',
+        isClick: false,
+        position: [[0.19,0.29]],
+      },
+      {
         num: 'C8007, C8008-1',
         name: '博洛尼',
         isClick: false,
         position: [['0.45', '0.38']],
       },
-      {
-        num: 'C8009-2',
-        name: '尚佳鑫宇',
-        isClick: false,
-        position: [['0.35', '0.35']],
-      },
+      // {
+      //   num: 'C8009-2',
+      //   name: '尚佳鑫宇',
+      //   isClick: false,
+      //   position: [['0.35', '0.35']],
+      // },
       {
         num: 'C8010',
-        name: '优格',
+        name: '爱瑞德',
         isClick: false,
-        position: [['0.33', '0.34']],
+        position: [[0.37,0.34]],
       },
       {
         num: 'C8013',
@@ -75,12 +81,12 @@ const f3Config = [
         isClick: false,
         position: [['0.56', '0.66']],
       },
-      {
-        num: 'C8310',
-        name: '都驰',
-        isClick: false,
-        position: [['0.49', '0.62']],
-      },
+      // {
+      //   num: 'C8310',
+      //   name: '都驰',
+      //   isClick: false,
+      //   position: [['0.49', '0.62']],
+      // },
       {
         num: 'C8311',
         name: '我乐',
@@ -221,13 +227,13 @@ const f3Config = [
       },
       {
         num: 'C8113',
-        name: '雷士',
+        name: '南方灯饰',
         isClick: true,
         position: [['0.24', '0.38']],
       },
       {
         num: 'C8306-2',
-        name: '施耐德',
+        name: '雷士',
         isClick: false,
         position: [['0.68', '0.69']],
       },
@@ -281,7 +287,7 @@ const f3Config = [
       },
       {
         num: 'C8011',
-        name: '美大',
+        name: '优格',
         isClick: false,
         position: [['0.31', '0.33']],
       },
@@ -299,7 +305,7 @@ const f3Config = [
       },
       {
         num: 'C8315',
-        name: '松下',
+        name: '林内、安吉尔',
         isClick: false,
         position: [['0.28', '0.53']],
       },
@@ -314,6 +320,12 @@ const f3Config = [
         name: '美的电器',
         isClick: false,
         position: [['0.17', '0.48']],
+      },
+      {
+        num: 'C8317-1',
+        name: '能率',
+        isClick: false,
+        position: [['0.2', '0.5']],
       },
     ],
   },

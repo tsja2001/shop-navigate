@@ -10,16 +10,28 @@ const f5Config = [
         position: [['0.23', '0.29']],
       },
       {
-        num: 'E8007, E8008',
-        name: '品尚国际 巴夏',
+        num: 'E8008',
+        name: '纯木态度',
         isClick: false,
-        position: [['0.46', '0.38']],
+        position: [['0.44', '0.38']],
+      },
+      {
+        num: 'E8007',
+        name: '原木智作',
+        isClick: false,
+        position: [['0.48', '0.38']],
       },
       {
         num: 'E8009-E8011',
         name: '品尚国际 名图',
         isClick: false,
         position: [['0.35', '0.34']],
+      },
+      {
+        num: 'E8310-E8313',
+        name: '双叶',
+        isClick: false,
+        position: [['0.55', '0.56'],],
       },
     ],
   },
@@ -37,8 +49,14 @@ const f5Config = [
         num: 'E8102',
         name: '南大',
         isClick: false,
-        position: [['0.68', '0.61']],
+        position: [[0.67,0.55]],
       },
+      // {
+      //   num: 'E8203-E8202',
+      //   name: '中顺',
+      //   isClick: false,
+      //   position: [['0.68', '0.61']],
+      // },
       {
         num: 'E8103-E8105',
         name: '鲁班·印',
@@ -59,9 +77,13 @@ const f5Config = [
       },
       {
         num: 'E8109, E8110, E8209, E8210',
-        name: '品尚国际 俞木匠·东熙',
-        isClick: false,
-        position: [['0.36', '0.46']],
+        name: '品尚国际 全友',
+        isClick: true,
+        position: [
+          ['0.36', '0.46'],
+          ['0.28', '0.45'],
+          ['0.30', '0.40'],
+        ],
       },
       {
         num: 'E8005, E8006',
@@ -87,18 +109,6 @@ const f5Config = [
     type: '欧美家具',
     color: '#F0CA55',
     content: [
-      {
-        num: 'E8111-E8113',
-        name: '品尚国际 北卡罗',
-        isClick: false,
-        position: [['0.30', '0.40']],
-      },
-      {
-        num: 'E8211-E8213',
-        name: '品尚国际 乔治巴顿',
-        isClick: false,
-        position: [['0.28', '0.45']],
-      },
       {
         num: 'E8115, E8215',
         name: '卡瑞第',
@@ -164,8 +174,7 @@ const f5Config = [
         name: '万家美',
         isClick: false,
         position: [
-          ['0.85', '0.57'],
-          ['0.55', '0.56'],
+          ['0.85', '0.57']
         ],
       },
     ],
@@ -189,11 +198,12 @@ const f5Config = [
       {
         num: 'E8303, E8305',
         name: '服务中心',
-        isClick: true,
+        isClick: false,
         position: [['0.78', '0.77']],
       },
     ],
   },
 ]
+
 export default f5Config
 // module.exports = f5Config

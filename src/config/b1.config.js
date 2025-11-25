@@ -35,7 +35,7 @@ const b1Config = [
     content: [
       {
         num: 'F8101+8102',
-        name: '普托米亚',
+        name: 'D&C',
         isClick: false,
         position: [['0.57', '0.53']],
       },

@@ -12,7 +12,7 @@ const f2Config = [
       },
       {
         num: 'B8001',
-        name: 'OEA',
+        name: '京东定制',
         isClick: false,
         position: [['0.77', '0.50']],
       },
@@ -41,16 +41,16 @@ const f2Config = [
         position: [['0.24', '0.30']],
       },
       {
+        num: 'B8012',
+        name: '志邦',
+        isClick: false,
+        position: [['0.32', '0.33']],
+      },
+      {
         num: 'B8105+8106',
         name: '德维尔',
         isClick: false,
         position: [['0.63', '0.54']],
-      },
-      {
-        num: 'B8111',
-        name: '慕俬',
-        isClick: false,
-        position: [['0.33', '0.42']],
       },
       {
         num: 'B8112',
@@ -83,10 +83,16 @@ const f2Config = [
         position: [['0.25', '0.37']],
       },
       {
-        num: 'B8010, B8011',
+        num: 'B8010,',
         name: '百利玛',
         isClick: false,
         position: [['0.38', '0.35']],
+      },
+      {
+        num: 'B8011,',
+        name: '唯宝建筑',
+        isClick: false,
+        position: [['0.35', '0.33']],
       },
     ],
   },
@@ -114,7 +120,7 @@ const f2Config = [
       },
       {
         num: 'B8201',
-        name: '兰舍/易来',
+        name: '兰舍',
         isClick: false,
         position: [['0.75', '0.64']],
       },
@@ -162,7 +168,7 @@ const f2Config = [
       },
       {
         num: 'B8308',
-        name: '久盛',
+        name: '威兹帕克',
         isClick: false,
         position: [['0.61', '0.70']],
       },
@@ -172,6 +178,7 @@ const f2Config = [
         isClick: false,
         position: [['0.56', '0.66']],
       },
+      { num: 'B8308', name: '久盛', isClick: true, position: [[0.61, 0.71]] },
     ],
   },
   {
@@ -247,7 +254,7 @@ const f2Config = [
       {
         num: 'B8311',
         name: '奥斯坦汀',
-        isClick: true,
+        isClick: false,
         position: [['0.44', '0.62']],
       },
       {
@@ -276,7 +283,7 @@ const f2Config = [
       },
       {
         num: 'B8318',
-        name: '波特意特',
+        name: '沃盾',
         isClick: false,
         position: [['0.21', '0.50']],
       },
