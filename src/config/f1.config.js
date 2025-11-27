@@ -62,12 +62,12 @@ const f1Config = [
         isClick: false,
         position: [['0.40', '0.38']],
       },
-      {
-        num: 'A8315, A8316',
-        name: '方圆合',
-        isClick: false,
-        position: [['0.24', '0.31']],
-      },
+      // {
+      //   num: 'A8315, A8316',
+      //   name: '方圆合',
+      //   isClick: false,
+      //   position: [['0.24', '0.31']],
+      // },
     ],
   },
   {

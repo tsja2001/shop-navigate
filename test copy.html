@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>一汽物流组织架构图</title>
+    <style>
+        :root {
+            --primary-blue: #102b6a; /* 深蓝 */
+            --bg-light-blue: #dce6f0; /* 浅蓝背景 */
+            --bg-page: #f8f9fa;
+            --line-color: #102b6a;
+        }
+
+        body {
+            font-family: "Microsoft YaHei", SimHei, sans-serif;
+            background-color: var(--bg-page);
+            margin: 0;
+            padding: 40px;
+            display: flex;
+            justify-content: center;
+            min-width: 1600px;
+        }
+
+        /* ------------------ 基础布局 ------------------ */
+        .org-chart {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        /* 根节点 (一汽物流) */
+        .root-node {
+            background-color: var(--primary-blue);
+            color: white;
+            font-size: 26px;
+            font-weight: bold;
+            padding: 12px 120px;
+            margin-bottom: 40px;
+            position: relative;
+            z-index: 10;
+        }
+
+        /* 根节点向下引线 */
+        .root-node::after {
+            content: '';
+            position: absolute;
+            bottom: -20px;
+            left: 50%;
+            width: 2px;
+            height: 20px;
+            background-color: var(--line-color);
+        }
+
+        /* 一级部门整体容器 */
+        .level-1-container {
+            display: flex;
+            align-items: flex-start;
+            position: relative;
+            padding-top: 20px; /* 留出横线位置 */
+        }
+
+        /* 顶部横向总线 (连接所有一级部门) */
+        .top-bridge-line {
+            position: absolute;
+            top: 0;
+            left: 100px; /* 根据内容调整 */
+            right: 100px;
+            height: 2px;
+            background-color: var(--line-color);
+        }
+        
+        /* 侧边标签栏 (一级部门/二级部门) */
+        .side-labels {
+            display: flex;
+            flex-direction: column;
+            margin-right: 30px;
+            padding-top: 50px;
+        }
+        .side-label-text {
+            writing-mode: vertical-rl;
+            font-size: 24px;
+            font-weight: bold;
+            color: var(--primary-blue);
+            height: 200px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 50px; /* 间距 */
+        }
+
+        /* ------------------ 分组样式 (虚线框) ------------------ */
+        .group-box {
+            background-color: var(--bg-light-blue);
+            border: 2px dashed var(--primary-blue);
+            padding: 15px 10px;
+            margin: 0 5px;
+            display: flex;
+            position: relative;
+        }
+
+        /* 分组左侧的深蓝标签 (如：敏捷型前台) */
+        .group-label {
+            background-color: var(--primary-blue);
+            color: white;
+            writing-mode: vertical-rl;
+            text-orientation: upright;
+            font-size: 16px;
+            font-weight: bold;
+            padding: 10px 8px;
+            letter-spacing: 4px;
+            margin-right: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 2px 2px 5px rgba(0,0,0,0.1);
+        }
+
+        /* 部门列容器 */
+        .dept-column {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 0 8px;
+            position: relative;
+        }
+
+        /* ------------------ 一级部门卡片 ------------------ */
+        .level-1-card {
+            writing-mode: vertical-rl;
+            text-orientation: upright;
+            background-color: white;
+            border: 1px solid #ccc; /* 默认实线，部分可能需要调整 */
+            padding: 20px 10px;
+            font-size: 15px;
+            font-weight: bold;
+            color: #333;
+            min-height: 220px; /* 高度 */
+            width: 32px;
+            letter-spacing: 2px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            z-index: 2;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+
+        /* 特殊：虚线边框的一级部门 (如图片中某些样式) */
+        .level-1-card.dashed-border {
+            border: 2px dashed var(--primary-blue);
+        }
+
+        .level-1-card .small-text {
+            font-size: 12px;
+            margin-bottom: 8px;
+            color: #555;
+            display: block;
+        }
+
+        /* 一级部门向上连接总线的竖线 */
+        .dept-column::before {
+            content: '';
+            position: absolute;
+            top: -40px; /* 穿出虚线框 */
+            left: 50%;
+            width: 2px;
+            height: 40px;
+            background-color: var(--line-color);
+            z-index: 1;
+        }
+        
+        /* 一级部门向下连接二级部门的竖线 */
+        .level-1-card::after {
+            content: '';
+            position: absolute;
+            bottom: -20px;
+            left: 50%;
+            width: 2px;
+            height: 20px;
+            background-color: var(--line-color);
+        }
+        /* 如果没有子节点，隐藏下连线 */
+        .no-children::after {
+            display: none;
+        }
+
+        /* ------------------ 二级部门区域 ------------------ */
+        .level-2-wrapper {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px; /* 留出横线位置 */
+            position: relative;
+            padding-top: 15px;
+        }
+
+        /* 二级部门卡片 */
+        .level-2-card {
+            writing-mode: vertical-rl;
+            text-orientation: upright;
+            background-color: white;
+            border: 1px solid #ddd;
+            padding: 10px 6px;
+            font-size: 14px;
+            color: #444;
+            min-height: 180px;
+            width: 24px;
+            margin: 0 4px; /* 卡片间距 */
+            letter-spacing: 1px;
+            position: relative;
+            border-radius: 4px;
+        }
+
+        /* 连线系统：二级部门 */
+        /* 1. 每个子节点向上的短竖线 */
+        .level-2-card::before {
+            content: '';
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            width: 2px;
+            height: 15px;
+            background-color: var(--line-color);
+        }
+
+        /* 2. 顶部横向连线 (使用 after 伪元素拼接实现完美连接) */
+        .level-2-card::after {
+            content: '';
+            position: absolute;
+            top: -15px; /* 与竖线顶部对齐 */
+            height: 2px;
+            background-color: var(--line-color);
+        }
+
+        /* 第一个子节点：横线向右延展 */
+        .level-2-card:first-child::after {
+            left: 50%;
+            width: 55%; /* 多一点覆盖缝隙 */
+        }
+        /* 最后一个子节点：横线向左延展 */
+        .level-2-card:last-child::after {
+            right: 50%;
+            width: 55%;
+        }
+        /* 中间节点：横线贯穿 */
+        .level-2-card:not(:first-child):not(:last-child)::after {
+            left: -2px; /* 稍微重叠以防缝隙 */
+            width: calc(100% + 10px); /* 宽度覆盖整个间距 */
+        }
+        
+        /* 如果只有一个子节点，不需要横线，只需要竖线 */
+        .level-2-wrapper.single-child .level-2-card::after {
+            display: none;
+        }
+
+        /* 辅助微调 */
+        /* 调整总线的宽度覆盖范围，这里通过JS或具体padding控制，这里使用简单的absolute left/right微调 */
+        .top-bridge-line {
+            left: 50px;
+            right: 50px;
+        }
+
+    </style>
+</head>
+<body>
+
+<div class="org-chart">
+    <!-- 标题 -->
+    <div class="root-node">一汽物流</div>
+
+    <!-- 主体内容 -->
+    <div class="level-1-container">
+        <!-- 顶部总线 -->
+        <div class="top-bridge-line"></div>
+
+        <!-- 左侧文字标识 -->
+        <div class="side-labels">
+            <div class="side-label-text">一级部门</div>
+            <div class="side-label-text" style="height: 180px; margin-top: 20px;">二级部门</div>
+        </div>
+
+        <!-- 1. 敏捷型前台组 -->
+        <div class="group-box">
+            <div class="group-label">敏捷型前台</div>
+            
+            <!-- 智慧物流技术研究院 -->
+            <div class="dept-column">
+                <div class="level-1-card dashed-border">智慧物流技术研究院</div>
+                <div class="level-2-wrapper">
+                    <div class="level-2-card">产品规划室</div>
+                    <div class="level-2-card">解决方案产品研发室</div>
+                    <div class="level-2-card">智能装备研发室</div>
+                    <div class="level-2-card">包装技术研发室</div>
+                    <div class="level-2-card">产品支撑室</div>
+                </div>
+            </div>
+
+            <!-- 全球营销服务部 -->
+            <div class="dept-column">
+                <div class="level-1-card dashed-border">全球营销服务部</div>
+                <div class="level-2-wrapper">
+                    <div class="level-2-card">市场及销售管理室</div>
+                    <div class="level-2-card">品牌客户代表室</div>
+                    <div class="level-2-card">商务管理室</div>
+                    <div class="level-2-card">投标方案室</div>
+                    <div class="level-2-card">客户服务室</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 2. 能力型中台组 -->
+        <div class="group-box">
+            <div class="group-label">能力型中台</div>
+            
+            <!-- 战略与投资管理部 -->
+            <div class="dept-column">
+                <div class="level-1-card dashed-border">战略与投资管理部</div>
+                <div class="level-2-wrapper">
+                    <div class="level-2-card">战略管理室</div>
+                    <div class="level-2-card">产业发展室</div>
+                    <div class="level-2-card">投资管理室</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 3. 供应链运营部 (独立虚线框) -->
+        <div class="group-box">
+            <div class="dept-column">
+                <div class="level-1-card dashed-border">
+                    <span class="small-text">(安全部)</span>
+                    供应链运营部
+                </div>
+                <div class="level-2-wrapper">
+                    <div class="level-2-card">供应链资源室</div>
+                    <div class="level-2-card">一体化运营室</div>
+                    <div class="level-2-card">质量管理室</div>
+                    <div class="level-2-card">安全环保室</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 4. 采购部 (独立虚线框) -->
+        <div class="group-box">
+            <div class="dept-column">
+                <div class="level-1-card dashed-border">采购部</div>
+                <div class="level-2-wrapper">
+                    <div class="level-2-card">采购规划室</div>
+                    <div class="level-2-card">供应商管理室</div>
+                    <div class="level-2-card">整车物流采购室</div>
+                    <div class="level-2-card">部品物流采购室</div>
+                    <div class="level-2-card">一般材料采购室</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 5. 右侧其他部门 (保持行宽，但不展开子节点以聚焦图片内容) -->
+        <div class="group-box">
+            <div class="dept-column">
+                <div class="level-1-card dashed-border no-children">
+                    <span class="small-text">(党委干部部)</span>
+                    人力资源部
+                </div>
+            </div>
+            <div class="dept-column">
+                <div class="level-1-card dashed-border no-children">财务控制部</div>
+            </div>
+            <div class="dept-column">
+                <div class="level-1-card dashed-border no-children">体系数字化部</div>
+            </div>
+            <div class="dept-column">
+                <div class="level-1-card dashed-border no-children">综合管理部</div>
+            </div>
+            <div class="dept-column">
+                <div class="level-1-card dashed-border no-children">审计与法务部</div>
+            </div>
+            <div class="dept-column">
+                <div class="level-1-card dashed-border no-children">党群工作部</div>
+            </div>
+            <div class="dept-column">
+                <div class="level-1-card dashed-border no-children">
+                    <span class="small-text">(党委巡察办)</span>
+                    纪检工作部
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+</body>
+</html>
