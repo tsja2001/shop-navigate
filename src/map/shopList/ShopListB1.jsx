@@ -27,9 +27,9 @@ const ShopListB1 = () => {
         </div>
       </div>
       <div className={`${Style.group} ${Style.group1}`}>
-        <div className={Style.cizhuan}>
+        {/* <div className={Style.cizhuan}>
           <ShopGroup config={getTypeInFloorConfig(config, '办公家具')} />
-        </div>
+        </div> */}
         <div className={Style.cizhuan}>
           <ShopGroup config={getTypeInFloorConfig(config, '沙发')} />
         </div>

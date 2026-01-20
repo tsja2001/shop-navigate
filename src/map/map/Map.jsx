@@ -3,12 +3,21 @@ import Style from './Map.module.less'
 import { MapContext } from '../MapWapper'
 import { useSearchParams } from 'react-router-dom'
 import mine from '../../assets/map/arr.jpg'
+import { Checkbox, Button, message } from 'antd'
+import { CopyOutlined } from '@ant-design/icons'
 
 // 地图容器
 const Map = ({ floor, clickHandler }) => {
   const mapRef = useRef(null)
 
-  const { currentFloorConfig, clickShopItem, showAllBrands } = useContext(MapContext)
+  const {
+    currentFloorConfig,
+    clickShopItem,
+    showAllBrands,
+    showLabelsOnMap,
+    devModel: devModelFromContext,
+    handleClickShop,
+  } = useContext(MapContext)
   // 地图容器宽高
   const [mapRect, setMapRect] = useState({})
   // dev模式下 要现实所有的points
@@ -32,6 +41,15 @@ const Map = ({ floor, clickHandler }) => {
       setDevModel(true)
     }
   }, [])
+
+  // 复制 position 数据
+  const copyPosition = (position, e) => {
+    e.stopPropagation() // 阻止事件冒泡
+    const positionStr = position.map((item) => `[${item.join(',')}]`).join(',')
+    navigator.clipboard.writeText(positionStr).then(() => {
+      message.success('位置数据已复制到剪贴板')
+    })
+  }
 
   // 初始化计算父元素宽高
   useEffect(() => {
@@ -72,7 +90,7 @@ const Map = ({ floor, clickHandler }) => {
             console.log(
               'mapRect.width mapRect.height',
               mapRect.width,
-              mapRect.height
+              mapRect.height,
             )
             const x = (position[0] * mapRect.width).toFixed(2) + 'px'
             const y = (position[1] * mapRect.height).toFixed(2) - 150 + 'px'
@@ -92,6 +110,34 @@ const Map = ({ floor, clickHandler }) => {
     // console.log('positions allallall', positions)
     setAllPoints(positions)
   }, [currentFloorConfig, mapRect, showAllBrands])
+
+  // 获取所有有位置的商户数据（用于在地图上展示名称）
+  const getAllShopsWithPositions = () => {
+    const shopsWithPositions = []
+    currentFloorConfig.forEach((typeConfig) => {
+      typeConfig.content.forEach((shop) => {
+        if (shop.position && shop.position.length > 0) {
+          shop.position.forEach((position, posIndex) => {
+            const x = (position[0] * mapRect.width).toFixed(2) + 'px'
+            const y = (position[1] * mapRect.height).toFixed(2) - 150 + 'px'
+            shopsWithPositions.push({
+              x,
+              y,
+              name: shop.name,
+              num: shop.num,
+              position: shop.position,
+              type: typeConfig.type,
+              color: typeConfig.color,
+              shopData: shop,
+              typeConfig: typeConfig,
+              positionIndex: posIndex,
+            })
+          })
+        }
+      })
+    })
+    return shopsWithPositions
+  }
 
   // 监听当前点击的店铺, 显示当前店铺位置
   useEffect(() => {
@@ -146,6 +192,44 @@ const Map = ({ floor, clickHandler }) => {
               ></div>
             )
           })}
+        {/* 显示所有商户的名称标签（开发模式 + 开启展示名称） */}
+        {devModel && showLabelsOnMap && mapRect.width && (
+          <>
+            {getAllShopsWithPositions().map((shopMarker, index) => (
+              <div
+                key={`${shopMarker.num}-${index}`}
+                className={`${Style.labelMarker} ${Style.point}`}
+                style={{ left: shopMarker.x, top: shopMarker.y }}
+              >
+                <div className={Style.labelMarkerInner}></div>
+                <div className={Style.markerLabel}>
+                  <div className={Style.shopName}>{shopMarker.name}</div>
+                  <div className={Style.checkboxRow}>
+                    <Checkbox
+                      onClick={(e) => {
+                        e.stopPropagation()
+                        handleClickShop(
+                          shopMarker.shopData,
+                          shopMarker.typeConfig,
+                        )
+                      }}
+                    />
+                    <Checkbox
+                      className={Style.redCheckbox}
+                      onClick={(e) => {
+                        e.stopPropagation()
+                        handleClickShop(
+                          shopMarker.shopData,
+                          shopMarker.typeConfig,
+                        )
+                      }}
+                    />
+                  </div>
+                </div>
+              </div>
+            ))}
+          </>
+        )}
         {/* 黄的圆点, 当前点击的店铺位置 */}
         {currentPoint &&
           currentPoint.map((item, index) => {
@@ -165,7 +249,7 @@ const Map = ({ floor, clickHandler }) => {
             className={Style.minePositionWapper}
             style={{
               left: 0.41 * mapRect.width + 'px',
-              top: (0.6 * mapRect.height - 150) + 'px',
+              top: 0.6 * mapRect.height - 150 + 'px',
             }}
           >
             <img src={mine} alt="mine" />

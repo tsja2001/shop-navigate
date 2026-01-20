@@ -31,7 +31,7 @@ const f5Config = [
         num: 'E8310-E8313',
         name: '双叶',
         isClick: false,
-        position: [['0.55', '0.56'],],
+        position: [['0.55', '0.56']],
       },
     ],
   },
@@ -49,7 +49,7 @@ const f5Config = [
         num: 'E8102',
         name: '南大',
         isClick: false,
-        position: [[0.67,0.55]],
+        position: [[0.67, 0.55]],
       },
       // {
       //   num: 'E8203-E8202',
@@ -87,7 +87,7 @@ const f5Config = [
       },
       {
         num: 'E8005, E8006',
-        name: '华日',
+        name: '天坛',
         isClick: false,
         position: [['0.54', '0.41']],
       },
@@ -97,12 +97,12 @@ const f5Config = [
         isClick: false,
         position: [['0.68', '0.61']],
       },
-      {
-        num: 'E8206-E8208',
-        name: '双叶',
-        isClick: false,
-        position: [['0.54', '0.56']],
-      },
+      // {
+      //   num: 'E8206-E8208',
+      //   name: '双叶',
+      //   isClick: false,
+      //   position: [['0.54', '0.56']],
+      // },
     ],
   },
   {
@@ -143,7 +143,10 @@ const f5Config = [
         num: 'E8002, E8003, E8309',
         name: '震乾红木',
         isClick: false,
-        position: [['0.57', '0.67']],
+        position: [
+          ['0.57', '0.67'],
+          ['0.65', '0.45'],
+        ],
       },
       {
         num: 'E8306+E8307',
@@ -173,14 +176,12 @@ const f5Config = [
         num: 'E8302',
         name: '万家美',
         isClick: false,
-        position: [
-          ['0.85', '0.57']
-        ],
+        position: [['0.85', '0.57']],
       },
     ],
   },
   {
-    type: '会员设计中心',
+    type: '全案设计',
     color: '#BDC898',
     content: [
       {

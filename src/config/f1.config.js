@@ -40,8 +40,8 @@ const f1Config = [
         name: '卡萨帝',
         isClick: false,
         position: [
+          ['0.5', '0.39'],
           ['0.55', '0.41'],
-          ['0.47', '0.38'],
         ],
       },
       {
@@ -61,6 +61,21 @@ const f1Config = [
         name: '美的中央空调',
         isClick: false,
         position: [['0.40', '0.38']],
+      },
+      {
+        num: 'A8315, A8316',
+        name: '海信电器',
+        isClick: false,
+        position: [
+          ['0.12', '0.48'],
+          ['0.16', '0.48'],
+        ],
+      },
+      {
+        num: 'A8110, A8109',
+        name: '优口',
+        isClick: false,
+        position: [[0.38, 0.44]],
       },
       // {
       //   num: 'A8315, A8316',
@@ -137,12 +152,12 @@ const f1Config = [
         isClick: false,
         position: [['0.81', '0.78']],
       },
-      {
-        num: 'A8306-1',
-        name: '玫瑰岛',
-        isClick: false,
-        position: [['0.71', '0.72']],
-      },
+      // {
+      //   num: 'A8306-1',
+      //   name: '玫瑰岛',
+      //   isClick: false,
+      //   position: [['0.71', '0.72']],
+      // },
       {
         num: 'A8306-2',
         name: '心海伽蓝',
@@ -300,7 +315,7 @@ const f1Config = [
         num: 'A8313',
         name: '庭院设计',
         isClick: false,
-        position: [['0.17', '0.48']],
+        position: [[0.2, 0.49]],
       },
       {
         num: 'A8001',
@@ -308,7 +323,6 @@ const f1Config = [
         isClick: false,
         position: [['0.77', '0.50']],
       },
-      { isClick: false },
     ],
   },
   {

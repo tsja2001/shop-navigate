@@ -37,7 +37,7 @@ const ShopList5F = () => {
           <ShopGroup config={getTypeInFloorConfig(config, '装饰公司')} />
         </div>
         <div className={Style.cizhuan}>
-          <ShopGroup config={getTypeInFloorConfig(config, '会员设计中心')} />
+          <ShopGroup config={getTypeInFloorConfig(config, '全案设计')} />
         </div>
       </div>
       <div className={`${Style.group}`}>

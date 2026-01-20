@@ -1,0 +1,108 @@
+.map {
+  width: 100%;
+  flex: 1;
+  position: relative;
+}
+.map .floor {
+  width: 100%;
+  height: 100%;
+}
+.point {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  margin-left: -5px;
+  margin-top: -5px;
+  background-color: red;
+}
+.labelMarker {
+  width: 12px;
+  height: 12px;
+  margin-left: -6px;
+  margin-top: -6px;
+  background-color: #ff6b00;
+  border-radius: 50%;
+}
+.labelMarker .labelMarkerInner {
+  width: 100%;
+  height: 100%;
+}
+.currentPoint {
+  width: 20px;
+  height: 20px;
+  margin-left: -10px;
+  margin-top: -10px;
+  background-color: #f6ff0076;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: blink 1s infinite;
+}
+@keyframes blink {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.8;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+.currentPoint .currentPointInner {
+  width: 7px;
+  height: 7px;
+  background-color: #f6ff00b3;
+  border-radius: 50%;
+}
+.minePositionWapper {
+  position: absolute;
+  top: 100px;
+  display: flex;
+  flex-flow: row;
+  align-items: flex-end;
+}
+.minePositionWapper .minePosition {
+  margin-bottom: -10px;
+  margin-left: 10px;
+}
+.markerLabel {
+  position: absolute;
+  top: -5px;
+  left: -5px;
+  backdrop-filter: blur(10px);
+  border-radius: 4px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.15);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0px;
+  white-space: nowrap;
+  z-index: 1000;
+  font-size: 11px;
+  min-width: 60px;
+}
+.markerLabel .shopName {
+  font-weight: 600;
+  color: #333;
+  font-size: 11px;
+  line-height: 1.2;
+}
+.markerLabel .checkboxRow {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.redCheckbox :global .ant-checkbox-checked .ant-checkbox-inner {
+  background-color: red;
+  border-color: red;
+}
+.redCheckbox :global .ant-checkbox-checked::after {
+  border-color: red;
+}
+.redCheckbox :global .ant-checkbox-wrapper:hover .ant-checkbox-inner,
+.redCheckbox :global .ant-checkbox:hover .ant-checkbox-inner,
+.redCheckbox :global .ant-checkbox-input:focus + .ant-checkbox-inner {
+  border-color: red;
+}

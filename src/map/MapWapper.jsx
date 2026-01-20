@@ -49,6 +49,8 @@ const MapWapper = () => {
   const [devModel, setDevModel] = useState(false)
   // 控制是否显示所有品牌位置
   const [showAllBrands, setShowAllBrands] = useState(false)
+  // 控制是否在地图上展示商户名称
+  const [showLabelsOnMap, setShowLabelsOnMap] = useState(false)
   const [searchParams] = useSearchParams()
 
   useEffect(() => {
@@ -107,7 +109,7 @@ const MapWapper = () => {
             ...item,
             position: position,
           }
-        }
+        },
       )
 
       console.log(newConfig)
@@ -185,7 +187,7 @@ const MapWapper = () => {
           ...item,
           position: [],
         }
-      }
+      },
     )
 
     console.log(newConfig)
@@ -200,6 +202,11 @@ const MapWapper = () => {
     setShowAllBrands(!showAllBrands)
   }
 
+  // 切换在地图上展示名称
+  const handleToggleLabelsOnMap = () => {
+    setShowLabelsOnMap(!showLabelsOnMap)
+  }
+
   return (
     // provider
     <MapContext.Provider
@@ -208,6 +215,8 @@ const MapWapper = () => {
         currentFloorConfig: getFloorConfig(floor),
         clickShopItem,
         showAllBrands,
+        showLabelsOnMap,
+        devModel,
       }}
     >
       <div className={Style.mapWapper}>
@@ -229,6 +238,13 @@ const MapWapper = () => {
               onClick={handleToggleShowAllBrands}
             >
               {showAllBrands ? '隐藏所有品牌位置' : '显示所有品牌位置'}
+            </Button>
+            <Button
+              style={{ marginLeft: '10px' }}
+              type={showLabelsOnMap ? 'primary' : 'default'}
+              onClick={handleToggleLabelsOnMap}
+            >
+              {showLabelsOnMap ? '隐藏地图名称' : '在地图上展示名称'}
             </Button>
           </div>
         )}
