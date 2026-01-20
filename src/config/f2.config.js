@@ -90,7 +90,7 @@ const f2Config = [
       },
       {
         num: 'B8011,',
-        name: '唯宝建筑',
+        name: '盼盼建筑',
         isClick: false,
         position: [['0.35', '0.33']],
       },
@@ -179,6 +179,12 @@ const f2Config = [
         position: [['0.56', '0.66']],
       },
       { num: 'B8308', name: '久盛', isClick: true, position: [[0.61, 0.71]] },
+      {
+        num: 'B8309',
+        name: '威兹帕克',
+        isClick: true,
+        position: [[0.58, 0.69]],
+      },
     ],
   },
   {
@@ -297,7 +303,13 @@ const f2Config = [
         num: 'B8102+B8103+B8202+B8203, B8302, B8303+B8305',
         name: '品尚艺墅',
         isClick: false,
-        position: [['0.81', '0.75']],
+        position: [
+          [0.81, 0.75],
+          [0.67, 0.56],
+          [0.71, 0.57],
+          [0.67, 0.6],
+          [0.7, 0.61],
+        ],
       },
       {
         num: 'B8017',

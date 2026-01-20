@@ -133,7 +133,13 @@ const f4Config = [
         position: [['0.09', '0.46']],
       },
       {
-        num: 'D8001',
+        num: 'D8001-1',
+        name: '慕斯',
+        isClick: false,
+        position: [[0.75, 0.49]],
+      },
+      {
+        num: 'D8001-2',
         name: '欧嘉璐尼',
         isClick: false,
         position: [['0.77', '0.52']],
@@ -147,15 +153,15 @@ const f4Config = [
           ['0.55', '0.57'],
         ],
       },
-      {
-        num: 'D8317',
-        name: '哈曼',
-        isClick: false,
-        position: [['0.22', '0.52']],
-      },
+      // {
+      //   num: 'D8317',
+      //   name: '哈曼',
+      //   isClick: false,
+      //   position: [['0.22', '0.52']],
+      // },
       {
         num: 'D8101, D8201-8203, D8301-8307, D8308, D8309',
-        name: '卓尚家·顾家',
+        name: '顾家定制',
         isClick: false,
         position: [
           ['0.56', '0.67'],
@@ -164,9 +170,21 @@ const f4Config = [
       },
       {
         num: 'D8301-1',
-        name: '卓尚家·雅兰',
+        name: '雅蘭',
         isClick: false,
         position: [['0.86', '0.61']],
+      },
+      {
+        num: 'D8301-1',
+        name: '顾家工艺',
+        isClick: false,
+        position: [[0.83, 0.7]],
+      },
+      {
+        num: 'D8307, D8306',
+        name: '顾家布艺',
+        isClick: false,
+        position: [[0.66, 0.7]],
       },
       {
         num: 'D8310',
