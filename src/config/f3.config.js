@@ -19,7 +19,7 @@ const f3Config = [
         num: 'C8015',
         name: '维洛尼',
         isClick: false,
-        position: [[0.19,0.29]],
+        position: [[0.19, 0.29]],
       },
       {
         num: 'C8007, C8008-1',
@@ -33,12 +33,12 @@ const f3Config = [
       //   isClick: false,
       //   position: [['0.35', '0.35']],
       // },
-      {
-        num: 'C8010',
-        name: '爱瑞德',
-        isClick: false,
-        position: [[0.37,0.34]],
-      },
+      // {
+      //   num: 'C8010',
+      //   name: '爱瑞德',
+      //   isClick: false,
+      //   position: [[0.37, 0.34]],
+      // },
       {
         num: 'C8013',
         name: '鲁丽',
@@ -207,6 +207,12 @@ const f3Config = [
         isClick: false,
         position: [['0.10', '0.45']],
       },
+      {
+        num: 'C8321',
+        name: '友邦',
+        isClick: false,
+        position: [[0.15, 0.38]],
+      },
     ],
   },
   {
@@ -288,6 +294,12 @@ const f3Config = [
       {
         num: 'C8011',
         name: '优格',
+        isClick: false,
+        position: [[0.34, 0.33]],
+      },
+      {
+        num: 'C8011',
+        name: '美大',
         isClick: false,
         position: [['0.31', '0.33']],
       },

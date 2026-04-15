@@ -110,7 +110,7 @@ const f4Config = [
       },
       {
         num: 'D8105',
-        name: '泰普尔',
+        name: '穗宝',
         isClick: false,
         position: [['0.65', '0.55']],
       },
@@ -185,6 +185,16 @@ const f4Config = [
         name: '顾家布艺',
         isClick: false,
         position: [[0.66, 0.7]],
+      },
+      {
+        num: 'D8307, D8306',
+        name: '顾家睡眠',
+        isClick: false,
+        position: [
+          [0.68, 0.61],
+          [0.74, 0.63],
+          [0.75, 0.57],
+        ],
       },
       {
         num: 'D8310',

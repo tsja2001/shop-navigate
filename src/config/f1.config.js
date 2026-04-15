@@ -13,7 +13,7 @@ const f1Config = [
       },
       {
         num: 'A8012-1',
-        name: '方圆合',
+        name: '海信',
         isClick: false,
         position: [['0.24', '0.31']],
       },
@@ -40,8 +40,9 @@ const f1Config = [
         name: '卡萨帝',
         isClick: false,
         position: [
-          ['0.5', '0.39'],
-          ['0.55', '0.41'],
+          [0.5, 0.39],
+          [0.55, 0.41],
+          [0.64, 0.44],
         ],
       },
       {
@@ -170,12 +171,12 @@ const f1Config = [
         isClick: false,
         position: [['0.60', '0.70']],
       },
-      {
-        num: 'A8308',
-        name: '朗斯',
-        isClick: false,
-        position: [['0.53', '0.64']],
-      },
+      // {
+      //   num: 'A8308',
+      //   name: '朗斯',
+      //   isClick: false,
+      //   position: [['0.53', '0.64']],
+      // },
       {
         num: 'A8309',
         name: '汉斯格雅',
@@ -323,6 +324,12 @@ const f1Config = [
         isClick: false,
         position: [['0.77', '0.50']],
       },
+      {
+        num: 'A8001',
+        name: '佰易装饰',
+        isClick: false,
+        position: [[0.32,0.42]],
+      }
     ],
   },
   {
