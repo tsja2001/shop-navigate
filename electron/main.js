@@ -1,6 +1,43 @@
-const { app, BrowserWindow } = require('electron');
+const { app, BrowserWindow, protocol, shell } = require('electron');
 const path = require('path');
+const { fileURLToPath } = require('url');
+const {
+  REMOTE_WEB_URL,
+  REMOTE_WEB_PATHNAME,
+  LOCAL_FALLBACK_DIR,
+  LOCAL_FALLBACK_HTML,
+  ALLOWED_ORIGINS,
+} = require('./config');
+
 const isDev = process.env.NODE_ENV === 'development';
+
+function isAllowedUrl(targetUrl) {
+  try {
+    const url = new URL(targetUrl);
+
+    if (url.protocol === 'file:') {
+      return true;
+    }
+
+    return ALLOWED_ORIGINS.includes(url.origin);
+  } catch {
+    return false;
+  }
+}
+
+function registerLocalFallbackAssetProtocol() {
+  protocol.interceptFileProtocol('file', (request, callback) => {
+    const requestUrl = new URL(request.url);
+
+    if (requestUrl.pathname.startsWith(REMOTE_WEB_PATHNAME)) {
+      const relativePath = decodeURIComponent(requestUrl.pathname.slice(REMOTE_WEB_PATHNAME.length));
+      callback({ path: path.join(LOCAL_FALLBACK_DIR, relativePath) });
+      return;
+    }
+
+    callback({ path: fileURLToPath(request.url) });
+  });
+}
 
 function createWindow() {
   const mainWindow = new BrowserWindow({
@@ -10,28 +47,68 @@ function createWindow() {
     webPreferences: {
       preload: path.join(__dirname, 'preload.js'),
       nodeIntegration: false,
-      frame: false,   // 禁用窗口框架
-      contextIsolation: true  // 确保启用上下文隔离
+      contextIsolation: true,
+      sandbox: true,
+      webSecurity: true,
     },
   });
 
   mainWindow.setMenu(null);
 
-  
+  let fallbackLoaded = false;
 
-  if (isDev) {
-    // 开发环境加载 Vite 的本地服务器
-    mainWindow.loadURL('http://localhost:5173');
-  } else {
-    // 生产环境加载打包后的 HTML 文件
-    mainWindow.loadFile(path.join(__dirname, '../dist/index.html'));
+  function loadLocalFallback() {
+    if (fallbackLoaded) {
+      return;
+    }
+
+    fallbackLoaded = true;
+    mainWindow.loadFile(LOCAL_FALLBACK_HTML);
   }
 
-  // 打开开发者工具（无论是否在开发环境）
-  // mainWindow.webContents.openDevTools();
+  mainWindow.webContents.on('did-fail-load', (_event, _errorCode, _errorDescription, validatedUrl, isMainFrame) => {
+    if (!isMainFrame || isDev) {
+      return;
+    }
+
+    if (validatedUrl.startsWith('file://')) {
+      return;
+    }
+
+    loadLocalFallback();
+  });
+
+  mainWindow.webContents.on('will-navigate', (event, targetUrl) => {
+    if (isDev || isAllowedUrl(targetUrl)) {
+      return;
+    }
+
+    event.preventDefault();
+    shell.openExternal(targetUrl);
+  });
+
+  mainWindow.webContents.setWindowOpenHandler(({ url }) => {
+    if (isDev || isAllowedUrl(url)) {
+      return { action: 'allow' };
+    }
+
+    shell.openExternal(url);
+    return { action: 'deny' };
+  });
+
+  if (isDev) {
+    mainWindow.loadURL('http://localhost:5173');
+  } else {
+    mainWindow.loadURL(REMOTE_WEB_URL).catch(() => {
+      loadLocalFallback();
+    });
+  }
 }
 
-app.whenReady().then(createWindow);
+app.whenReady().then(() => {
+  registerLocalFallbackAssetProtocol();
+  createWindow();
+});
 
 app.on('window-all-closed', () => {
   if (process.platform !== 'darwin') {

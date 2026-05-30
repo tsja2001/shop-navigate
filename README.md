@@ -36,4 +36,55 @@
 
 1. 启动：npm run build
 
+## 线上 Web 地址
+
+当前线上地址：
+
+https://hbhgjjj.com/d8N4kP7sVq2R/
+
+Vite 必须配置：
+
+```js
+base: '/d8N4kP7sVq2R/',
+```
+
+## Web 发布
+
+1. 修改 `src/` 或前端资源。
+2. 执行 `npm run build`。
+3. 上传 `dist/` 内容到服务器 `/var/www/navigation/`。
+4. 确认服务器上存在 `/var/www/navigation/index.html` 和 `/var/www/navigation/assets/`。
+5. 访问 `https://hbhgjjj.com/d8N4kP7sVq2R/` 验证。
+6. Electron 联网时会自动加载最新远程 Web。
+
+## Electron 发布
+
+只有修改 Electron 壳、远程地址、安全策略、preload、安装器，或需要更新离线兜底版本时，才需要重新打包桌面应用。
+
+1. 执行 `npm run build`，生成要内置进安装包的本地兜底 `dist`。
+2. 执行 `npm run start:electron` 验证远程优先。
+3. 临时改成不可访问 URL，验证本地 `dist` 兜底。
+4. 恢复真实 URL。
+5. 执行 `npm run make` 生成安装包。
+6. 在目标电脑验证联网和断网两种情况。
+
+## 离线兜底规则
+
+Electron 启动后优先加载远程 Web：
+
+https://hbhgjjj.com/d8N4kP7sVq2R/
+
+如果远程页面加载失败，会回退到安装包内置的 `dist/index.html`。
+
+注意：Web 端单独发布不会更新本地离线兜底版本。要更新离线兜底版本，必须重新 `npm run build` 并重新打包 Electron。
+
+## Nginx 配置
+
+```nginx
+location /d8N4kP7sVq2R/ {
+    alias /var/www/navigation/;
+    index index.html;
+    try_files $uri $uri/ /d8N4kP7sVq2R/index.html;
+}
+```
 

@@ -238,7 +238,7 @@ Expected:
 
 - Create: `electron/config.js`
 
-- [ ] **Step 1: 创建 Electron 配置文件**
+- [x] **Step 1: 创建 Electron 配置文件**
 
 Create `electron/config.js`:
 
@@ -259,7 +259,7 @@ module.exports = {
 };
 ```
 
-- [ ] **Step 2: 验证配置文件可加载**
+- [x] **Step 2: 验证配置文件可加载**
 
 Run:
 
@@ -282,7 +282,7 @@ REMOTE_WEB_URL 为 https://hbhgjjj.com/d8N4kP7sVq2R/。
 
 - Modify: `electron/main.js`
 
-- [ ] **Step 1: 替换 Electron import**
+- [x] **Step 1: 替换 Electron import**
 
 Replace:
 
@@ -299,7 +299,7 @@ const path = require('path');
 const { REMOTE_WEB_URL, LOCAL_FALLBACK_HTML, ALLOWED_ORIGINS } = require('./config');
 ```
 
-- [ ] **Step 2: 添加 URL 白名单判断**
+- [x] **Step 2: 添加 URL 白名单判断**
 
 Add below `isDev`:
 
@@ -319,7 +319,7 @@ function isAllowedUrl(targetUrl) {
 }
 ```
 
-- [ ] **Step 3: 修正 BrowserWindow 配置**
+- [x] **Step 3: 修正 BrowserWindow 配置**
 
 Current code has `frame: false` inside `webPreferences`; it should be a top-level `BrowserWindow` option.
 
@@ -341,7 +341,7 @@ const mainWindow = new BrowserWindow({
 });
 ```
 
-- [ ] **Step 4: 增加本地兜底加载函数**
+- [x] **Step 4: 增加本地兜底加载函数**
 
 Add inside `createWindow()` after `mainWindow.setMenu(null)`:
 
@@ -358,7 +358,7 @@ function loadLocalFallback() {
 }
 ```
 
-- [ ] **Step 5: 增加加载失败回退**
+- [x] **Step 5: 增加加载失败回退**
 
 Add inside `createWindow()` before first page load:
 
@@ -376,7 +376,7 @@ mainWindow.webContents.on('did-fail-load', (_event, _errorCode, _errorDescriptio
 });
 ```
 
-- [ ] **Step 6: 增加导航限制**
+- [x] **Step 6: 增加导航限制**
 
 Add inside `createWindow()`:
 
@@ -391,7 +391,7 @@ mainWindow.webContents.on('will-navigate', (event, targetUrl) => {
 });
 ```
 
-- [ ] **Step 7: 增加新窗口限制**
+- [x] **Step 7: 增加新窗口限制**
 
 Add inside `createWindow()`:
 
@@ -406,7 +406,7 @@ mainWindow.webContents.setWindowOpenHandler(({ url }) => {
 });
 ```
 
-- [ ] **Step 8: 改造首屏加载逻辑**
+- [x] **Step 8: 改造首屏加载逻辑**
 
 Replace:
 
@@ -430,7 +430,7 @@ if (isDev) {
 }
 ```
 
-- [ ] **Step 9: 目标 `electron/main.js` 完整形态**
+- [x] **Step 9: 目标 `electron/main.js` 完整形态**
 
 After the refactor, `electron/main.js` should be equivalent to:
 
@@ -543,7 +543,7 @@ app.on('activate', () => {
 
 - Modify: `electron/preload.js`
 
-- [ ] **Step 1: 检查业务代码是否使用 Electron API**
+- [x] **Step 1: 检查业务代码是否使用 Electron API**
 
 Run:
 
@@ -558,7 +558,7 @@ src/ 中没有 window.api、ipcRenderer 等业务依赖。
 electron/preload.js 里会命中旧代码，这是预期。
 ```
 
-- [ ] **Step 2: 清空 preload**
+- [x] **Step 2: 清空 preload**
 
 Replace `electron/preload.js` with:
 
@@ -580,7 +580,7 @@ Reason:
 
 - Modify: `package.json`
 
-- [ ] **Step 1: 保留打包文件**
+- [x] **Step 1: 保留打包文件**
 
 `package.json` must keep:
 
@@ -597,7 +597,7 @@ Reason:
 dist/**/* 是离线兜底页面，不能移除。
 ```
 
-- [ ] **Step 2: 增加生产模式启动脚本**
+- [x] **Step 2: 增加生产模式启动脚本**
 
 Modify `scripts`:
 
@@ -665,7 +665,7 @@ npm run dev 仍然正常显示本地开发页面。
 
 - No code change required
 
-- [ ] **Step 1: 确保本地 dist 存在**
+- [x] **Step 1: 确保本地 dist 存在**
 
 Run:
 
@@ -717,7 +717,7 @@ Electron 显示远程新标识，不需要重新打包桌面应用。
 
 - Temporary Modify: `electron/config.js`
 
-- [ ] **Step 1: 准备本地兜底版本**
+- [x] **Step 1: 准备本地兜底版本**
 
 Run:
 
@@ -886,7 +886,7 @@ Expected:
 
 - Modify: `README.md`
 
-- [ ] **Step 1: 记录 Nginx 部署路径**
+- [x] **Step 1: 记录 Nginx 部署路径**
 
 Add:
 
@@ -904,7 +904,7 @@ base: '/d8N4kP7sVq2R/',
 ```
 ````
 
-- [ ] **Step 2: 记录 Web 发布流程**
+- [x] **Step 2: 记录 Web 发布流程**
 
 Add:
 
@@ -919,7 +919,7 @@ Add:
 6. Electron 联网时会自动加载最新远程 Web。
 ```
 
-- [ ] **Step 3: 记录 Electron 发布流程**
+- [x] **Step 3: 记录 Electron 发布流程**
 
 Add:
 
@@ -936,7 +936,7 @@ Add:
 6. 在目标电脑验证联网和断网两种情况。
 ```
 
-- [ ] **Step 4: 记录离线版本规则**
+- [x] **Step 4: 记录离线版本规则**
 
 Add:
 
@@ -952,7 +952,7 @@ https://hbhgjjj.com/d8N4kP7sVq2R/
 注意：Web 端单独发布不会更新本地离线兜底版本。要更新离线兜底版本，必须重新 `npm run build` 并重新打包 Electron。
 ```
 
-- [ ] **Step 5: 记录 Nginx location**
+- [x] **Step 5: 记录 Nginx location**
 
 Add:
 
@@ -977,8 +977,8 @@ location /d8N4kP7sVq2R/ {
 - [ ] 生产环境 Electron 优先加载远程 Web
 - [ ] 远程 Web 不可访问时，Electron 自动加载内置 `dist/index.html`
 - [ ] 开发环境 `npm run dev` 仍加载本地 Vite
-- [ ] `electron/preload.js` 不再暴露 IPC 或 `window.api`
-- [ ] `package.json` 继续打包 `dist/**/*`
+- [x] `electron/preload.js` 不再暴露 IPC 或 `window.api`
+- [x] `package.json` 继续打包 `dist/**/*`
 - [ ] Electron 主窗口不会被第三方域名替换
 - [ ] 目标电脑联网时显示远程版本
 - [ ] 目标电脑断网时显示安装包内置本地版本

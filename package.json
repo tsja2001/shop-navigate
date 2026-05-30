@@ -38,6 +38,7 @@
     "start": "vite",
     "dev": "concurrently \"vite\" \"wait-on http://localhost:5173 && cross-env NODE_ENV=development electron-forge start\"",
     "build": "vite build",
+    "start:electron": "electron-forge start",
     "package": "electron-forge package",
     "make": "electron-forge make"
   },
