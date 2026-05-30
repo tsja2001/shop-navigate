@@ -32,53 +32,72 @@
 4. 这时候左下角商户名称旁边会有一个新的坐标[x,y]，点击复制到config文件中
    
 
-# 打包
+# 当前项目结构
 
-1. 启动：npm run build
+这个项目现在分两部分：
 
-## 线上 Web 地址
+1. Web 页面：日常维护地图、商户、楼层、样式，代码主要在 `src/`。
+2. Electron 桌面壳：只负责打开页面。联网时打开线上 Web，打不开时使用安装包里自带的本地页面。
 
-当前线上地址：
+线上 Web 地址是：
 
+```text
 https://hbhgjjj.com/d8N4kP7sVq2R/
+```
 
-Vite 必须配置：
+Electron 里的远程地址配置在：
+
+```text
+electron/config.js
+```
+
+## 日常发布 Web
+
+如果只是改商户、地图、楼层配置、样式、页面交互，一般只需要发布 Web，不需要重新打桌面安装包。
+
+1. 修改 `src/` 或前端资源。
+2. 执行 `npm run build`。
+3. 把 `dist/` 里的内容上传到服务器 `/var/www/navigation/`。
+4. 访问 `https://hbhgjjj.com/d8N4kP7sVq2R/` 验证。
+
+已安装的 Electron 应用联网时，会自动加载这个线上版本。
+
+## 重新打 Electron 包
+
+只有这些情况才需要重新打 Electron 包：
+
+1. 修改 `electron/` 里的桌面壳逻辑。
+2. 修改线上 Web 地址。
+3. 修改离线兜底逻辑。
+4. 想更新安装包里自带的离线版本。
+
+打包流程：
+
+1. 执行 `npm run build`，生成要放进安装包的本地 `dist`。
+2. 执行 `npm run make`。
+3. 使用 `out/` 里生成的安装包或 zip。
+
+## 离线兜底
+
+Electron 启动后会先打开线上 Web：
+
+```text
+https://hbhgjjj.com/d8N4kP7sVq2R/
+```
+
+如果线上页面加载失败，会自动回退到安装包内置的 `dist/index.html`。
+
+注意：单独发布 Web 不会更新离线兜底版本。要更新离线兜底版本，必须先 `npm run build`，再重新 `npm run make`。
+
+## Nginx 路径
+
+当前 Vite 的 base 是：
 
 ```js
 base: '/d8N4kP7sVq2R/',
 ```
 
-## Web 发布
-
-1. 修改 `src/` 或前端资源。
-2. 执行 `npm run build`。
-3. 上传 `dist/` 内容到服务器 `/var/www/navigation/`。
-4. 确认服务器上存在 `/var/www/navigation/index.html` 和 `/var/www/navigation/assets/`。
-5. 访问 `https://hbhgjjj.com/d8N4kP7sVq2R/` 验证。
-6. Electron 联网时会自动加载最新远程 Web。
-
-## Electron 发布
-
-只有修改 Electron 壳、远程地址、安全策略、preload、安装器，或需要更新离线兜底版本时，才需要重新打包桌面应用。
-
-1. 执行 `npm run build`，生成要内置进安装包的本地兜底 `dist`。
-2. 执行 `npm run start:electron` 验证远程优先。
-3. 临时改成不可访问 URL，验证本地 `dist` 兜底。
-4. 恢复真实 URL。
-5. 执行 `npm run make` 生成安装包。
-6. 在目标电脑验证联网和断网两种情况。
-
-## 离线兜底规则
-
-Electron 启动后优先加载远程 Web：
-
-https://hbhgjjj.com/d8N4kP7sVq2R/
-
-如果远程页面加载失败，会回退到安装包内置的 `dist/index.html`。
-
-注意：Web 端单独发布不会更新本地离线兜底版本。要更新离线兜底版本，必须重新 `npm run build` 并重新打包 Electron。
-
-## Nginx 配置
+服务器对应路径：
 
 ```nginx
 location /d8N4kP7sVq2R/ {
@@ -87,4 +106,3 @@ location /d8N4kP7sVq2R/ {
     try_files $uri $uri/ /d8N4kP7sVq2R/index.html;
 }
 ```
-
