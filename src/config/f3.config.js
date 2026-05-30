@@ -81,12 +81,12 @@ const f3Config = [
         isClick: false,
         position: [['0.56', '0.66']],
       },
-      // {
-      //   num: 'C8310',
-      //   name: '都驰',
-      //   isClick: false,
-      //   position: [['0.49', '0.62']],
-      // },
+      {
+        num: 'C8310',
+        name: '菲马整装',
+        isClick: false,
+        position: [['0.49', '0.62']],
+      },
       {
         num: 'C8311',
         name: '我乐',

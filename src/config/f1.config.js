@@ -159,24 +159,24 @@ const f1Config = [
       //   isClick: false,
       //   position: [['0.71', '0.72']],
       // },
-      {
-        num: 'A8306-2',
-        name: '心海伽蓝',
-        isClick: false,
-        position: [['0.68', '0.73']],
-      },
+      // {
+      //   num: 'A8306-2',
+      //   name: '心海伽蓝',
+      //   isClick: false,
+      //   position: [['0.68', '0.73']],
+      // },
       {
         num: 'A8307',
         name: '箭牌',
         isClick: false,
         position: [['0.60', '0.70']],
       },
-      // {
-      //   num: 'A8308',
-      //   name: '朗斯',
-      //   isClick: false,
-      //   position: [['0.53', '0.64']],
-      // },
+      {
+        num: 'A8308',
+        name: '乐克',
+        isClick: false,
+        position: [['0.53', '0.64']],
+      },
       {
         num: 'A8309',
         name: '汉斯格雅',
@@ -252,12 +252,12 @@ const f1Config = [
         isClick: true,
         position: [['0.35', '0.58']],
       },
-      {
-        num: 'A8311',
-        name: '盛大凌云',
-        isClick: false,
-        position: [['0.32', '0.55']],
-      },
+      // {
+      //   num: 'A8311',
+      //   name: '盛大凌云',
+      //   isClick: false,
+      //   position: [['0.32', '0.55']],
+      // },
       {
         num: 'A8312-1',
         name: '唯美&LD',

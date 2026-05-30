@@ -74,7 +74,7 @@ const f4Config = [
     content: [
       {
         num: 'D8215',
-        name: '格菲',
+        name: '多喜爱',
         isClick: false,
         position: [['0.22', '0.42']],
       },
@@ -120,12 +120,12 @@ const f4Config = [
         isClick: false,
         position: [['0.58', '0.52']],
       },
-      {
-        num: 'D8315',
-        name: '穗宝',
-        isClick: false,
-        position: [['0.28', '0.54']],
-      },
+      // {
+      //   num: 'D8315',
+      //   name: '穗宝',
+      //   isClick: false,
+      //   position: [['0.28', '0.54']],
+      // },
       {
         num: 'D8319+8320+8321',
         name: '阳光米尼',

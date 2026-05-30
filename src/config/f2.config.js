@@ -5,6 +5,12 @@ const f2Config = [
     isSearchResult: false,
     content: [
       {
+        num: 'B8111',
+        name: '科普未',
+        isClick: false,
+        position: [[0.33, 0.42]],
+      },
+      {
         num: 'B8006',
         name: '三力威',
         isClick: false,
@@ -22,6 +28,7 @@ const f2Config = [
         isClick: false,
         position: [['0.67', '0.45']],
       },
+
       // {
       //   num: 'B8003-1',
       //   name: '卡贝伯爵',
@@ -71,11 +78,17 @@ const f2Config = [
         position: [['0.35', '0.47']],
       },
       {
-        num: 'B8319',
+        num: 'B8320',
         // name: '多丽',
         name: '沃伦门窗',
         isClick: false,
         position: [['0.14', '0.49']],
+      },
+      {
+        num: 'B8319',
+        name: '多丽',
+        isClick: false,
+        position: [[0.17, 0.48]],
       },
       {
         num: 'B8115',
@@ -91,7 +104,7 @@ const f2Config = [
       },
       {
         num: 'B8011,',
-        name: '盼盼建筑',
+        name: '唯宝建筑',
         isClick: false,
         position: [['0.35', '0.33']],
       },
@@ -113,12 +126,12 @@ const f2Config = [
         isClick: false,
         position: [['0.10', '0.45']],
       },
-      {
-        num: 'B8206',
-        name: '玻璃先生',
-        isClick: false,
-        position: [['0.60', '0.59']],
-      },
+      // {
+      //   num: 'B8206',
+      //   name: '玻璃先生',
+      //   isClick: false,
+      //   position: [['0.60', '0.59']],
+      // },
       {
         num: 'B8201',
         name: '兰舍',
@@ -191,6 +204,12 @@ const f2Config = [
         position: [['0.50', '0.40']],
       },
       {
+        num: 'B8213',
+        name: '盼盼',
+        isClick: false,
+        position: [[0.25,0.44]],
+      },
+      {
         num: 'B8008',
         name: '西西',
         isClick: false,
@@ -244,12 +263,12 @@ const f2Config = [
         isClick: false,
         position: [['0.68', '0.72']],
       },
-      {
-        num: 'B8310',
-        name: '开开',
-        isClick: false,
-        position: [['0.48', '0.63']],
-      },
+      // {
+      //   num: 'B8310',
+      //   name: '开开',
+      //   isClick: false,
+      //   position: [['0.48', '0.63']],
+      // },
       {
         num: 'B8311',
         name: '奥斯坦汀',
@@ -270,7 +289,7 @@ const f2Config = [
       },
       {
         num: 'B8315',
-        name: '美福',
+        name: '美福凡帝罗',
         isClick: false,
         position: [['0.35', '0.57']],
       },
@@ -321,6 +340,12 @@ const f2Config = [
         name: '富豪',
         isClick: false,
         position: [['0.15', '0.34']],
+      },
+      {
+        num: 'B8215-1',
+        name: '帅泰',
+        isClick: false,
+        position: [[0.23,0.40]],
       },
     ],
   },

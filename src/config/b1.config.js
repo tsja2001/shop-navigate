@@ -41,18 +41,18 @@ const b1Config = [
       },
     ],
   },
-  {
-    type: '沙发',
-    color: '#80D9CB',
-    content: [
-      {
-        num: 'F8201+8202',
-        name: '华意空间',
-        isClick: false,
-        position: [['0.55', '0.60']],
-      },
-    ],
-  },
+  // {
+  //   type: '沙发',
+  //   color: '#80D9CB',
+  //   content: [
+  //     {
+  //       num: 'F8201+8202',
+  //       name: '华意空间',
+  //       isClick: false,
+  //       position: [['0.55', '0.60']],
+  //     },
+  //   ],
+  // },
   {
     type: '灯饰',
     color: '#C7D3A0',
