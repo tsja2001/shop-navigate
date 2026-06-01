@@ -9,32 +9,10 @@ import ShopList4F from './shopList/ShopList4F'
 import ShopList5F from './shopList/ShopList5F'
 import ShopListB1 from './shopList/ShopListB1'
 
-import Floor1 from '@/assets/map/1F.png'
-import Floor2 from '@/assets/map/2F.png'
-import Floor3 from '@/assets/map/3F.png'
-import Floor4 from '@/assets/map/4F.png'
-import Floor5 from '@/assets/map/5F.png'
-import Below1 from '@/assets/map/B1.png'
+import { getFloorImg } from '@/config/floorImages'
 
 import { useSearchParams } from 'react-router-dom'
 import { Button } from 'antd'
-
-const getFloorImg = (floor) => {
-  switch (floor) {
-    case '1F':
-      return Floor1
-    case '2F':
-      return Floor2
-    case '3F':
-      return Floor3
-    case '4F':
-      return Floor4
-    case '5F':
-      return Floor5
-    case 'B1':
-      return Below1
-  }
-}
 
 export const MapContext = createContext(null)
 

@@ -13,12 +13,20 @@ import f3Config from './config/f3.config'
 import f4Config from './config/f4.config'
 import f5Config from './config/f5.config'
 import b1Config from './config/b1.config'
+import { FLOOR_IMAGE_URLS } from './config/floorImages'
+import { preloadImages } from './utils/preloadImages'
 
 
 // 用于当前选中楼层、搜索内容的上下文
 export const NavContext = createContext(null)
 
 function App() {
+  const [mapAssetsReady, setMapAssetsReady] = useState(false)
+  const [mapAssetsError, setMapAssetsError] = useState('')
+  const [mapAssetsProgress, setMapAssetsProgress] = useState({
+    loaded: 0,
+    total: FLOOR_IMAGE_URLS.length,
+  })
   // 当前选中楼层
   const [floor, setFloor] = useState("1F")
   // 搜索内容
@@ -65,6 +73,62 @@ function App() {
       case 'B1':
         return setB1Config
     }
+  }
+
+  const loadMapAssets = () => {
+    setMapAssetsReady(false)
+    setMapAssetsError('')
+    setMapAssetsProgress({
+      loaded: 0,
+      total: FLOOR_IMAGE_URLS.length,
+    })
+
+    preloadImages(FLOOR_IMAGE_URLS, {
+      onProgress: (loaded, total) => {
+        setMapAssetsProgress({ loaded, total })
+      },
+    })
+      .then(() => {
+        setMapAssetsReady(true)
+      })
+      .catch((error) => {
+        setMapAssetsError(error.message || '地图资源加载失败')
+      })
+  }
+
+  useEffect(() => {
+    loadMapAssets()
+  }, [])
+
+  if (!mapAssetsReady) {
+    const remainingMapAssets = mapAssetsProgress.total - mapAssetsProgress.loaded
+
+    return (
+      <div className={Style.loadingPage}>
+        <div className={Style.loadingPanel}>
+          <div className={Style.loadingTitle}>地图资源加载中</div>
+          <div className={Style.loadingText}>
+            已加载 {mapAssetsProgress.loaded} 张，还剩 {remainingMapAssets} 张
+          </div>
+          <div className={Style.loadingTrack}>
+            <div
+              className={Style.loadingBar}
+              style={{
+                width: `${(mapAssetsProgress.loaded / mapAssetsProgress.total) * 100}%`,
+              }}
+            />
+          </div>
+          {mapAssetsError && (
+            <>
+              <div className={Style.loadingError}>{mapAssetsError}</div>
+              <button className={Style.retryButton} onClick={loadMapAssets}>
+                重新加载
+              </button>
+            </>
+          )}
+        </div>
+      </div>
+    )
   }
 
   return (

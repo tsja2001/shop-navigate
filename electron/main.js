@@ -1,4 +1,4 @@
-const { app, BrowserWindow, protocol, shell } = require('electron');
+const { app, BrowserWindow, protocol, shell, ipcMain } = require('electron');
 const path = require('path');
 const { fileURLToPath } = require('url');
 const {
@@ -10,6 +10,17 @@ const {
 } = require('./config');
 
 const isDev = process.env.NODE_ENV === 'development';
+const EXIT_PASSWORD = '129988';
+let allowClose = false;
+
+ipcMain.handle('request-quit', (_event, password) => {
+  if (password === EXIT_PASSWORD) {
+    allowClose = true;
+    app.quit();
+    return true;
+  }
+  return false;
+});
 
 function isAllowedUrl(targetUrl) {
   try {
@@ -41,9 +52,10 @@ function registerLocalFallbackAssetProtocol() {
 
 function createWindow() {
   const mainWindow = new BrowserWindow({
-    width: 800,
-    height: 600,
+    width: 1280,
+    height: 800,
     icon: path.join(__dirname, 'logo.ico'),
+    kiosk: !isDev,
     webPreferences: {
       preload: path.join(__dirname, 'preload.js'),
       nodeIntegration: false,
@@ -54,6 +66,12 @@ function createWindow() {
   });
 
   mainWindow.setMenu(null);
+
+  mainWindow.on('close', (e) => {
+    if (!allowClose) {
+      e.preventDefault();
+    }
+  });
 
   let fallbackLoaded = false;
 

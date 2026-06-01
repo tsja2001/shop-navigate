@@ -1,0 +1,133 @@
+.overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background: rgba(0, 0, 0, 0.55);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal {
+  background: #fff;
+  border-radius: 20px;
+  padding: 36px 28px 28px;
+  width: 340px;
+  box-shadow: 0 24px 64px rgba(0, 0, 0, 0.28);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.title {
+  font-size: 19px;
+  font-weight: 600;
+  color: #1f2d3d;
+  margin-bottom: 28px;
+  letter-spacing: 0.5px;
+}
+
+.dots {
+  display: flex;
+  gap: 14px;
+  margin-bottom: 6px;
+}
+
+.dot {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  border: 2px solid #c8d4e0;
+  background: transparent;
+  transition: background 0.12s, border-color 0.12s;
+  display: inline-block;
+}
+
+.dotFilled {
+  background: #1677ff;
+  border-color: #1677ff;
+}
+
+.errorLine {
+  height: 24px;
+  margin-top: 8px;
+  margin-bottom: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.error {
+  font-size: 14px;
+  color: #d9534f;
+}
+
+.keypad {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  width: 100%;
+  margin-top: 12px;
+}
+
+.key {
+  height: 76px;
+  border: none;
+  border-radius: 14px;
+  background: #f0f4f8;
+  font-size: 24px;
+  font-weight: 500;
+  color: #1f2d3d;
+  cursor: pointer;
+  transition: background 0.1s, transform 0.08s;
+  -webkit-user-select: none;
+  user-select: none;
+  touch-action: manipulation;
+}
+
+.key:active {
+  background: #d4dce8;
+  transform: scale(0.96);
+}
+
+.keyAlt {
+  font-size: 17px;
+  color: #5f6f82;
+  background: #e8edf3;
+}
+
+.keyAlt:active {
+  background: #c8d4e0;
+}
+
+.cancelBtn {
+  width: 100%;
+  height: 56px;
+  margin-top: 18px;
+  border: 1.5px solid #d0d7e2;
+  border-radius: 14px;
+  background: transparent;
+  font-size: 17px;
+  color: #5f6f82;
+  cursor: pointer;
+  transition: background 0.1s;
+  touch-action: manipulation;
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+.cancelBtn:active {
+  background: #f0f4f8;
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  20%       { transform: translateX(-10px); }
+  40%       { transform: translateX(10px); }
+  60%       { transform: translateX(-7px); }
+  80%       { transform: translateX(7px); }
+}
+
+.shake {
+  animation: shake 0.45s ease-in-out;
+}

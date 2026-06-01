@@ -12,3 +12,67 @@
 .main {
   flex: 1;
 }
+
+.loadingPage {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #f4f7fb;
+}
+
+.loadingPanel {
+  width: 360px;
+  padding: 28px 32px;
+  border: 1px solid #d8e0ea;
+  border-radius: 8px;
+  background: #ffffff;
+  box-shadow: 0 10px 30px rgba(31, 45, 61, 0.08);
+}
+
+.loadingTitle {
+  font-size: 20px;
+  font-weight: 600;
+  color: #1f2d3d;
+}
+
+.loadingText {
+  margin-top: 12px;
+  font-size: 14px;
+  color: #5f6f82;
+}
+
+.loadingTrack {
+  width: 100%;
+  height: 8px;
+  margin-top: 14px;
+  overflow: hidden;
+  border-radius: 999px;
+  background: #e6edf5;
+}
+
+.loadingBar {
+  height: 100%;
+  border-radius: 999px;
+  background: #1677ff;
+  transition: width 0.2s ease;
+}
+
+.loadingError {
+  margin-top: 14px;
+  font-size: 13px;
+  line-height: 1.5;
+  color: #c2410c;
+}
+
+.retryButton {
+  height: 34px;
+  margin-top: 14px;
+  padding: 0 16px;
+  border: 0;
+  border-radius: 6px;
+  color: #ffffff;
+  background: #1677ff;
+  cursor: pointer;
+}
