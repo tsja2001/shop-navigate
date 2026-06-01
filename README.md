@@ -62,11 +62,37 @@ electron/config.js
 
 已安装的 Electron 应用联网时，会自动加载这个线上版本。
 
+## Kiosk 模式（全屏锁定）
+
+Electron 包在 Windows 上以 **Kiosk 模式**运行：
+
+- 启动后自动全屏，隐藏任务栏和窗口边框。
+- Alt+F4、点击关闭按钮等操作均被拦截，无法直接退出。
+- 屏幕右上角有一个小电源图标，点击后弹出数字键盘，输入正确密码才能退出应用。
+
+**退出密码**在 `electron/main.js` 的 `EXIT_PASSWORD` 变量中修改。当前密码 **129988**
+
+> 注意：退出按钮和密码弹窗由 `electron/preload.js` 注入，属于 Electron 壳的一部分，**与 Web 内容无关**，不需要更新 Web 端。修改密码或调整退出逻辑后，需要重新打 Electron 包。
+
+### 关闭边缘滑动手势（右滑呼出通知中心、左滑呼出任务视图）
+这个需要改注册表，无法从普通设置界面关闭。
+
+以管理员身份运行 PowerShell，执行：
+
+# 禁用所有边缘滑动手势
+reg add "HKLM\SOFTWARE\Policies\Microsoft\Windows\EdgeUI" /v AllowEdgeSwipe /t REG_DWORD /d 0 /f
+
+恢复的话：
+reg delete "HKLM\SOFTWARE\Policies\Microsoft\Windows\EdgeUI" /v AllowEdgeSwipe /f
+
+
+---
+
 ## 重新打 Electron 包
 
 只有这些情况才需要重新打 Electron 包：
 
-1. 修改 `electron/` 里的桌面壳逻辑。
+1. 修改 `electron/` 里的桌面壳逻辑（包括修改退出密码）。
 2. 修改线上 Web 地址。
 3. 修改离线兜底逻辑。
 4. 想更新安装包里自带的离线版本。
