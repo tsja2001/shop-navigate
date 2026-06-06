@@ -23,7 +23,7 @@
 }
 
 .loadingPanel {
-  width: 360px;
+  width: 460px;
   padding: 28px 32px;
   border: 1px solid #d8e0ea;
   border-radius: 8px;
@@ -41,6 +41,36 @@
   margin-top: 12px;
   font-size: 14px;
   color: #5f6f82;
+}
+
+.loadingDetails {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px 14px;
+  margin-top: 18px;
+}
+
+.loadingDetailItem {
+  min-width: 0;
+  padding: 10px 12px;
+  border-radius: 6px;
+  background: #f4f7fb;
+
+  span {
+    display: block;
+    font-size: 12px;
+    color: #7b8794;
+  }
+
+  strong {
+    display: block;
+    min-height: 20px;
+    margin-top: 4px;
+    overflow-wrap: anywhere;
+    font-size: 14px;
+    font-weight: 600;
+    color: #1f2d3d;
+  }
 }
 
 .loadingTrack {
@@ -61,9 +91,22 @@
 
 .loadingError {
   margin-top: 14px;
+  padding: 10px 12px;
+  border-radius: 6px;
+  background: #fff7ed;
   font-size: 13px;
   line-height: 1.5;
   color: #c2410c;
+}
+
+.loadingWarning {
+  margin-top: 12px;
+  padding: 10px 12px;
+  border-radius: 6px;
+  background: #fff7ed;
+  font-size: 13px;
+  line-height: 1.5;
+  color: #9a3412;
 }
 
 .retryButton {

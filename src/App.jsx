@@ -3,7 +3,7 @@ import Style from './App.module.less'
 import AppHeader from './layout/appHeader/AppHeader'
 import AppSider from './layout/AppSider/AppSider'
 import Floor from './menu/floor/Floor'
-import { createContext, useEffect, useState } from 'react'
+import { createContext, useCallback, useEffect, useRef, useState } from 'react'
 import MapWapper from './map/MapWapper'
 import Search from './menu/search/Search'
 
@@ -20,6 +20,24 @@ import { preloadImages } from './utils/preloadImages'
 // 用于当前选中楼层、搜索内容的上下文
 export const NavContext = createContext(null)
 
+const getAssetName = (url) => {
+  const cleanUrl = String(url).split('?')[0]
+  const filename = cleanUrl.split('/').pop() || cleanUrl
+  return decodeURIComponent(filename)
+}
+
+const getNetworkText = (status) => {
+  if (status === 'retrying') {
+    return '网络异常，正在自动重试'
+  }
+
+  if (status === 'failed') {
+    return '网络异常'
+  }
+
+  return '网络检测中'
+}
+
 function App() {
   const [mapAssetsReady, setMapAssetsReady] = useState(false)
   const [mapAssetsError, setMapAssetsError] = useState('')
@@ -27,6 +45,15 @@ function App() {
     loaded: 0,
     total: FLOOR_IMAGE_URLS.length,
   })
+  const [mapAssetsStatus, setMapAssetsStatus] = useState({
+    status: 'idle',
+    currentAsset: '',
+    attempt: 1,
+    maxRetries: 5,
+    speedText: '检测中',
+    error: '',
+  })
+  const loadRunRef = useRef(0)
   // 当前选中楼层
   const [floor, setFloor] = useState("1F")
   // 搜索内容
@@ -75,33 +102,70 @@ function App() {
     }
   }
 
-  const loadMapAssets = () => {
+  const loadMapAssets = useCallback(() => {
+    const loadRunId = loadRunRef.current + 1
+    loadRunRef.current = loadRunId
+
     setMapAssetsReady(false)
     setMapAssetsError('')
     setMapAssetsProgress({
       loaded: 0,
       total: FLOOR_IMAGE_URLS.length,
     })
+    setMapAssetsStatus({
+      status: 'loading',
+      currentAsset: '',
+      attempt: 1,
+      maxRetries: 5,
+      speedText: '检测中',
+      error: '',
+    })
 
     preloadImages(FLOOR_IMAGE_URLS, {
+      maxRetries: 5,
       onProgress: (loaded, total) => {
+        if (loadRunRef.current !== loadRunId) return
         setMapAssetsProgress({ loaded, total })
+      },
+      onStatus: (status) => {
+        if (loadRunRef.current !== loadRunId) return
+
+        setMapAssetsProgress({
+          loaded: status.loaded,
+          total: status.total,
+        })
+        setMapAssetsStatus({
+          status: status.status,
+          currentAsset: status.url ? getAssetName(status.url) : '',
+          attempt: status.attempt,
+          maxRetries: status.maxRetries,
+          speedText: status.speedText || '检测中',
+          error: status.error || '',
+        })
       },
     })
       .then(() => {
+        if (loadRunRef.current !== loadRunId) return
         setMapAssetsReady(true)
       })
       .catch((error) => {
+        if (loadRunRef.current !== loadRunId) return
         setMapAssetsError(error.message || '地图资源加载失败')
       })
-  }
+  }, [])
 
   useEffect(() => {
     loadMapAssets()
-  }, [])
+  }, [loadMapAssets])
 
   if (!mapAssetsReady) {
     const remainingMapAssets = mapAssetsProgress.total - mapAssetsProgress.loaded
+    const progressPercent = mapAssetsProgress.total
+      ? (mapAssetsProgress.loaded / mapAssetsProgress.total) * 100
+      : 0
+    const retryText = mapAssetsStatus.status === 'retrying' || mapAssetsStatus.status === 'failed'
+      ? `第 ${mapAssetsStatus.attempt} 次尝试 / 最多 ${mapAssetsStatus.maxRetries + 1} 次`
+      : '暂无重试'
 
     return (
       <div className={Style.loadingPage}>
@@ -110,17 +174,44 @@ function App() {
           <div className={Style.loadingText}>
             已加载 {mapAssetsProgress.loaded} 张，还剩 {remainingMapAssets} 张
           </div>
+          <div className={Style.loadingDetails}>
+            <div className={Style.loadingDetailItem}>
+              <span>当前资源</span>
+              <strong>{mapAssetsStatus.currentAsset || '准备下载地图图片'}</strong>
+            </div>
+            <div className={Style.loadingDetailItem}>
+              <span>网络状态</span>
+              <strong>{getNetworkText(mapAssetsStatus.status)}</strong>
+            </div>
+            <div className={Style.loadingDetailItem}>
+              <span>估算网速</span>
+              <strong>{mapAssetsStatus.speedText}</strong>
+            </div>
+            <div className={Style.loadingDetailItem}>
+              <span>重试状态</span>
+              <strong>{retryText}</strong>
+            </div>
+          </div>
           <div className={Style.loadingTrack}>
             <div
               className={Style.loadingBar}
               style={{
-                width: `${(mapAssetsProgress.loaded / mapAssetsProgress.total) * 100}%`,
+                width: `${progressPercent}%`,
               }}
             />
           </div>
+          {mapAssetsStatus.status === 'retrying' && (
+            <div className={Style.loadingWarning}>
+              {mapAssetsStatus.currentAsset} 下载失败，正在自动重试。
+            </div>
+          )}
           {mapAssetsError && (
             <>
-              <div className={Style.loadingError}>{mapAssetsError}</div>
+              <div className={Style.loadingError}>
+                <div>{mapAssetsError}</div>
+                {mapAssetsStatus.currentAsset && <div>卡住位置：{mapAssetsStatus.currentAsset}</div>}
+                {mapAssetsStatus.error && <div>最后错误：{mapAssetsStatus.error}</div>}
+              </div>
               <button className={Style.retryButton} onClick={loadMapAssets}>
                 重新加载
               </button>
