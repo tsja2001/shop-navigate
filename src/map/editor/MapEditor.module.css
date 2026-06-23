@@ -1,0 +1,157 @@
+.toggleBtn {
+  position: fixed;
+  left: 20px;
+  bottom: 20px;
+  z-index: 999;
+}
+
+.tabBar {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 10px;
+}
+
+.loginBox {
+  padding: 8px 4px;
+}
+
+.loginTitle {
+  font-size: 14px;
+  color: #555;
+  margin-bottom: 12px;
+  text-align: center;
+}
+
+.toolRow {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.logoutBtn {
+  margin-left: auto;
+}
+
+.swatch {
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  border-radius: 3px;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  flex: none;
+}
+
+.count {
+  color: #999;
+  font-size: 12px;
+}
+
+/* ---- 商户 tab ---- */
+.shopRow {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  padding: 8px 4px;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.shopRow.selected {
+  background: #e6f4ff;
+  border-radius: 6px;
+}
+
+.shopInfo {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  flex: 1;
+}
+
+.shopName {
+  font-weight: 500;
+  word-break: break-all;
+}
+
+.shopMeta {
+  display: flex;
+  gap: 10px;
+  color: #999;
+  font-size: 12px;
+}
+
+.posActions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+  padding-top: 4px;
+}
+
+.hint {
+  color: #1677ff;
+  font-size: 12px;
+  margin-right: auto;
+}
+
+/* ---- 版面 tab ---- */
+.layoutTip {
+  font-size: 12px;
+  color: #888;
+  line-height: 1.6;
+  margin-bottom: 10px;
+}
+
+.layoutCols {
+  display: flex;
+  gap: 10px;
+  overflow-x: auto;
+  padding-bottom: 6px;
+}
+
+.layoutCol {
+  flex: none;
+  width: 150px;
+  background: #fafafa;
+  border: 1px solid #f0f0f0;
+  border-radius: 8px;
+  padding: 8px;
+}
+
+.layoutColHead {
+  font-size: 12px;
+  color: #888;
+  text-align: center;
+  margin-bottom: 8px;
+}
+
+.layoutCard {
+  background: #fff;
+  border: 1px solid #eee;
+  border-radius: 6px;
+  padding: 6px;
+  margin-bottom: 8px;
+}
+
+.layoutCardTop {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  margin-bottom: 6px;
+}
+
+.layoutName {
+  font-size: 13px;
+  font-weight: 500;
+  word-break: break-all;
+  flex: 1;
+}
+
+.layoutBtns {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  align-items: center;
+}

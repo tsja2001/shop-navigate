@@ -135,13 +135,13 @@ const f5Config = [
     content: [
       {
         num: 'E8308',
-        name: '阅见',
+        name: '中顺',
         isClick: false,
         position: [['0.62', '0.70']],
       },
       {
         num: 'E8002, E8003, E8309',
-        name: '震乾红木',
+        name: '泊然',
         isClick: false,
         position: [
           ['0.57', '0.67'],
@@ -156,18 +156,18 @@ const f5Config = [
       },
     ],
   },
-  {
-    type: '装饰公司',
-    color: '#EFC954',
-    content: [
-      {
-        num: 'E8310-E8313',
-        name: '尚家装饰',
-        isClick: false,
-        position: [['0.43', '0.60']],
-      },
-    ],
-  },
+  // {
+  //   type: '装饰公司',
+  //   color: '#EFC954',
+  //   content: [
+  //     {
+  //       num: 'E8310-E8313',
+  //       name: '尚家装饰',
+  //       isClick: false,
+  //       position: [['0.43', '0.60']],
+  //     },
+  //   ],
+  // },
   {
     type: '灯饰',
     color: '#BDC898',

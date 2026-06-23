@@ -17,7 +17,7 @@ const f3Config = [
       },
       {
         num: 'C8015',
-        name: '维洛尼',
+        name: '维洛尼法狮龙',
         isClick: false,
         position: [[0.19, 0.29]],
       },
@@ -56,6 +56,12 @@ const f3Config = [
         name: '欧派',
         isClick: false,
         position: [['0.37', '0.46']],
+      },
+      {
+        num: 'C8109+8110+8209+8210',
+        name: '娃娃树',
+        isClick: false,
+        position: [[0.30,0.45]],
       },
       {
         num: 'C8316',
@@ -151,7 +157,7 @@ const f3Config = [
         num: 'C8203',
         name: '罗马国际',
         isClick: false,
-        position: [['0.66', '0.61']],
+        position: [[0.66,0.61],[0.70,0.62]],
       },
       {
         num: 'C8302',
@@ -304,10 +310,22 @@ const f3Config = [
         position: [['0.31', '0.33']],
       },
       {
+        num: 'C8011',
+        name: '维罗',
+        isClick: false,
+        position: [[0.22,0.40]],
+      },
+      {
         num: 'C8112',
         name: '方太',
         isClick: false,
         position: [['0.29', '0.39']],
+      },
+      {
+        num: 'C8112',
+        name: '日立',
+        isClick: false,
+        position: [[0.21,0.42]],
       },
       {
         num: 'C8213',

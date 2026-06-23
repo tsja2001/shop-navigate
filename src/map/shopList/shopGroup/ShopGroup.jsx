@@ -1,8 +1,8 @@
-import { useContext, useEffect, useState } from 'react'
+import { useContext } from 'react'
 import Style from './ShopGroup.module.less'
 import { MapContext } from '../../MapWapper'
-import { useSearchParams } from 'react-router-dom'
-import { Checkbox, Button, message } from 'antd'
+import { isEditMode } from '@/utils/isDevMode'
+import { Button, message } from 'antd'
 import { CopyOutlined } from '@ant-design/icons'
 
 // 地图容器
@@ -10,17 +10,8 @@ const ShopGroup = ({ config, col = 1, style = {} }) => {
   const width = 186 * col + 3 * (col - 1) + 7 * 2 + 'px'
   const { handleClickShop } = useContext(MapContext)
 
-  // 编辑模式, 可以显示坐标
-  const [devModel, setDevModel] = useState(false)
-  const [searchParams] = useSearchParams()
-
-  useEffect(() => {
-    // 获取url参数, 判断是否是编辑模式
-    const type = searchParams.get('type')
-    if (type == 'dev') {
-      setDevModel(true)
-    }
-  }, [])
+  // 编辑模式(dev/dev2)下显示坐标, 方便核对
+  const devModel = isEditMode()
 
   // 复制 position 数据
   const copyPosition = (position, e) => {
@@ -45,16 +36,14 @@ const ShopGroup = ({ config, col = 1, style = {} }) => {
         className={Style.content}
         style={{ gridTemplateColumns: `repeat(${col}, 1fr)` }}
       >
-        {config.content.map((item) => {
+        {(config.content || []).map((item) => {
           return (
             <div
-              key={item.num}
+              key={item.id ?? item.num}
               className={`${Style.item} ${item.isSearchResult ? Style.shopItemSearchResult : ''} ${item.isClick ? Style.active : ''} `}
               onClick={() => handleClickShop(item, config)}
             >
               <div className={Style.itemName}>
-                {devModel && <Checkbox />}
-                {devModel && <Checkbox className={Style.redCheckbox} />}
                 {item.name}
                 {devModel && item.position && (
                   <span className={Style.positionInfo}>

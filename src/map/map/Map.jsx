@@ -1,7 +1,7 @@
 import { useContext, useEffect, useRef, useState } from 'react'
 import Style from './Map.module.less'
 import { MapContext } from '../MapWapper'
-import { useSearchParams } from 'react-router-dom'
+import { isEditMode } from '@/utils/isDevMode'
 import mine from '../../assets/map/arr.jpg'
 import { Checkbox, Button, message } from 'antd'
 import { CopyOutlined } from '@ant-design/icons'
@@ -30,14 +30,10 @@ const Map = ({ floor, clickHandler }) => {
 
   // 编辑模式, 展示所有店铺位置
   const [devModel, setDevModel] = useState(false)
-  const [searchParams] = useSearchParams()
 
   useEffect(() => {
-    // 获取url参数, 判断是否是编辑模式
-    const type = searchParams.get('type')
-    console.log(type)
-    console.log(type == 'dev')
-    if (type == 'dev') {
+    // 任一编辑模式(dev/dev2)都按编辑模式渲染点位/名称
+    if (isEditMode()) {
       setDevModel(true)
     }
   }, [])
@@ -140,22 +136,27 @@ const Map = ({ floor, clickHandler }) => {
   }
 
   // 监听当前点击的店铺, 显示当前店铺位置
+  // 编辑时优先取 currentFloorConfig 里的实时位置, 这样点地图加点黄点会跟着更新
   useEffect(() => {
-    if (clickShopItem?.position?.length > 0) {
-      console.log('clickShopItem', clickShopItem)
-      const positions = []
-      clickShopItem.position.forEach((position) => {
-        console.log('position', position)
-        console.log('mapRect.height', mapRect.height)
-        const x = (position[0] * mapRect.width).toFixed(2) + 'px'
-        const y = (position[1] * mapRect.height).toFixed(2) - 150 + 'px'
-        positions.push({ x, y })
+    if (!clickShopItem || !mapRect.width) return
+    let livePos = clickShopItem.position
+    if (clickShopItem.id != null) {
+      currentFloorConfig?.forEach((cat) => {
+        cat.content?.forEach((s) => {
+          if (s.id === clickShopItem.id) livePos = s.position
+        })
       })
-
-      setCurrentPoint(positions)
-      console.log('setCurrentPoint--', positions)
     }
-  }, [clickShopItem])
+    if (!livePos?.length) {
+      setCurrentPoint(null)
+      return
+    }
+    const positions = livePos.map((position) => ({
+      x: (position[0] * mapRect.width).toFixed(2) + 'px',
+      y: (position[1] * mapRect.height).toFixed(2) - 150 + 'px',
+    }))
+    setCurrentPoint(positions)
+  }, [clickShopItem, currentFloorConfig, mapRect])
 
   // 当切换楼层时, 清空当前点击的店铺
   useEffect(() => {

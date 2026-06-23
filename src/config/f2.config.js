@@ -211,7 +211,7 @@ const f2Config = [
       },
       {
         num: 'B8008',
-        name: '西西',
+        name: '铂劳',
         isClick: false,
         position: [['0.47', '0.39']],
       },
@@ -341,12 +341,12 @@ const f2Config = [
         isClick: false,
         position: [['0.15', '0.34']],
       },
-      {
-        num: 'B8215-1',
-        name: '帅泰',
-        isClick: false,
-        position: [[0.23,0.40]],
-      },
+      // {
+      //   num: 'B8215-1',
+      //   name: '帅泰',
+      //   isClick: false,
+      //   position: [[0.23,0.40]],
+      // },
     ],
   },
 ]

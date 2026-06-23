@@ -13,9 +13,15 @@ const f1Config = [
       },
       {
         num: 'A8012-1',
-        name: '海信',
+        name: '峰仔翻新',
         isClick: false,
         position: [['0.24', '0.31']],
+      },
+      {
+        num: 'A8113',
+        name: '海信中央空调',
+        isClick: false,
+        position: [[0.25,0.37]],
       },
       {
         num: 'A8306-3',
@@ -25,7 +31,7 @@ const f1Config = [
       },
       {
         num: 'A8307-1',
-        name: '格力',
+        name: '集美',
         isClick: false,
         position: [['0.57', '0.68']],
       },
@@ -78,6 +84,12 @@ const f1Config = [
         isClick: false,
         position: [[0.38, 0.44]],
       },
+      {
+        num: 'A8101+8201',
+        name: '华为',
+        isClick: false,
+        position: [['0.74', '0.62']],
+      },
       // {
       //   num: 'A8315, A8316',
       //   name: '方圆合',
@@ -103,16 +115,16 @@ const f1Config = [
         position: [['0.59', '0.46']],
       },
       {
-        num: 'A8101+8201',
-        name: '九牧',
-        isClick: false,
-        position: [['0.74', '0.62']],
-      },
-      {
         num: 'A8102',
         name: '惠达',
         isClick: false,
         position: [['0.71', '0.57']],
+      },
+      {
+        num: 'A8102',
+        name: '九牧',
+        isClick: false,
+        position: [[0.68,0.70],[0.71,0.70]],
       },
       {
         num: 'A8103',
@@ -143,7 +155,7 @@ const f1Config = [
       },
       {
         num: 'A8301',
-        name: '欧贝尔',
+        name: '瑞尔特',
         isClick: false,
         position: [['0.85', '0.70']],
       },
@@ -313,6 +325,12 @@ const f1Config = [
         position: [['0.22', '0.42']],
       },
       {
+        num: 'A8311',
+        name: '筑镜美学',
+        isClick: false,
+        position: [[0.32,0.55]],
+      },
+      {
         num: 'A8313',
         name: '庭院设计',
         isClick: false,
@@ -353,6 +371,12 @@ const f1Config = [
         name: '超市',
         isClick: false,
         position: [['0.18', '0.30']],
+      },
+      {
+        num: 'A8113',
+        name: '花语素养',
+        isClick: false,
+        position: [[0.23,0.39]],
       },
     ],
   },

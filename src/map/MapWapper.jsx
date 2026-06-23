@@ -2,17 +2,13 @@ import { createContext, useContext, useEffect, useRef, useState } from 'react'
 import { NavContext } from '../App'
 import Map from './map/Map'
 import Style from './MapWapper.module.less'
-import ShopList1F from './shopList/ShopList1F'
-import ShopList2F from './shopList/ShopList2F'
-import ShopList3F from './shopList/ShopList3F'
-import ShopList4F from './shopList/ShopList4F'
-import ShopList5F from './shopList/ShopList5F'
-import ShopListB1 from './shopList/ShopListB1'
+import ShopList from './shopList/ShopList'
+import MapEditor from './editor/MapEditor'
 
 import { getFloorImg } from '@/config/floorImages'
 
-import { useSearchParams } from 'react-router-dom'
 import { Button } from 'antd'
+import { isEditMode, isDevMode, isDev2Mode } from '@/utils/isDevMode'
 
 export const MapContext = createContext(null)
 
@@ -29,14 +25,10 @@ const MapWapper = () => {
   const [showAllBrands, setShowAllBrands] = useState(false)
   // 控制是否在地图上展示商户名称
   const [showLabelsOnMap, setShowLabelsOnMap] = useState(false)
-  const [searchParams] = useSearchParams()
 
   useEffect(() => {
-    // 获取url参数, 判断是否是编辑模式
-    const type = searchParams.get('type')
-    console.log(type)
-    console.log(type == 'dev')
-    if (type == 'dev') {
+    // 任一编辑模式(dev/dev2)都允许地图点选定位
+    if (isEditMode()) {
       setDevModel(true)
     }
   }, [])
@@ -111,15 +103,13 @@ const MapWapper = () => {
     })
   }
 
-  // 获取当前点击的店铺
+  // 获取当前点击的店铺（有 id 用 id 匹配, 否则回退按名称）
   const getCurrentShop = (config, curTypeConfig, shop, cb) => {
     return config.map((item) => {
       if (item.type === curTypeConfig.type) {
-        item.content = item.content.map((item) => {
-          if (item.name === shop.name) {
-            return cb(item)
-          }
-          return item
+        item.content = item.content.map((c) => {
+          const match = shop.id != null ? c.id === shop.id : c.name === shop.name
+          return match ? cb(c) : c
         })
       }
       return item
@@ -194,12 +184,15 @@ const MapWapper = () => {
         clickShopItem,
         showAllBrands,
         showLabelsOnMap,
+        toggleShowAllBrands: handleToggleShowAllBrands,
+        toggleLabelsOnMap: handleToggleLabelsOnMap,
         devModel,
       }}
     >
       <div className={Style.mapWapper}>
         <Map floor={getFloorImg(floor)} clickHandler={handleClick} />
-        {devModel && (
+        {/* 旧的手动编辑模式 (?type=dev) 工具条 */}
+        {isDevMode() && (
           <div style={{ position: 'absolute', top: '10px', right: '10px' }}>
             <Button style={{ marginLeft: '500px' }} onClick={handleExportJSON}>
               导出JSON
@@ -226,12 +219,9 @@ const MapWapper = () => {
             </Button>
           </div>
         )}
-        {floor === '1F' && <ShopList1F />}
-        {floor === '2F' && <ShopList2F />}
-        {floor === '3F' && <ShopList3F />}
-        {floor === '4F' && <ShopList4F />}
-        {floor === '5F' && <ShopList5F />}
-        {floor === 'B1' && <ShopListB1 />}
+        {/* 新的图形化编辑器 (?type=dev2) */}
+        {isDev2Mode() && <MapEditor />}
+        <ShopList />
       </div>
     </MapContext.Provider>
   )

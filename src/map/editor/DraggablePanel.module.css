@@ -1,0 +1,44 @@
+.panel {
+  position: fixed;
+  z-index: 1000;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.25);
+  display: flex;
+  flex-direction: column;
+  max-height: 80vh;
+  overflow: hidden;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 14px;
+  background: #1677ff;
+  color: #fff;
+  cursor: move;
+  user-select: none;
+  border-radius: 10px 10px 0 0;
+}
+
+.title {
+  font-weight: 600;
+  font-size: 15px;
+}
+
+.close {
+  cursor: pointer;
+  font-size: 20px;
+  line-height: 1;
+  padding: 0 4px;
+}
+
+.close:hover {
+  opacity: 0.8;
+}
+
+.body {
+  padding: 12px 14px;
+  overflow: auto;
+}
